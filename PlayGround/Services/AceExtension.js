@@ -23,6 +23,7 @@ Aspectize.Extend("AceEditor", {
         editor.getSession().setMode("ace/mode/" + Aspectize.UiExtensions.GetProperty(elem, 'Mode'));
         editor.renderer.setShowGutter(Aspectize.UiExtensions.GetProperty(elem, 'ShowGutter'));
         editor.setHighlightActiveLine(Aspectize.UiExtensions.GetProperty(elem, 'HighLightActiveLine'));
+        editor.setShowPrintMargin(false);
 
         editor.setOptions({
             enableBasicAutocompletion: true,

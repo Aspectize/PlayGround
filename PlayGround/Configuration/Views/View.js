@@ -14,6 +14,7 @@ mainView.OnLoad.BindCommand(aas.Services.Server.DataService.LoadSamples(), aas.D
 mainView.SelectSamples.BindList(aas.Data.MainData.EnumInBaseSample, "Id", "Name", "Name");
 mainView.SelectSamples.NullValueDisplay.BindData("Choose sample");
 mainView.SelectSamples.SelectedValueChanged.BindCommand(aas.Services.Browser.ClientService.GetSession(mainView.SelectSamples.CurrentValue));
+mainView.SelectSamples.SelectedValueChanged.BindCommand(aas.Services.Browser.ClientService.UpdateUrl(mainView.SelectSamples.CurrentValue));
 mainView.SelectSamples.DefaultIndex.BindData(0);
 
 mainView.CSSEditor.Mode.BindData('css');

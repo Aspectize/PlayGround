@@ -10,6 +10,14 @@ Global.ClientService = {
    GetSession: function (id) {
 
        if (id) {
+           var em = Aspectize.EntityManagerFromContextDataName('MainData');
+
+           var sessions = em.GetAllInstances('Session');
+
+           if (sessions.length > 0) {
+               em.ClearAllInstances('Session');
+           }
+
            var cmd = Aspectize.Host.PrepareCommand();
 
            cmd.Attributes.aasAsynchronousCall = true;
@@ -81,22 +89,7 @@ Global.ClientService = {
 
            if (shouldUpdateVersion) {
 
-               var href = window.location.href;
-
-               var parts = href.split('/');
-
-               var newUrl = 'http://';
-
-               for (var i = 2; i < parts.length - 1; i++) {
-                   newUrl += parts[i] + '/';
-               }
-
-               newUrl += "id=";
-               newUrl += result;
-
-               var historyManager = Aspectize.Host.GetService('History');
-               historyManager.PushState(null, null, null, null, newUrl);  //viewName, schemaPath, id, title, url
-
+               That.UpdateUrl(result);
            }
 
            var em = Aspectize.EntityManagerFromContextDataName('MainData');
@@ -140,6 +133,25 @@ Global.ClientService = {
        var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
 
        uiService.SetControlProperty(iframe, "Url", url);
+   },
+
+   UpdateUrl: function (id) {
+       var href = window.location.href;
+
+       var parts = href.split('/');
+
+       var newUrl = 'http://';
+
+       for (var i = 2; i < parts.length - 1; i++) {
+           newUrl += parts[i] + '/';
+       }
+
+       newUrl += "id=";
+       newUrl += id;
+
+       var historyManager = Aspectize.Host.GetService('History');
+       historyManager.PushState(null, null, null, null, newUrl);  //viewName, schemaPath, id, title, url
+
    }
 };
 
