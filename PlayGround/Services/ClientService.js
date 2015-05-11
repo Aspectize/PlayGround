@@ -29,7 +29,11 @@ Global.ClientService = {
 
            cmd.OnComplete = function (result) {
                //That.SetIFrameUrl('MainView-IFrameApplication', id);
-               That.DisplayResult(id);
+               var em = Aspectize.EntityManagerFromContextDataName('MainData');
+
+               var session = em.GetInstance('Session', { Id: id });
+
+               That.DisplayResult(id, session.Log);
            };
 
            cmd.Call('Server/DataService.LoadSession', id);
@@ -75,31 +79,27 @@ Global.ClientService = {
 
        var shouldUpdateVersion = (updateVersion == 'force') || updateVersion;
 
-       //if (shouldUpdateVersion) {
        cmd.Attributes.aasDataName = "MainData";
-           cmd.Attributes.aasMergeData = true;
+       cmd.Attributes.aasMergeData = true;
 
-        if (shouldUpdateVersion) {
-             session.SetField('Persist', true);
+       if (shouldUpdateVersion) {
+            session.SetField('Persist', true);
        }
 
        var That = this;
 
        cmd.OnComplete = function (result) {
 
-           if (shouldUpdateVersion) {
-
-               That.UpdateUrl(result);
-           }
-
            var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
            var session = em.GetInstance('Session', { Id: sessionId });
 
-           //session.SetField('CirculatingId', result);
-           
-           //That.SetIFrameUrl(iframe, session.CirculatingId);
-           That.DisplayResult(session.CirculatingId);
+           if (shouldUpdateVersion) {
+
+               That.UpdateUrl(session.CirculatingId);
+           }
+
+           That.DisplayResult(session.CirculatingId, session.Log);
 
        };
 
@@ -107,14 +107,10 @@ Global.ClientService = {
 
    },
 
-   DisplayResult: function(id) {
-       var em = Aspectize.EntityManagerFromContextDataName('MainData');
-
-       var session = em.GetInstance('Session', { Id: id });
-
+   DisplayResult: function(id, log) {
        var uiService = Aspectize.Host.GetService("UIService");
 
-       if (session.Log) {
+       if (log) {
            uiService.ShowView("ErrorResult");
        } else {
 

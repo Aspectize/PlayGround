@@ -89,19 +89,8 @@ namespace PlayGround.Services
 
             session.HtmlControlInfoJSON = jsonControlInfos;
 
-            //AspectizeListDictionary<string, string> dicoContext = new AspectizeListDictionary<string, string>();
-
-            //dicoContext.Add("AdventureWorksData", "PLayGroundRT/AdventureWorks.HumanResources");
-            //dicoContext.Add("AdventureWorksData", "PLayGroundRT/AdventureWorks.Person");
-            //dicoContext.Add("AdventureWorksData", "PLayGroundRT/AdventureWorks.Production");
-            //dicoContext.Add("AdventureWorksData", "PLayGroundRT/AdventureWorks.Purchasing");
-            //dicoContext.Add("AdventureWorksData", "PLayGroundRT/AdventureWorks.Sales");
-
-            //var typeInfo = WebIntellisenseCompiler.getTypeInfo(typesFilePath);
-
             IFileService fs = ExecutingContext.GetService<IFileService>("MyFileService");
 
-            //var typeInfo = fs.ReadBytes("PlayGroundRT.Types.Intellisense.js");
             var typeInfo = fs.Read("PlayGroundRT.Types.Intellisense.txt");
 
             System.IO.StreamReader reader = new System.IO.StreamReader(typeInfo);
@@ -127,17 +116,25 @@ namespace PlayGround.Services
 
             dm.SaveTransactional();
 
-            //if (updateVersion)
-            //{
-            //    //var x = System.Web.HttpContext.Current.Request.Url;
-            //    //ExecutingContext.RedirectUrl = 
+            IEntityManager emResult = EntityManager.FromDataSet(DataSetHelper.Create());
 
-            //    //var url = "http://localhost/WebHost/PlayGround/id=250d4152b-1";
-            //    //System.Web.HttpContext.Current.Request.Redirect(url, false);
-            //}
+            Session sessionResult = emResult.CreateInstance<Session>();
 
-            //return currentSessionId;
-            return dm.Data;
+            sessionResult.Bindings = session.Bindings;
+            sessionResult.CirculatingId = session.CirculatingId;
+            sessionResult.css = session.css;
+            sessionResult.Html = session.Html;
+            sessionResult.HtmlControlInfoJSON = session.HtmlControlInfoJSON;
+            sessionResult.Id = sessionId;
+            sessionResult.js = session.js;
+            sessionResult.JSLibrary = session.JSLibrary;
+            sessionResult.JSView = session.JSView;
+            sessionResult.Log = session.Log;
+            sessionResult.Persist = session.Persist;
+
+            emResult.Data.AcceptChanges();
+
+            return emResult.Data;
         }
 
         DataSet IDataService.LoadSession(string sessionId)
@@ -164,6 +161,7 @@ namespace PlayGround.Services
             var ids = new Dictionary<string, string>();
 
             ids.Add("a6f804a44", "ComboBox basic");
+            ids.Add("3fc7b2d3c", "Combox with Null Value");
 
             foreach (KeyValuePair<string, string> kvp in ids)
             {
