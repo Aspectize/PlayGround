@@ -10,6 +10,13 @@ rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.
 
 var mainView = Aspectize.CreateView("MainView", aas.Controls.SideBarContent, aas.Zones.RootView.ZoneMainContent);
 
+mainView.UserControl.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "\n<div aas:control='Test'>\n\n</div>"));
+mainView.TextBox.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<input name='MyText' type='text' />"));
+mainView.TextArea.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<textarea name='MyTextArea' cols='20' rows='2'></textarea>"));
+mainView.Button.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<input name='MyButton' type='button' value='MyButton' />"));
+mainView.Checkbox.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<input name='MyCheckBox' type='checkbox' />"));
+mainView.ComboBox.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<select name='MySelect'></select>"));
+
 mainView.OnLoad.BindCommand(aas.Services.Server.DataService.LoadSamples(), aas.Data.MainData, true);
 mainView.SelectSamples.BindList(aas.Data.MainData.EnumInBaseSample, "Id", "Name", "Name");
 mainView.SelectSamples.NullValueDisplay.BindData("Choose sample");
@@ -26,9 +33,6 @@ mainView.HTMLEditor.Value.BindData(aas.Data.MainData.Session.Html);
 mainView.BindingEditor.Value.BindData(aas.Data.MainData.Session.Bindings);
 
 mainView.JSEditor.Value.BindData(aas.Data.MainData.Session.js);
-
-//mainView.Treeview.click.BindCommand(aas.Services.Browser.ClientService.InsertControlDefinition(aas.ViewName.MainView.HTMLEditor, aas.ViewName.MainView.Treeview));
-//mainView.Grid.click.BindCommand(aas.Services.Browser.ClientService.InsertControlDefinition(aas.ViewName.MainView.HTMLEditor, aas.ViewName.MainView.Grid));
 
 var errorResult = Aspectize.CreateView("ErrorResult", aas.Controls.ErrorControl, aas.Zones.MainView.ZoneResult);
 errorResult.ErrorMessage.BindData(aas.Data.MainData.Session.Log, "{:S}");
