@@ -1,12 +1,209 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns:aas="http://aspectize.com/ajax">
 <head>
     <title>Untitled</title>
 </head>
 <body>
 
+    <div aas:control="MainControl2">
+        <div class="row text-center" >
+          <a name="DisplayHTML" class="btn btn-primary">Left</a>
+          <a name="DisplayCSS" class="btn btn-primary">Middle</a>
+          <a name="DisplayJS" class="btn btn-primary">Right</a>
+        </div>
+        <div class="FixedWidth" style="max-height: 400px;">
+            <div class="TopPanel">
+                <div class="LeftPanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+                         East
+	                    <p>sdcsdcsdcscdssdc sdsds</p>
+
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+                    </div>
+                </div>
+
+                <div class="MiddlePanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+	                    This center pane auto-sizes to fit the space <I>between</I> the 'border-panes'
+	                    <p>This layout uses default options, except for a minSize on East and West panes</p>
+	                    <p>The Close and Toggle buttons are examples of <B>custom buttons</B></p>
+	                    <p><a href="http://layout.jquery-dev.com/demos.cfm">UI Layout Demos page</a></p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+	                    <p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p><p>...</p>
+                    </div>
+                </div>
+
+                <div class="RightPanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+                        West
+	                    <p>dscsdc sdcsd  ds  c</p>
+	                    <p>dscsdc sdcsd  ds  c</p>
+	                    <p>dscsdc sdcsd  ds  c</p>
+	                    <p>dscsdc sdcsd  ds  c</p>
+	                    <p>dscsdc sdcsd  ds  c</p>
+	                    <p>dscsdc sdcsd  ds  c</p>
+                    </div>
+                </div>
+
+                <div class="FloatClear"></div>
+
+            </div>
+
+            <div class="CenterPanel">
+	            This center pane auto-sizes to fit the space <I>between</I> the 'border-panes'
+	            <p>This layout uses default options, except for a minSize on East and West panes</p>
+	            <p>The Close and Toggle buttons are examples of <B>custom buttons</B></p>
+	            <p><a href="http://layout.jquery-dev.com/demos.cfm">UI Layout Demos page</a></p>
+            </div>
+            <div class="BottomPanel">
+	            This center pane auto-sizes to fit the space <I>between</I> the 'border-panes'
+	            <p>This layout uses default options, except for a minSize on East and West panes</p>
+	            <p>The Close and Toggle buttons are examples of <B>custom buttons</B></p>
+	            <p><a href="http://layout.jquery-dev.com/demos.cfm">UI Layout Demos page</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div aas:control="RootControl" class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand hidden-xs logo"><img src="../Applications/AzureHostManagerCommon/Images/HtmlCut/Logo.png"></a>
+                <span class="navbar-brand" style="color:#fff">Aspectize Playground</span>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a name="Run"><span class="glyphicon glyphicon-play"></span> Run</a></li>
+                    <li class="active"><a name="Save"><span class="glyphicon glyphicon-save"></span> Save</a></li>
+                    <li class="active"><a name="DisplayHTML">HTML</a></li>
+                    <li class="active"><a name="DisplayCSS">CSS</a></li>
+                    <li class="active"><a name="DisplayJS">Javascript</a></li>
+                    <li class="active"><a name="DisplayBindings">Bindings</a></li>
+                </ul>
+            </div>
+        </div>
+        <div aas:name="ZoneMainContent" class="Panel row"></div>
+    </div>
+
+    <div aas:control="SideBarContent" class="col-md-12">
+        <div class="row">
+            <div class="col-md-1">
+                <div class="row">
+                    <a name="UserControl"><span class="badge">user control</span></a>
+                    <a name="TextBox"><span class="badge">textbox</span></a>
+                    <a name="TextArea"><span class="badge">textarea</span></a>
+                    <a name="Button"><span class="badge">button</span></a>
+                    <a name="RadioButton"><span class="badge">radio</span></a>
+                    <a name="Checkbox"><span class="badge">checkbox</span></a>
+                    <a name="ComboBox"><span class="badge">select</span></a>
+                    <a name="Panel" class="LinkControl" data-aasName="MyPanel" data-aasType="Panel"><span class="badge">panel</span></a>
+                    <a name="Image" class="LinkControl" data-aasName="MyImage" data-aasType="AspectizeImage"><span class="badge">image</span></a>
+                    <a name="Menu" class="LinkControl" data-aasName="MyMenu" data-aasType="AspectizeMenu"><span class="badge">menu</span></a>
+                    <a name="Grid" class="LinkControl" data-aasName="MyGrid" data-aasType="AspectizeGrid"><span class="badge">grid</span></a>
+                    <a name="Repeater" class="LinkControl" data-aasName="MyRepeater" data-aasType="AspectizeRepeater"><span class="badge">repeater</span></a>
+                    <a name="Treeview" class="LinkControl" data-aasName="MyTreeview" data-aasType="AspectizeTreeView"><span class="badge">treeview</span></a>
+                    <a name="CheckBoxList" class="LinkControl" data-aasName="MyCheckBoxList" data-aasType="AspectizeCheckBoxList"><span class="badge">checkboxlist</span></a>
+                    <a name="Uploader" class="LinkControl" data-aasName="MyUploader" data-aasType="AspectizeUploader"><span class="badge">uploader</span></a>
+                    <a name="DynamicControl" class="LinkControl" data-aasName="MyDynamicControl" data-aasType="AspectizeDynamicControl"><span class="badge">dynamiccontrol</span></a>
+                    <a name="Timer" class="LinkControl" data-aasName="MyTimer" data-aasType="AspectizeTimer"><span class="badge">timer</span></a>
+                    <a name="IFrame" class="LinkControl" data-aasName="MyIFrame" data-aasType="AspectizeIFrame"><span class="badge">iframe</span></a>
+                    <a name="Pager" class="LinkControl" data-aasName="MyPager" data-aasType="AspectizePager"><span class="badge">pager</span></a>
+                    <a name="HtmlViewer" class="LinkControl" data-aasName="MyHtmlViewer" data-aasType="AspectizeHtmlViewer"><span class="badge">htmlviewer</span></a>
+                    <a name="JQueryDateTimePicker" class="LinkControl" data-aasName="MyJQDTP" data-aasType="JQuery.JQueryDateTimePicker"><span class="badge">datepicker</span></a>
+                    <a name="JQueryAutoComplete" class="LinkControl" data-aasName="MyJQA" data-aasType="JQuery.JQueryAutoComplete"><span class="badge">autocomplete</span></a>
+                    <a name="TinyMCE" class="LinkControl" data-aasName="MyTinyMCE" data-aasType="TinyMCE.TinyMCEEditor"><span class="badge">tinymce</span></a>
+                    <a name="BootstrapGrid" class="LinkControl" data-aasName="MyBSGrid" data-aasType="Bootstrap.BootstrapGrid"><span class="badge">bootstrapgrid</span></a>
+                </div>
+                <br />
+                <div class="row">
+                    Samples : <select name="SelectSamples"></select>
+                </div>
+            </div>
+            <div class="col-md-11">
+                <div class="TopPanel FixedWidth">
+                    <div class="LeftPanel FloatLeft TogglePanel">
+                        <div class="InsidePanel">
+                            <div class="FloatingLabel">HTML</div>
+                            <div aas:name="HTMLEditor" aas:type="AceEditor" class="AceEditor"></div>
+                        </div>
+                    </div>
+                    <div class="MiddlePanel FloatLeft TogglePanel">
+                        <div class="InsidePanel">
+                            <div class="FloatingLabel">CSS</div>
+                            <div aas:name="CSSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                        </div>
+                    </div>
+                    <div class="RightPanel FloatLeft TogglePanel">
+                        <div class="InsidePanel">
+                            <div class="FloatingLabel">Javascript</div>
+                            <div aas:name="JSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                        </div>
+                    </div>
+                    <div class="FloatClear"></div>
+                </div>
+                <div class="row CenterPanel">
+                    <div class="InsidePanel">
+                        <div class="FloatingLabel">Bindings</div>
+                        <div aas:name="BindingEditor" aas:type="AceEditor" class="AceEditor"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 BottomPanel">
+                <div aas:name="ZoneResult" class="Panel"></div>
+            </div>
+        </div>
+    </div>
+
+    <div aas:control="ErrorControl">
+        <div>{ErrorMessage}</div>
+    </div>
+
+    <div aas:control="IFrameControl">
+        <div aas:name="IFrameApplication" aas:type="AspectizeIFrame"></div>
+    </div>
+
     <div aas:control="MainControl">
-        <h1>Hello world, this is my first Aspectize application PlayGround</h1>
+        <div class="FixedWidth">
+            <div class="TopPanel">
+                <div class="LeftPanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+                        <div class="FloatingLabel">HTML</div>
+                        <div aas:name="HTMLEditor" aas:type="AceEditor" class="AceEditor"></div>
+                    </div>
+                </div>
+                <div class="MiddlePanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+                        <div class="FloatingLabel">CSS</div>
+                        <div aas:name="CSSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                    </div>
+                </div>
+                <div class="RightPanel FloatLeft TogglePanel">
+                    <div class="InsidePanel">
+                        <div class="FloatingLabel">Javascript</div>
+                        <div aas:name="JSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                    </div>
+                </div>
+                <div class="FloatClear"></div>
+            </div>
+        </div>
+        <div class="row CenterPanel">
+            <div class="InsidePanel">
+                <div class="FloatingLabel">Bindings</div>
+                <div aas:name="BindingEditor" aas:type="AceEditor" class="AceEditor"></div>
+            </div>
+        </div>
     </div>
 
 </body>

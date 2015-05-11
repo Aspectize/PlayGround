@@ -1,8 +1,3 @@
-﻿
-var mainView = Aspectize.CreateView("MainView", aas.Controls.MainControl);
+﻿var v = Aspectize.CreateView("hh", aas.Controls.AspectizeFlyOutPanel);
 
-//      var myView = Aspectize.CreateView("MyView", aas.Controls.MyNewControl);
-
-//	myView.OnLoad.BindCommand(aas.Services.Browser.TestingServices.Alert('view loaded'));
-//	myView.MyProperty.BindData("test");
-
+v.OnLoad.BindCommand(aas.Services.Server.LoadDataService.LoadCategories(), aas.Data.AdventureWorksData, true);

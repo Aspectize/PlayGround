@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="b9442885-5249-4e07-9475-3248a2d20c4b" domain="AdventureWorks.HumanResources" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" name="Employee" guid="97d3db6f-fce5-4b96-8282-14a7ad2a92e5" physicalName="Employee" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="HumanResources">
+      <properties>
+        <entityProperty name="EmployeeID" type="Int32" physicalName="EmployeeID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="NationalIDNumber" physicalName="NationalIDNumber" nullable="true" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LoginID" physicalName="LoginID" size="256" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Title" physicalName="Title" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="BirthDate" type="Date" physicalName="BirthDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MaritalStatus" physicalName="MaritalStatus" nullable="true" size="1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Gender" physicalName="Gender" nullable="true" size="1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="HireDate" type="DateTime" physicalName="HireDate" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalariedFlag" type="Boolean" physicalName="SalariedFlag" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="VacationHours" type="Int16" physicalName="VacationHours" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SickLeaveHours" type="Int16" physicalName="SickLeaveHours" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CurrentFlag" type="Boolean" physicalName="CurrentFlag" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PayHistory" type="EmployeePayHistory" physicalName="EmployeePayHistory" isCustomType="true" identity="false" isEnumType="false" isCompoType="true" isExternType="false" isEnumInBaseType="false" multiplicity="Multiple" fkNames="EmployeeID" />
+      </properties>
+    </entity>
+    <entity Id="fcf1ebbd-9750-490b-a0f6-854d51921e9b" name="Department" guid="bb905f27-9f75-4b0e-acca-5dbc2a36c779" physicalName="Department" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="HumanResources">
+      <properties>
+        <entityProperty name="DepartmentID" type="Int16" physicalName="DepartmentID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="GroupName" physicalName="GroupName" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="a7d99908-c14c-4c15-a8dc-a35af2223386" name="JobCandidate" guid="114abfbc-6843-45da-aa53-1e517a333969" physicalName="JobCandidate" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="HumanResources">
+      <properties>
+        <entityProperty name="JobCandidateID" type="Int32" physicalName="JobCandidateID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="JobResume" physicalName="Resume" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="34bf66d5-21fd-4c88-a91b-313ee16f3b34" name="EmployeeStat" guid="77a5ac41-ea15-4c1b-ae78-e28d3b817641" mustPersist="false" hasCustomValidators="false" hasTriggers="false">
+      <properties>
+        <entityProperty name="YearMin" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="YearMax" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="NbMale" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="NbFemale" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Decade" expression="YearMin + ' - ' + YearMax" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+  <compositeTypes>
+    <compositeType Id="66fdef1e-2534-478c-af50-d0eb5510c20c" name="EmployeePayHistory" guid="00000000-0000-0000-0000-000000000000">
+      <properties>
+        <compositeTypeProperty name="RateChangeDate" type="DateTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" isAccessKey="true" />
+        <compositeTypeProperty name="Rate" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="PayFrequency" type="Byte" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </compositeType>
+  </compositeTypes>
+  <relations>
+    <relation Id="5e628939-60d9-4fd2-aa66-f807c7c1167c" name="EmployeeManager" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="7cffe3c2-ec4f-4730-9b30-99b3a7e27b57" role="Employee" cardinality="O__N">
+          <entityMoniker Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="d3b335fd-1a7e-4ec4-bef2-1a1f3e9245c1" role="Manager" cardinality="O__I" fkNames="ManagerID" container="true">
+          <entityMoniker Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="8b6c9713-7a3e-4b9e-85b1-322e1260f614" name="JobCandidateEmployee" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="44a692c6-c7e3-4f71-aaaa-fbb3f20652cc" role="JobCandidate" cardinality="O__N">
+          <entityMoniker Id="a7d99908-c14c-4c15-a8dc-a35af2223386" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="622619d3-bdab-4f49-96bf-e9f099ce0035" role="Employee" cardinality="O__I" fkNames="EmployeeID">
+          <entityMoniker Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="ffac4b2e-443c-4f43-99c1-ff71fba77c08" name="EmployeeDepartment" guid="00000000-0000-0000-0000-000000000000" physicalName="EmployeeDepartmentHistory" hasTriggers="false" hasCustomValidators="false" physicalSchema="HumanResources">
+      <properties>
+        <relationProperty name="ShiftID" type="Shift" physicalName="ShiftID" defaultValue="1" isCustomType="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="true" unique="true" />
+        <relationProperty name="StartDate" type="DateTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" unique="true" />
+        <relationProperty name="EndDate" type="DateTime" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="6d5953cb-ef1f-4404-92cf-26700d50abcd" role="Employee" cardinality="O__N" fkNames="EmployeeID">
+          <entityMoniker Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="b0a28ea0-cfd9-4797-8b55-d57a2a9f2421" role="Department" cardinality="I__I" fkNames="DepartmentID">
+          <entityMoniker Id="fcf1ebbd-9750-490b-a0f6-854d51921e9b" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="46c6a78c-6f60-4fe0-a3c0-9d08efa3ec91" name="EmployeeAddress" guid="00000000-0000-0000-0000-000000000000" physicalName="EmployeeAddress" hasTriggers="false" hasCustomValidators="false" physicalSchema="HumanResources">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="a5c4c1c3-164d-48af-84c9-7aa6e7a1d51a" role="Address" cardinality="O__I" fkNames="AddressID">
+          <entityReferenceMoniker Id="ef5dd636-e7ff-42c9-86a8-514b2924ab52" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="97042919-6dc3-43b0-88c3-c12b607a3d19" role="Employee" cardinality="O__I" fkNames="EmployeeID">
+          <entityMoniker Id="eb57c973-cfea-4bf4-8543-e658dc0fa0d4" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+  </relations>
+  <entityReferences>
+    <entityReference Id="ef5dd636-e7ff-42c9-86a8-514b2924ab52" name="Address" domain="AdventureWorks.Person" />
+  </entityReferences>
+  <commentBoxes>
+    <commentBox comment="Schema of all Entities and Relations of Database Schema &quot;HumanResources&quot;" />
+  </commentBoxes>
+  <enumInBases>
+    <enumInBase Id="8fb9baa4-b3ec-43df-8c3a-fb4bbe0f2a5c" name="Shift" physicalName="Shift" identifier="false" physicalSchema="HumanResources">
+      <enumFields>
+        <enumField name="ShiftID" type="Byte" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" autoIdentity="true" />
+        <enumField name="Name" size="50" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+        <enumField name="StartTime" type="DateTime" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+        <enumField name="EndTime" type="DateTime" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+      </enumFields>
+    </enumInBase>
+  </enumInBases>
+</diagram>

@@ -1,12 +1,10 @@
 
 var app = newApplication();
 
-app.Directories = "";
+app.Directories = "Bootstrap, GoogleExtension, JQueryExtension, TinyMce";
 
-//app.AddAuthorizationRole(aas.Roles.Anonymous, aas.Enum.AccessControl.ReadWrite);
+var ctxData0 = newContextData();
 
+ctxData0.Name = "AdventureWorksData";
+ctxData0.NameSpaceList = "AdventureWorks.HumanResources,AdventureWorks.Person,AdventureWorks.Production,AdventureWorks.Purchasing,AdventureWorks.Sales";
 
-var ctxData = newContextData();
-
-ctxData.Name = "MainData";
-ctxData.NameSpaceList = "PlayGroundRT";

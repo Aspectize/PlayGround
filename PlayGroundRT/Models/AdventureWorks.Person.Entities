@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f44bcf9f-6211-4b2b-84af-40404641ad2b" domain="AdventureWorks.Person" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="b12bbcdc-72f6-44d1-9866-6b296ef198fa" name="Contact" guid="8db68cd0-c0f5-4027-b190-44910ac30208" physicalName="Contact" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Person">
+      <properties>
+        <entityProperty name="ContactID" type="Int32" physicalName="ContactID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="NameStyle" type="Boolean" physicalName="NameStyle" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Title" physicalName="Title" nullable="true" size="8" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="FirstName" physicalName="FirstName" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MiddleName" physicalName="MiddleName" nullable="true" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LastName" physicalName="LastName" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Suffix" physicalName="Suffix" nullable="true" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="EmailAddress" physicalName="EmailAddress" nullable="true" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="EmailPromotion" type="Int32" physicalName="EmailPromotion" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Phone" physicalName="Phone" nullable="true" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PasswordHash" physicalName="PasswordHash" size="128" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PasswordSalt" physicalName="PasswordSalt" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="AdditionalContactInfo" physicalName="AdditionalContactInfo" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="e2bf835a-2b1c-4f17-9413-2fe878d7708d" name="Address" guid="299ada8d-d5dc-41a0-aaf2-3afaa5b561b3" physicalName="Address" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Person">
+      <properties>
+        <entityProperty name="AddressID" type="Int32" physicalName="AddressID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="AddressLine1" physicalName="AddressLine1" size="60" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="AddressLine2" physicalName="AddressLine2" nullable="true" size="60" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="City" physicalName="City" size="30" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PostalCode" physicalName="PostalCode" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="0ce0b917-f3a2-41ef-8e53-a3423ad57466" name="StateProvince" guid="42abf19a-77f9-4339-a937-308373bfb75a" physicalName="StateProvince" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Person">
+      <properties>
+        <entityProperty name="StateProvinceID" type="Int32" physicalName="StateProvinceID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="StateProvinceCode" physicalName="StateProvinceCode" size="3" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="IsOnlyStateProvinceFlag" type="Boolean" physicalName="IsOnlyStateProvinceFlag" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CountryRegionCode" type="CountryRegion" defaultValue="&quot;US&quot;" isCustomType="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="true" />
+      </properties>
+    </entity>
+  </entities>
+  <relations>
+    <relation Id="02df307e-2fe8-4bc1-88b0-37b0c58ee330" name="EmployeeContact" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="81425884-2061-4f4f-a23a-d010e150d1dc" role="Contact" cardinality="I__I" fkNames="ContactID">
+          <entityMoniker Id="b12bbcdc-72f6-44d1-9866-6b296ef198fa" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="875e1d30-7c89-4821-b437-d3a72261ffa4" role="Employee" cardinality="O__N">
+          <entityReferenceMoniker Id="67935f8b-1b2b-4094-9a7d-b8ea446b3c58" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="d7c18e85-872a-4c62-abe0-a579511e3675" name="AddressStateProvince" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="e2d2df70-b1d7-49e8-b001-6ef0a61f860a" role="StateProvince" cardinality="I__I" fkNames="StateProvinceID">
+          <entityMoniker Id="0ce0b917-f3a2-41ef-8e53-a3423ad57466" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="002c238f-c135-4463-b010-abca9c6d1a2f" role="Address" cardinality="O__N">
+          <entityMoniker Id="e2bf835a-2b1c-4f17-9413-2fe878d7708d" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+  </relations>
+  <entityReferences>
+    <entityReference Id="67935f8b-1b2b-4094-9a7d-b8ea446b3c58" name="Employee" domain="AdventureWorks.HumanResources" />
+  </entityReferences>
+  <commentBoxes>
+    <commentBox comment="Schema of all Entities and Relations of Database Schema &quot;Person&quot;&#xD;&#xA;&#xD;&#xA;Tables AddressType, ContactType and CountryRegion are modelized with DataBaseEnum&#xD;&#xA;&#xD;&#xA;Relation EmployeeContact is associated to ReferenceEntity Employee of Schema HumanResources" />
+  </commentBoxes>
+  <enumInBases>
+    <enumInBase Id="ea8a8844-2da9-4aa8-a3c4-3f901a828c2a" name="ContactType" physicalName="ContactType" identifier="false" physicalSchema="Person">
+      <enumFields>
+        <enumField name="ContactTypeID" type="Int32" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" autoIdentity="true" />
+        <enumField name="Name" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+      </enumFields>
+    </enumInBase>
+    <enumInBase Id="6daf5fe5-044d-4936-bf12-74bc4be94800" name="AddressType" physicalName="AddressType" identifier="false" physicalSchema="Person">
+      <enumFields>
+        <enumField name="AddressTypeID" type="Int32" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" autoIdentity="true" />
+        <enumField name="Name" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+      </enumFields>
+    </enumInBase>
+    <enumInBase Id="0f74dc1f-ecfc-4a28-9210-ac9b46c3b2d1" name="CountryRegion" physicalName="CountryRegion" identifier="false" physicalSchema="Person">
+      <enumFields>
+        <enumField name="CountryRegionCode" physicalName="CountryRegionCode" size="3" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" />
+        <enumField name="Name" physicalName="Name" size="50" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+      </enumFields>
+    </enumInBase>
+  </enumInBases>
+</diagram>

@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="dd209c5b-7b7e-4629-b0de-6b4244a97fab" domain="AdventureWorks.Sales" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="3376bca6-9b9d-4d36-b1e1-87e8bbb48322" name="SalesPerson" guid="22c943ec-4054-49d7-aa93-2acf954df25f" physicalName="SalesPerson" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="SalesPersonID" type="Int32" physicalName="SalesPersonID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="SalesQuota" type="Decimal" physicalName="SalesQuota" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Bonus" type="Decimal" physicalName="Bonus" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CommissionPct" type="Decimal" physicalName="CommissionPct" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesYTD" type="Decimal" physicalName="SalesYTD" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesLastYear" type="Decimal" physicalName="SalesLastYear" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="QuotaHistory" type="SalesPersonQuotaHistory" physicalName="SalesPersonQuotaHistory" isCustomType="true" identity="false" isEnumType="false" isCompoType="true" isExternType="false" isEnumInBaseType="false" multiplicity="Multiple" fkNames="SalesPersonID" />
+        <entityProperty name="MaxSales" type="Int32" nullable="true" mustPersist="false" expression="Max(Child(QuotaHistory).SalesQuota)" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" name="SalesOrderHeader" guid="97489149-4a07-4d41-b87a-6364381cf1e0" physicalName="SalesOrderHeader" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="SalesOrderID" type="Int32" physicalName="SalesOrderID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="RevisionNumber" type="Byte" physicalName="RevisionNumber" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="OrderDate" type="DateTime" physicalName="OrderDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DueDate" type="DateTime" physicalName="DueDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ShipDate" type="DateTime" physicalName="ShipDate" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Status" type="Byte" physicalName="Status" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="OnlineOrderFlag" type="Boolean" physicalName="OnlineOrderFlag" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesOrderNumber" physicalName="SalesOrderNumber" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PurchaseOrderNumber" physicalName="PurchaseOrderNumber" nullable="true" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="AccountNumber" physicalName="AccountNumber" nullable="true" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CreditCardApprovalCode" physicalName="CreditCardApprovalCode" nullable="true" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SubTotal" type="Decimal" physicalName="SubTotal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TaxAmt" type="Decimal" physicalName="TaxAmt" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Freight" type="Decimal" physicalName="Freight" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TotalDue" type="Decimal" physicalName="TotalDue" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Comment" physicalName="Comment" nullable="true" size="128" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesOrderDetails" type="SalesOrderDetail" physicalName="SalesOrderDetail" isCustomType="true" identity="false" isEnumType="false" isCompoType="true" isExternType="false" isEnumInBaseType="false" multiplicity="Multiple" fkNames="SalesOrderID" />
+        <entityProperty name="NbReason" type="Int32" mustPersist="false" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" name="Customer" guid="c1b3ed06-7237-4148-95f0-7488e54c2d87" physicalName="Customer" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CustomerID" type="Int32" physicalName="CustomerID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="AccountNumber" physicalName="AccountNumber" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CustomerType" physicalName="CustomerType" size="1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="4b8fdb18-2705-4825-9e2c-33b913f3872b" name="SalesTerritory" guid="be30abdb-578b-4255-ab0c-18c8a3d0832c" physicalName="SalesTerritory" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="TerritoryID" type="Int32" physicalName="TerritoryID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CountryRegionCode" physicalName="CountryRegionCode" size="3" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Group" physicalName="Group" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesYTD" type="Decimal" physicalName="SalesYTD" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SalesLastYear" type="Decimal" physicalName="SalesLastYear" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CostYTD" type="Decimal" physicalName="CostYTD" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CostLastYear" type="Decimal" physicalName="CostLastYear" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="c514ad32-6acb-4eef-9b95-abd089ddec6a" name="CurrencyRate" guid="6a3d9f7f-706e-4150-8254-52fe8e65c562" physicalName="CurrencyRate" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CurrencyRateID" type="Int32" physicalName="CurrencyRateID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="CurrencyRateDate" type="DateTime" physicalName="CurrencyRateDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="AverageRate" type="Decimal" physicalName="AverageRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="EndOfDayRate" type="Decimal" physicalName="EndOfDayRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="a637c44e-375f-4551-ad97-c6bda0f2e52c" name="SalesReason" guid="f7bf3d70-5cdb-4ae1-a122-bb7cfd37df6e" physicalName="SalesReason" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="SalesReasonID" type="Int32" physicalName="SalesReasonID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ReasonType" physicalName="ReasonType" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="dc96a27e-ef9f-486d-abef-634681e5447d" name="Store" guid="09d22000-f3aa-46dd-bf9e-948c9a9a363e" physicalName="Store" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CustomerID" type="Int32" physicalName="CustomerID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Demographics" physicalName="Demographics" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="7c0656cd-f6da-4dca-a9cd-d0b0e3edcbca" name="Currency" guid="de9156b5-c123-4530-a406-476a3785d6eb" physicalName="Currency" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CurrencyCode" physicalName="CurrencyCode" size="3" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="e64cd664-127e-4fed-b8a8-aa43488cdbfe" name="Individual" guid="3dfd9c17-b5af-4aea-b8dd-1c86bdad87a2" physicalName="Individual" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CustomerID" type="Int32" physicalName="CustomerID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Demographics" physicalName="Demographics" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="8c8c55b3-c001-458c-9608-13bcf02a7fd4" name="CreditCard" guid="eaf2f6f4-799d-4c66-ba0c-49837e643ee8" physicalName="CreditCard" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="CreditCardID" type="Int32" physicalName="CreditCardID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="CardType" physicalName="CardType" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CardNumber" physicalName="CardNumber" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ExpMonth" type="Byte" physicalName="ExpMonth" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ExpYear" type="Int16" physicalName="ExpYear" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="6264fbf2-d3f2-440a-9676-4b5d03e44dd9" name="SalesTaxRate" guid="fe945c08-0c68-45f0-8bee-935a1ccb8a32" physicalName="SalesTaxRate" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="SalesTaxRateID" type="Int32" physicalName="SalesTaxRateID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="TaxType" type="Byte" physicalName="TaxType" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TaxRate" type="Decimal" physicalName="TaxRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="11f32408-ddbd-4289-ba6b-df78bdad8364" name="ShoppingCartItem" guid="83f81bd7-112c-4f24-adcf-0f9e47e2bcf1" physicalName="ShoppingCartItem" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="ShoppingCartItemID" type="Int32" physicalName="ShoppingCartItemID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="ShoppingCartID" physicalName="ShoppingCartID" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Quantity" type="Int32" physicalName="Quantity" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DateCreated" type="DateTime" physicalName="DateCreated" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="a90bff11-c14f-4a22-a9fc-66833d629d56" name="SpecialOffer" guid="72a12c35-fcfb-42b5-acad-696333f5bede" physicalName="SpecialOffer" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Sales">
+      <properties>
+        <entityProperty name="SpecialOfferID" type="Int32" physicalName="SpecialOfferID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Description" physicalName="Description" size="255" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DiscountPct" type="Decimal" physicalName="DiscountPct" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Type" physicalName="Type" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Category" physicalName="Category" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="StartDate" type="DateTime" physicalName="StartDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="EndDate" type="DateTime" physicalName="EndDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MinQty" type="Int32" physicalName="MinQty" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MaxQty" type="Int32" physicalName="MaxQty" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+  <compositeTypes>
+    <compositeType Id="df0b0746-5b8f-4f22-b500-5b115ba130a3" name="SalesPersonQuotaHistory" guid="00000000-0000-0000-0000-000000000000">
+      <properties>
+        <compositeTypeProperty name="QuotaDate" type="DateTime" physicalName="QuotaDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" isAccessKey="true" />
+        <compositeTypeProperty name="SalesQuota" type="Decimal" physicalName="SalesQuota" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="ModifiedDate" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </compositeType>
+    <compositeType Id="cc102492-b45a-411a-8c6d-a77f347f6a09" name="SalesOrderDetail" guid="00000000-0000-0000-0000-000000000000">
+      <properties>
+        <compositeTypeProperty name="SalesOrderDetailID" type="Int32" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" isAccessKey="true" />
+        <compositeTypeProperty name="CarrierTrackingNumber" nullable="true" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="OrderQty" type="Int16" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="UnitPrice" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="UnitPriceDiscount" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="LineTotal" type="Double" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="rowguid" type="Guid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <compositeTypeProperty name="ModifiedDate" type="DateTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </compositeType>
+  </compositeTypes>
+  <relations>
+    <relation Id="217bdafb-1d0e-4883-b09d-c1c4dd4f06f4" name="SalesOrderHeaderSalesPerson" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="dfef586d-d6af-4488-a0b7-b47ca111821e" role="SalesOrderHeader" cardinality="O__N">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="8fb62a4f-eea1-44b4-990e-e8d533d46ace" role="SalesPerson" cardinality="O__I" fkNames="SalesPersonID">
+          <entityMoniker Id="3376bca6-9b9d-4d36-b1e1-87e8bbb48322" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="674b9375-e6f7-48c6-ad3e-1a83c5fb62b4" name="SalesOrderHeaderCustomer" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="da44e41d-7fb7-4aee-923f-bc916a4daeff" role="SalesOrderHeader" cardinality="O__N">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="94291f5f-67bd-4be3-bea7-07976156d14b" role="Customer" cardinality="I__I" fkNames="CustomerID">
+          <entityMoniker Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="a8c3e7e5-27f0-4cb7-becd-ce4a74f51893" name="SalesOrderHeaderSalesTerritory" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="476b0a8b-d929-4e5a-bcaa-e908c033c528" role="SalesOrderHeader" cardinality="O__N">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="30c705ba-04e3-44d9-9330-a138cfa2ac3f" role="SalesTerritory" cardinality="O__I" fkNames="TerritoryID">
+          <entityMoniker Id="4b8fdb18-2705-4825-9e2c-33b913f3872b" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="913f5589-db89-481a-bcd1-a2b0cd4f750c" name="SalesOrderHeaderCurrencyRate" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="12e0f1ec-5749-4c0f-8944-79177df1a8ff" role="SalesOrderHeader" cardinality="O__N">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="cbcc90a1-3a92-486c-be09-de8754ef34ee" role="CurrencyRate" cardinality="O__I" fkNames="CurrencyRateID">
+          <entityMoniker Id="c514ad32-6acb-4eef-9b95-abd089ddec6a" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="f0ef964a-49a5-465c-a39d-9236ca3b889b" name="SalesOrderHeaderSalesReason" guid="00000000-0000-0000-0000-000000000000" physicalName="SalesOrderHeaderSalesReason" hasTriggers="false" hasCustomValidators="false" physicalSchema="Sales">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="b685b2ed-649e-41cb-93dd-a02f9cf0d6ef" role="SalesOrderHeader" cardinality="O__N" fkNames="SalesOrderID">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="4b6aa658-9050-40cf-8ffb-cebab902b444" role="SalesReason" cardinality="O__N" fkNames="SalesReasonID">
+          <entityMoniker Id="a637c44e-375f-4551-ad97-c6bda0f2e52c" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="f17ccfc9-b8c5-4700-8ca4-cc90b72154b8" name="StoreContact" guid="00000000-0000-0000-0000-000000000000" physicalName="StoreContact" hasTriggers="false" hasCustomValidators="false" physicalSchema="Sales">
+      <properties>
+        <relationProperty name="ContactTypeID" type="ExternalDatabaseEnum" physicalName="ContactTypeID" defaultValue="11" isCustomType="true" identity="false" externalType="AdventureWorks.Person.ContactType" isEnumType="false" isCompoType="false" isExternType="true" isEnumInBaseType="true" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="e9e16596-bc27-4a00-beba-b0524cb5ed9b" role="Store" cardinality="I__N" fkNames="CustomerID">
+          <entityMoniker Id="dc96a27e-ef9f-486d-abef-634681e5447d" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="bcd4f7f7-fb73-4258-a6e0-077c36e2e7c8" role="Contact" cardinality="O__N" fkNames="ContactID">
+          <entityReferenceMoniker Id="f8c1a1b4-69d8-4f89-826c-4a10bbc5f5ec" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="e3c6416f-c29d-4c09-893c-ea8adada1fcc" name="StoreCustomer" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="a0efde12-9f20-4f8a-bac1-adee6761996f" role="Store" cardinality="O__I">
+          <entityMoniker Id="dc96a27e-ef9f-486d-abef-634681e5447d" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="de5b82b2-97f5-486c-90ad-c9fc8df7813c" role="Customer" cardinality="I__I" fkNames="CustomerID">
+          <entityMoniker Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="4bd06487-211b-4227-addf-53b28f7ee464" name="StoreSalesPerson" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="2feeaa85-cdce-45e4-a2f2-4c08a800bcd1" role="Store" cardinality="O__N">
+          <entityMoniker Id="dc96a27e-ef9f-486d-abef-634681e5447d" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="1c8baf67-a05b-4e08-aec8-4340ff195be4" role="SalesPerson" cardinality="O__I" fkNames="SalesPersonID">
+          <entityMoniker Id="3376bca6-9b9d-4d36-b1e1-87e8bbb48322" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="c697d4bb-f02e-45d9-b4d1-1377df0eb77d" name="SalesPersonSalesTerritory" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="f5b06da3-abcb-40da-a57f-407a7abe83f5" role="SalesPerson" cardinality="O__N">
+          <entityMoniker Id="3376bca6-9b9d-4d36-b1e1-87e8bbb48322" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="d407d4bd-59fa-4463-9ef4-55d84616f99b" role="SalesTerritory" cardinality="O__I" fkNames="TerritoryID">
+          <entityMoniker Id="4b8fdb18-2705-4825-9e2c-33b913f3872b" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="582c4de2-e497-4df9-baf8-1f763a59c4dd" name="ToCurrencyRate" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="3634439a-0ff8-4531-8bcc-eb433c5cae34" role="CurrencyRate" cardinality="O__N">
+          <entityMoniker Id="c514ad32-6acb-4eef-9b95-abd089ddec6a" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="9ff0b249-d821-4d0f-89b7-b3dde4cbe9c4" role="Currency" cardinality="I__I" fkNames="ToCurrencyCode">
+          <entityMoniker Id="7c0656cd-f6da-4dca-a9cd-d0b0e3edcbca" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="7de59f24-6663-4bb0-ba30-70b2990de139" name="CustomerSalesTerritory" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="9ee98ff0-6a5f-4224-85f6-24e89d91bddf" role="Customer" cardinality="O__N">
+          <entityMoniker Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="c137f2b0-3ddd-4a98-b862-5dea382a705e" role="SalesTerritory" cardinality="O__I" fkNames="TerritoryID">
+          <entityMoniker Id="4b8fdb18-2705-4825-9e2c-33b913f3872b" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="795320f0-bfff-4a60-9206-f775305024c9" name="IndividualCustomer" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="626d94c3-036e-42d6-b503-a3458db17ba3" role="Individual" cardinality="O__I">
+          <entityMoniker Id="e64cd664-127e-4fed-b8a8-aa43488cdbfe" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="17260b94-16a3-42f5-be2f-3a3646376594" role="Customer" cardinality="I__I" fkNames="CustomerID">
+          <entityMoniker Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="35165383-13d7-4f96-b212-e51d5cac34b5" name="FromCurrencyRate" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="fc00af8a-2298-4917-ae60-eba000b46b11" role="CurrencyRate" cardinality="O__N">
+          <entityMoniker Id="c514ad32-6acb-4eef-9b95-abd089ddec6a" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="dea8ae75-f79c-4296-a445-b73ac42a96d6" role="Currency" cardinality="I__I" fkNames="FromCurrencyCode">
+          <entityMoniker Id="7c0656cd-f6da-4dca-a9cd-d0b0e3edcbca" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="6dcce360-a012-4c94-9974-f847cc295f72" name="SalesOrderHeaderCreditCard" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="618b5eec-ca9a-487f-961b-1b91a1e9c81d" role="SalesOrderHeader" cardinality="O__N">
+          <entityMoniker Id="d0b8ade8-1381-4f2e-bf8d-6dd4c9a953b3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="d1acb0dc-d6a3-4d22-94a0-e9b22ce35737" role="CreditCard" cardinality="O__I" fkNames="CreditCardID">
+          <entityMoniker Id="8c8c55b3-c001-458c-9608-13bcf02a7fd4" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="1699fd35-f6ea-440f-a91c-5a59050c698b" name="CustomerAddress" guid="00000000-0000-0000-0000-000000000000" physicalName="CustomerAddress" hasTriggers="false" hasCustomValidators="false" physicalSchema="Sales">
+      <properties>
+        <relationProperty name="AddressType" type="ExternalDatabaseEnum" physicalName="AddressTypeID" defaultValue="1" isCustomType="true" identity="false" externalType="AdventureWorks.Person.AddressType" isEnumType="false" isCompoType="false" isExternType="true" isEnumInBaseType="true" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="007277d4-d630-4b3b-80c8-aa42fe142528" role="Customer" cardinality="I__I" fkNames="CustomerID">
+          <entityMoniker Id="fe21920f-4c4f-4226-9aac-8e513cff9fa3" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="ccef3763-ea82-4925-8a53-a95a94b18808" role="Address" cardinality="O__N" fkNames="AddressID">
+          <entityReferenceMoniker Id="29c122b7-c305-4161-ad0c-af676adc24e4" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="556f0c68-4bf1-42bf-9c00-1ba2578454d5" name="ContactSalesPerson" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="c089988c-49fd-4f9e-827a-5dbdffdff593" role="SalesPerson" cardinality="O__I">
+          <entityMoniker Id="3376bca6-9b9d-4d36-b1e1-87e8bbb48322" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="d637f79b-0838-4fa2-81e6-bff3fc33664e" role="Contact" cardinality="I__I" fkNames="SalesPersonID">
+          <entityReferenceMoniker Id="73762985-17fc-45ec-8ed7-8748b1ea846d" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+  </relations>
+  <entityReferences>
+    <entityReference Id="f8c1a1b4-69d8-4f89-826c-4a10bbc5f5ec" name="Contact" domain="AdventureWorks.Person" />
+    <entityReference Id="29c122b7-c305-4161-ad0c-af676adc24e4" name="Address" domain="AdventureWorks.Person" />
+    <entityReference Id="73762985-17fc-45ec-8ed7-8748b1ea846d" name="Contact" domain="AdventureWorks.Person" />
+  </entityReferences>
+  <commentBoxes>
+    <commentBox comment="This Schema includes all Tables from Schema Sales" />
+  </commentBoxes>
+</diagram>

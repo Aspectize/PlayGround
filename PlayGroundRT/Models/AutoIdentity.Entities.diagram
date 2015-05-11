@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AutoIdentity">
+  <diagramMoniker Id="c58228b9-79be-4b60-8db4-f6504edae6c1" />
+  <nestedChildShapes>
+    <entityShape Id="94f0ba10-5420-4a28-b1ee-2d0f0f32278e" absoluteBounds="0.875, 1, 2.125, 0.81460286458333364">
+      <entityMoniker Id="b2c99e2d-a579-4953-b782-8c16bcb333d7" />
+      <nestedChildShapes>
+        <elementListCompartment Id="766221f6-2b96-4d6e-bbc2-e67318bef802" absoluteBounds="0.89000000000000012, 1.33, 2.0949999999999998, 0.38460286458333331" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+  </nestedChildShapes>
+</minimalLanguageDiagram>

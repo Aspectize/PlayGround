@@ -11,7 +11,6 @@
 <link rel='stylesheet' type='text/css' href='http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/smoothness/jquery-ui.css' />
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.20/jquery-ui.js"></script>
 
-<link rel="stylesheet" type='text/css' href="~/Styles.css">
 
 <title>Aspectize PlayGroundRT Application</title>
 </head>

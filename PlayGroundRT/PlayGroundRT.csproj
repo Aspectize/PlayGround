@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AppInitService.cs" />
+    <Compile Include="Services\LoadDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Views\View.js" />
@@ -75,6 +77,30 @@
     <Content Include="Configuration\Application.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\AdventureWorks.HumanResources.Entities" />
+    <Content Include="Models\AdventureWorks.HumanResources.Entities.diagram">
+      <DependentUpon>AdventureWorks.HumanResources.Entities</DependentUpon>
+    </Content>
+    <Content Include="Models\AdventureWorks.Person.Entities" />
+    <Content Include="Models\AdventureWorks.Person.Entities.diagram">
+      <DependentUpon>AdventureWorks.Person.Entities</DependentUpon>
+    </Content>
+    <Content Include="Models\AdventureWorks.Production.Entities" />
+    <Content Include="Models\AdventureWorks.Production.Entities.diagram">
+      <DependentUpon>AdventureWorks.Production.Entities</DependentUpon>
+    </Content>
+    <Content Include="Models\AdventureWorks.Purchasing.Entities" />
+    <Content Include="Models\AdventureWorks.Purchasing.Entities.diagram">
+      <DependentUpon>AdventureWorks.Purchasing.Entities</DependentUpon>
+    </Content>
+    <Content Include="Models\AdventureWorks.Sales.Entities" />
+    <Content Include="Models\AdventureWorks.Sales.Entities.diagram">
+      <DependentUpon>AdventureWorks.Sales.Entities</DependentUpon>
+    </Content>
+    <Content Include="Models\AutoIdentity.Entities" />
+    <Content Include="Models\AutoIdentity.Entities.diagram">
+      <DependentUpon>AutoIdentity.Entities</DependentUpon>
+    </Content>
     <None Include="Models\PlayGroundRT.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>PlayGroundRT.Entities.cs</LastGenOutput>
@@ -103,14 +129,13 @@
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Services\ClientServices.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Styles.css" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="PlayGroundRT.application.htm.ashx" />
   </ItemGroup>

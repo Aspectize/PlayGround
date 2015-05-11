@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="eef7b468-a041-481a-b35e-910f10c590eb" domain="AdventureWorks.Purchasing" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="67b3e96c-1ad1-40d6-8618-94e10e96ca1c" name="Vendor" guid="f8fcc0b9-d977-4e98-a431-7ab7be12d8a1" physicalName="Vendor" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Purchasing">
+      <properties>
+        <entityProperty name="VendorID" type="Int32" physicalName="VendorID" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="AccountNumber" physicalName="AccountNumber" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CreditRating" type="Byte" physicalName="CreditRating" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PreferredVendorStatus" type="Boolean" physicalName="PreferredVendorStatus" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ActiveFlag" type="Boolean" physicalName="ActiveFlag" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PurchasingWebServiceURL" physicalName="PurchasingWebServiceURL" nullable="true" size="1024" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="b8e75a44-4ec9-4434-939b-f596962ffb07" name="PurchaseOrderHeader" guid="ace03671-f3d1-4b41-949f-35c2e4f6da9e" physicalName="PurchaseOrderHeader" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Purchasing">
+      <properties>
+        <entityProperty name="PurchaseOrderID" type="Int32" physicalName="PurchaseOrderID" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="RevisionNumber" type="Byte" physicalName="RevisionNumber" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Status" type="Byte" physicalName="Status" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="OrderDate" type="DateTime" physicalName="OrderDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ShipDate" type="DateTime" physicalName="ShipDate" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SubTotal" type="Decimal" physicalName="SubTotal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TaxAmt" type="Decimal" physicalName="TaxAmt" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Freight" type="Decimal" physicalName="Freight" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TotalDue" type="Decimal" physicalName="TotalDue" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="bbb17d80-6247-4a20-a849-1e80bdb1f056" name="ProductVendor" guid="8608676b-90f7-4467-9d0e-b011a10f12db" physicalName="ProductVendor" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Purchasing">
+      <properties>
+        <entityProperty name="ProductID" type="Int32" physicalName="ProductID" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="VendorID" type="Int32" physicalName="VendorID" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="AverageLeadTime" type="Int32" physicalName="AverageLeadTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="StandardPrice" type="Decimal" physicalName="StandardPrice" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LastReceiptCost" type="Decimal" physicalName="LastReceiptCost" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LastReceiptDate" type="DateTime" physicalName="LastReceiptDate" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MinOrderQty" type="Int32" physicalName="MinOrderQty" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="MaxOrderQty" type="Int32" physicalName="MaxOrderQty" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="OnOrderQty" type="Int32" physicalName="OnOrderQty" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="UnitMeasureCode" type="ExternalDatabaseEnum" defaultValue="&quot;CTN&quot;" isCustomType="true" identity="false" externalType="AdventureWorks.Production.UnitMeasure" isEnumType="false" isCompoType="false" isExternType="true" isEnumInBaseType="true" />
+      </properties>
+    </entity>
+    <entity Id="d5b52fed-9024-49d7-a24d-9c439043812e" name="ShipMethod" guid="4dffa10f-cd8d-4a36-9e8e-fdaba45b9a87" physicalName="ShipMethod" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Purchasing">
+      <properties>
+        <entityProperty name="ShipMethodID" type="Int32" physicalName="ShipMethodID" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ShipBase" type="Decimal" physicalName="ShipBase" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ShipRate" type="Decimal" physicalName="ShipRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+  <relations>
+    <relation Id="579c3b47-ff8e-4c0a-a2bb-9dc0a73a0235" name="VendorAddress" guid="00000000-0000-0000-0000-000000000000" physicalName="VendorAddress" hasTriggers="false" hasCustomValidators="false" physicalSchema="Purchasing">
+      <properties>
+        <relationProperty name="AddressType" type="ExternalDatabaseEnum" physicalName="AddressTypeID" defaultValue="1" isCustomType="true" identity="false" externalType="AdventureWorks.Person.AddressType" isEnumType="false" isCompoType="false" isExternType="true" isEnumInBaseType="true" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="87def908-7234-42c2-ae3b-0e004808ff71" role="Vendor" cardinality="I__I" fkNames="VendorID">
+          <entityMoniker Id="67b3e96c-1ad1-40d6-8618-94e10e96ca1c" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="3cfac117-3b62-4e6b-8d9e-e071f0a6b907" role="Address" cardinality="O__N" fkNames="AddressID">
+          <entityReferenceMoniker Id="0a3d419a-39e9-42b2-85a3-0054430ecc0d" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="f5ad0db6-f89b-4466-97d4-35e55ce9a66c" name="VendorContact" guid="00000000-0000-0000-0000-000000000000" physicalName="VendorContact" hasTriggers="false" hasCustomValidators="false" physicalSchema="Purchasing">
+      <properties>
+        <relationProperty name="ContactType" type="ExternalEnum" physicalName="ContactTypeID" defaultValue="19" isCustomType="true" identity="false" externalType="AdventureWorks.Person.ContactType" isEnumType="true" isCompoType="false" isExternType="true" isEnumInBaseType="false" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="b0ba7166-8b38-46c8-a783-2ce531916d5a" role="Vendor" cardinality="I__I" fkNames="VendorID">
+          <entityMoniker Id="67b3e96c-1ad1-40d6-8618-94e10e96ca1c" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="023f594c-2c37-44ca-b8d2-295adf2a5fef" role="Contact" cardinality="O__N" fkNames="ContactID">
+          <entityReferenceMoniker Id="a8904e14-b694-4f29-a0a0-7b160fa1e8ba" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="358b8197-f35e-4dde-9416-e7b6e1f66b2b" name="PurchaseOrderHeaderVendor" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="98b4f59b-d6d3-43a2-96cc-b7f92fdab1be" role="PurchaseOrderHeader" cardinality="O__N">
+          <entityMoniker Id="b8e75a44-4ec9-4434-939b-f596962ffb07" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="99e15838-78fe-49ca-9b1f-5ad3b6a5302d" role="Vendor" cardinality="I__I" fkNames="VendorID">
+          <entityMoniker Id="67b3e96c-1ad1-40d6-8618-94e10e96ca1c" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="1bf3e384-417c-4370-85c9-d5551d7fb30c" name="ProductVendorVendor" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="eb1c56f4-8586-4986-ae52-b5e3d8b5bfeb" role="ProductVendor" cardinality="O__N">
+          <entityMoniker Id="bbb17d80-6247-4a20-a849-1e80bdb1f056" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="82179fea-d361-4b27-9f28-fb20bcde791f" role="Vendor" cardinality="I__I" fkNames="VendorID">
+          <entityMoniker Id="67b3e96c-1ad1-40d6-8618-94e10e96ca1c" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="cdcf2a47-c013-4596-80a8-68ba4e5ccf98" name="PurchaseOrderHeaderShipMethod" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="b003784d-18c2-4686-b072-ddbefa850bd4" role="PurchaseOrderHeader" cardinality="O__N">
+          <entityMoniker Id="b8e75a44-4ec9-4434-939b-f596962ffb07" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="547077af-6fdd-42ea-875c-4c052f57ef7d" role="ShipMethod" cardinality="I__I" fkNames="ShipMethodID">
+          <entityMoniker Id="d5b52fed-9024-49d7-a24d-9c439043812e" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+  </relations>
+  <entityReferences>
+    <entityReference Id="a8904e14-b694-4f29-a0a0-7b160fa1e8ba" name="Contact" domain="AdventureWorks.Person" />
+    <entityReference Id="0a3d419a-39e9-42b2-85a3-0054430ecc0d" name="Address" domain="AdventureWorks.Person" />
+  </entityReferences>
+  <commentBoxes>
+    <commentBox comment="This Schema includes all Tables from Schema Purchasing&#xD;&#xA;&#xD;&#xA;Notice the link to Referenced Entity Contact of Schema Person" />
+  </commentBoxes>
+</diagram>

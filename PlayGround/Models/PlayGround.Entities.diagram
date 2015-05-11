@@ -1,1 +1,24 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PlayGround">
+  <diagramMoniker Id="87482963-a788-417e-9dc3-e5e8238dcf27" />
+  <nestedChildShapes>
+    <entityShape Id="d6772e1f-ee57-4365-866d-ea0081121a3b" absoluteBounds="0.75, 0.875, 2.5, 2.5453157552083332">
+      <entityMoniker Id="8e3911b1-cf06-4a64-b1e4-29b67d03ae5c" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c13b2bf2-cbb9-4dc1-ab7c-56ff3cd06b74" absoluteBounds="0.765, 1.205, 2.4699999999999998, 2.115315755208333" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <entityShape Id="2eae6188-875d-4e3b-aef5-bd1e72d68e44" absoluteBounds="4.125, 0.875, 2.125, 0.81460286458333342">
+      <entityMoniker Id="134fabe9-7f8b-4ed3-bb1d-98c6e5a49778" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c5ccd00-a718-47ee-ba74-49b8f5a2c9f6" absoluteBounds="4.14, 1.205, 2.0949999999999998, 0.38460286458333331" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <enumInBaseShape Id="f0a418cf-a21c-48e6-aae3-81acd9d95df7" absoluteBounds="4, 3, 2.25, 0.81460286458333364">
+      <enumInBaseMoniker Id="ca9a64ce-e584-493d-a6ea-08c774ffb58f" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9486fab7-4752-4047-b57e-5063c422cb02" absoluteBounds="4.015, 3.33, 2.2199999999999998, 0.38460286458333331" name="Fields" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </enumInBaseShape>
+  </nestedChildShapes>
+</minimalLanguageDiagram>

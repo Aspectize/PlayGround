@@ -1,2 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<diagram dslVersion="1.0.0.0" Id="87482963-a788-417e-9dc3-e5e8238dcf27" domain="PlayGround" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner" /> 
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="87482963-a788-417e-9dc3-e5e8238dcf27" domain="PlayGround" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="8e3911b1-cf06-4a64-b1e4-29b67d03ae5c" name="Session" guid="49d7d7a2-12b3-4859-ab07-ac7f0d5a8dfb" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false">
+      <properties>
+        <entityProperty name="Id" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="CirculatingId" mustPersist="false" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Html" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="css" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="js" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Bindings" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Persist" type="Boolean" defaultValue="false" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="HtmlControlInfoJSON" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="JSView" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="JSLibrary" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Log" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="134fabe9-7f8b-4ed3-bb1d-98c6e5a49778" name="NextId" guid="22d2c8a5-e18b-46e8-9160-6fcfcaf95093" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false">
+      <properties>
+        <entityProperty name="Id" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Version" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+  <enumInBases>
+    <enumInBase Id="ca9a64ce-e584-493d-a6ea-08c774ffb58f" name="EnumInBaseSample" identifier="false">
+      <enumFields>
+        <enumField name="Id" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" defaultValue="&quot;&quot;" />
+        <enumField name="Name" size="0" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" defaultValue="&quot;&quot;" />
+      </enumFields>
+    </enumInBase>
+  </enumInBases>
+</diagram>

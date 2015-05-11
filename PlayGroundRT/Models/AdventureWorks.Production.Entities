@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="8e198689-1a51-4829-83b3-4323fd882640" domain="AdventureWorks.Production" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="9319d05f-ffe1-492c-bb85-0bc1a8e10076" name="Product" guid="09ba28dc-aa29-4c03-953b-f80682b03430" physicalName="Product" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Production">
+      <properties>
+        <entityProperty name="ProductID" type="Int32" physicalName="ProductID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" defaultValue="&quot;&quot;" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Unique" />
+        <entityProperty name="ProductNumber" physicalName="ProductNumber" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" regexPattern="(?#Invalid ProductNumber)^\s*\S.*$" isEnumInBaseType="false" />
+        <entityProperty name="SafetyStockLevel" type="Int16" physicalName="SafetyStockLevel" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Size" physicalName="Size" nullable="true" size="5" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SizeUnitMeasureCode" type="UnitMeasure" physicalName="SizeUnitMeasureCode" nullable="true" isCustomType="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="true" />
+        <entityProperty name="SellStartDate" type="DateTime" physicalName="SellStartDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="SellEndDate" type="DateTime" physicalName="SellEndDate" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="e5dd709c-7415-473c-b53a-31eefba03553" name="Subcategory" guid="9475d7a3-eaf5-4da1-80f5-3234ad2801f7" physicalName="ProductSubcategory" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Production">
+      <properties>
+        <entityProperty name="SubcategoryID" type="Int32" physicalName="ProductSubcategoryID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="ea6e943f-7e85-44b9-b616-e4f758fe1fbb" name="Category" guid="afbbaaa9-bc33-43fe-9111-25a97ba5fae7" physicalName="ProductCategory" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Production">
+      <properties>
+        <entityProperty name="CategoryID" type="Int32" physicalName="ProductCategoryID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+    <entity Id="a1da1474-54e1-44ce-a5a6-67690fc34306" name="ProductPhoto" guid="861f18e2-a167-4951-982c-ee6f9230e2e1" physicalName="ProductPhoto" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false" physicalSchema="Production">
+      <properties>
+        <entityProperty name="ProductPhotoID" type="Int32" physicalName="ProductPhotoID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
+        <entityProperty name="ThumbNailPhoto" type="ByteArray" physicalName="ThumbNailPhoto" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ThumbnailPhotoFileName" physicalName="ThumbnailPhotoFileName" nullable="true" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LargePhoto" type="ByteArray" physicalName="LargePhoto" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="LargePhotoFileName" physicalName="LargePhotoFileName" nullable="true" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+  <relations>
+    <relation Id="68ceb974-679b-4d1b-a693-f6e43152d3a0" name="CategorySubcategory" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="c30d2f2a-2771-466b-90ce-eca7b82b7e9c" role="Subcategory" cardinality="O__N">
+          <entityMoniker Id="e5dd709c-7415-473c-b53a-31eefba03553" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="f0156a8f-7ff8-4d1d-9ac4-8d8fb6b12637" role="Category" cardinality="I__I" fkNames="ProductCategoryID" container="true">
+          <entityMoniker Id="ea6e943f-7e85-44b9-b616-e4f758fe1fbb" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="16907b5c-8ca8-4db4-87c5-f11c3cd25fc7" name="ProductSubcategory" guid="00000000-0000-0000-0000-000000000000" separateTable="false" hasTriggers="false" hasCustomValidators="false">
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="3c37fe04-bbd5-4689-9f7f-b556192c8cad" role="Product" cardinality="O__N">
+          <entityMoniker Id="9319d05f-ffe1-492c-bb85-0bc1a8e10076" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="2d4cd3d0-5843-48a2-9135-287f1e2c3000" role="Subcategory" cardinality="O__I" fkNames="ProductSubcategoryID" container="true">
+          <entityMoniker Id="e5dd709c-7415-473c-b53a-31eefba03553" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+    <relation Id="cb8d3737-5eed-42b4-9c25-14a4049080c8" name="ProductProductPhoto" guid="00000000-0000-0000-0000-000000000000" physicalName="ProductProductPhoto" hasTriggers="false" hasCustomValidators="false" physicalSchema="Production">
+      <properties>
+        <relationProperty name="Primary" type="Boolean" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <relationProperty name="ModifiedDate" type="DateTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+      <entityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="3821013d-facc-4266-908f-8be4c9f2427e" role="Product" cardinality="O__N" fkNames="ProductID">
+          <entityMoniker Id="9319d05f-ffe1-492c-bb85-0bc1a8e10076" />
+        </relationReferencesEntityReferenceClasses>
+        <relationReferencesEntityReferenceClasses Id="3f069a23-3986-4297-b77b-56652d7d1d14" role="ProductPhoto" cardinality="O__N" fkNames="ProductPhotoID">
+          <entityMoniker Id="a1da1474-54e1-44ce-a5a6-67690fc34306" />
+        </relationReferencesEntityReferenceClasses>
+      </entityReferenceClasses>
+    </relation>
+  </relations>
+  <enumEntities>
+    <enumEntity Id="2987dff4-f178-4e51-8e14-77d65b1151b2" name="EnumGender">
+      <enumItems>
+        <enumItem name="H" value="0" />
+        <enumItem name="L" value="0" />
+        <enumItem name="M" value="0" />
+      </enumItems>
+    </enumEntity>
+  </enumEntities>
+  <commentBoxes>
+    <commentBox comment="Schema of all Entities and Relations of Database Schema &quot;Production&quot;. &#xD;&#xA;&#xD;&#xA;" />
+  </commentBoxes>
+  <enumInBases>
+    <enumInBase Id="ae87778f-b32d-4571-bdb8-951182f72008" name="UnitMeasure" physicalName="UnitMeasure" identifier="false" physicalSchema="Production">
+      <enumFields>
+        <enumField name="UnitMeasureCode" size="3" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="true" scale="0" isEnumInBaseType="false" />
+        <enumField name="Name" physicalName="Name" size="50" isEnumType="false" isExternType="false" isCustomType="false" isCompoType="false" identifier="false" scale="0" isEnumInBaseType="false" />
+      </enumFields>
+    </enumInBase>
+  </enumInBases>
+</diagram>
