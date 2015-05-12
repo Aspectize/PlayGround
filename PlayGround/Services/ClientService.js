@@ -6,7 +6,7 @@ Global.ClientService = {
    aasPublished: true,
    aasCommandAttributes: { GetSession: { CanExecuteOnStart: true } },
    MainData: 'MainData',
-      
+
    GetSession: function (id) {
 
        if (id) {
@@ -117,11 +117,25 @@ Global.ClientService = {
            uiService.ShowView("ErrorResult");
        } else {
 
-           var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
+           var href = window.location.href;
+
+           var parts = href.split('/');
+
+           parts[parts.length - 2] += 'RT';
+
+           var UrlRT = 'http://';
+
+           for (var i = 2; i < parts.length - 1; i++) {
+               UrlRT += parts[i] + '/';
+           }
+
+           UrlRT += "app.ashx?@Id=";
+           UrlRT += id;
+           //var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
 
            uiService.ShowView("IFrameResult");
 
-           uiService.SetControlProperty("IFrameResult-IFrameApplication", "Url", url);
+           uiService.SetControlProperty("IFrameResult-IFrameApplication", "Url", UrlRT);
        }
 
    },
@@ -150,7 +164,7 @@ Global.ClientService = {
 
        var historyManager = Aspectize.Host.GetService('History');
        historyManager.PushState(null, null, id, null, newUrl);  //viewName, schemaPath, id, title, url
-
    }
+
 };
 

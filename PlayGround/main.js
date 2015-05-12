@@ -82,7 +82,6 @@ function Main() {
         Aspectize.Host.ExecuteCommand('ClientService.InsertControlDefinition', 'MainView-HTMLEditor', $(this).attr('id'));
     });
 
-
     Aspectize.InitializeHistoryManager(function (state) {
 
         if (state && state.Id) {

@@ -156,6 +156,7 @@ namespace PlayGround
             IEntityManager em = dm as IEntityManager;
 
             dm.LoadDatabaseEnum<EnumInBaseSample>();
+            dm.LoadEntities<Session>();
 
             var ids = new Dictionary<string, string>();
 
@@ -178,6 +179,16 @@ namespace PlayGround
                     e.Id = kvp.Key;
                     e.Name = kvp.Value;
                 }
+            }
+
+            foreach(Session session in em.GetAllInstances<Session>())
+            {
+                if (!ids.ContainsKey(session.Id))
+                {
+                    session.Delete();
+
+                }
+
             }
 
             dm.SaveTransactional();

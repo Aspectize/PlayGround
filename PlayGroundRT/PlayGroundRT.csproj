@@ -121,44 +121,44 @@
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AdventureWorks.HumanResources.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AdventureWorks.HumanResources.Entities.diagram">
+    <None Include="Models\AdventureWorks.HumanResources.Entities.diagram">
       <DependentUpon>AdventureWorks.HumanResources.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\AdventureWorks.Person.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AdventureWorks.Person.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AdventureWorks.Person.Entities.diagram">
+    <None Include="Models\AdventureWorks.Person.Entities.diagram">
       <DependentUpon>AdventureWorks.Person.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\AdventureWorks.Production.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AdventureWorks.Production.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AdventureWorks.Production.Entities.diagram">
+    <None Include="Models\AdventureWorks.Production.Entities.diagram">
       <DependentUpon>AdventureWorks.Production.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\AdventureWorks.Purchasing.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AdventureWorks.Purchasing.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AdventureWorks.Purchasing.Entities.diagram">
+    <None Include="Models\AdventureWorks.Purchasing.Entities.diagram">
       <DependentUpon>AdventureWorks.Purchasing.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\AdventureWorks.Sales.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AdventureWorks.Sales.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AdventureWorks.Sales.Entities.diagram">
+    <None Include="Models\AdventureWorks.Sales.Entities.diagram">
       <DependentUpon>AdventureWorks.Sales.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\AutoIdentity.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>AutoIdentity.Entities.cs</LastGenOutput>
     </None>
-    <Content Include="Models\AutoIdentity.Entities.diagram">
+    <None Include="Models\AutoIdentity.Entities.diagram">
       <DependentUpon>AutoIdentity.Entities</DependentUpon>
-    </Content>
+    </None>
     <None Include="Models\PlayGroundRT.Entities">
       <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
       <LastGenOutput>PlayGroundRT.Entities.cs</LastGenOutput>

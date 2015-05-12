@@ -96,3 +96,7 @@ body {
 	height: 100%;
 }
 
+#MainView-SelectSamples {
+	max-width: 100%;
+}
+
