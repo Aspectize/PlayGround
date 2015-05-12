@@ -56,7 +56,10 @@ function Main() {
 
     $(".TopPanel, .CenterPanel").resizable({
         handles: "s",
-        minHeight: 120
+        minHeight: 120,
+        stop: function () {
+            Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
+        }
     });
 
     $(".LeftPanel, .MiddlePanel").resizable({
@@ -74,6 +77,8 @@ function Main() {
         stop: function (e, ui) {
             var newMaxWidth = $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - 120;
             $(this).resizable("option", "maxWidth", newMaxWidth);
+
+            Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
         }
     });
 

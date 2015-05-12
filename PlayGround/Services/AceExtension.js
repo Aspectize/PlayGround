@@ -8,6 +8,11 @@ Global.AceClientService = {
     InsertCode: function (editorName, code) {
         var editor = ace.edit(editorName);
         editor.insert(code);
+    },
+
+    Resize: function (editorName) {
+        var editor = ace.edit(editorName);
+        editor.resize();
     }
 }
 

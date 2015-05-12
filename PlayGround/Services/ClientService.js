@@ -7,6 +7,13 @@ Global.ClientService = {
    aasCommandAttributes: { GetSession: { CanExecuteOnStart: true } },
    MainData: 'MainData',
 
+   ResizeAllEditors: function() {
+       ace.edit('MainView-HTMLEditor').resize();
+       ace.edit('MainView-CSSEditor').resize();
+       ace.edit('MainView-JSEditor').resize();
+       ace.edit('MainView-BindingEditor').resize();
+   },
+
    GetSession: function (id) {
 
        if (id) {
