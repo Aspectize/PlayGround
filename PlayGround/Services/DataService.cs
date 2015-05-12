@@ -9,7 +9,7 @@ namespace PlayGround.Services
     public interface IDataService
     {
         [Command(IsSaveCommand = true)]
-        DataSet SaveData(DataSet dataSet, string sessionId, bool updateVersion);
+        DataSet SaveData(DataSet dataSet, string sessionId, string circulatingId, bool updateVersion);
 
         DataSet LoadSession(string sessionId);
 
@@ -21,7 +21,6 @@ namespace PlayGround.Services
     [Service(Name = "DataService")]
     public class DataService : IDataService //, IInitializable, ISingleton
     {
-
         DataSet IDataService.LoadSamples()
         {
             IDataManager dm = EntityManager.FromDataBaseService("MyDataService");
@@ -29,9 +28,9 @@ namespace PlayGround.Services
             dm.LoadDatabaseEnum<EnumInBaseSample>();
 
             return dm.Data;
-        }   
+        }
 
-        DataSet IDataService.SaveData(DataSet dataSet, string sessionId, bool updateVersion)
+        DataSet IDataService.SaveData(DataSet dataSet, string sessionId, string circulatingId, bool updateVersion)
         {
             IDataManager dm = EntityManager.FromDataSetAndBaseService(dataSet, "MyDataService");
 
@@ -39,7 +38,7 @@ namespace PlayGround.Services
 
             var log = new AspectizeTaskLoggingHelper();
 
-            var currentSessionId = sessionId;
+            var currentSessionId = circulatingId;
 
             var appName = "PlayGroundRT";
 
@@ -52,7 +51,7 @@ namespace PlayGround.Services
                 session = sessions[0];
             }
             else {
-                session = dm.GetEntity<Session>(sessionId);
+                session = dm.GetEntity<Session>(circulatingId);
             }
 
             NextId nextId = null;

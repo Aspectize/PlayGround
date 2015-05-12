@@ -70,15 +70,18 @@ Global.ClientService = {
    Run: function(data, sessionId, iframe, updateVersion) {
        var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
+       var changes = em.GetDataSet().HasChanges();
+
        var session = em.GetInstance('Session', { Id: sessionId });
+
+       if (session.Persist && !changes) return;
+
+       var shouldUpdateVersion = (updateVersion == 'force') || updateVersion;
 
        var cmd = Aspectize.Host.PrepareCommand();
 
        cmd.Attributes.aasAsynchronousCall = true;
        cmd.Attributes.aasShowWaiting = true;
-
-       var shouldUpdateVersion = (updateVersion == 'force') || updateVersion;
-
        cmd.Attributes.aasDataName = "MainData";
        cmd.Attributes.aasMergeData = true;
 
@@ -103,7 +106,7 @@ Global.ClientService = {
 
        };
 
-       cmd.Call('Server/DataService.SaveData', data, session.CirculatingId, shouldUpdateVersion);
+       cmd.Call('Server/DataService.SaveData', data, session.Id, session.CirculatingId, shouldUpdateVersion);
 
    },
 
