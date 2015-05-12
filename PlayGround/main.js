@@ -9,6 +9,8 @@ function Main() {
         //var x = urlArgs;
     } else {
 
+        //Aspectize.Host.ExecuteCommand('ClientService.NewSession');
+
         var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
         var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
@@ -37,7 +39,6 @@ function Main() {
     };
 
     cmd.Call('Server/DataService.LoadSamples');
-
 
     Aspectize.Host.ActivateViewByName('MainView');
 
@@ -83,87 +84,35 @@ function Main() {
 
 
     Aspectize.InitializeHistoryManager(function (state) {
-        var uiService = Aspectize.Host.GetService('UIService');
 
-        if (state && state.url) {
-            var x = state.url;
-            window.location.href = state.url;
+        if (state && state.Id) {
+            Aspectize.Host.ExecuteCommand('ClientService.GetSession', state.Id);
         } else {
-            var currentUrl = window.location.href;
-
-            if (urlArgs) {
-
+            if (urlArgs.Id) {
+                Aspectize.Host.ExecuteCommand('ClientService.GetSession', urlArgs.Id);
             } else {
+                var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
+                var sessions = em.GetAllInstances('Session');
+
+                if (sessions.length > 0) {
+                    em.ClearAllInstances('Session');
+                }
+
+                var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
+                var id = newGuid.substring(1, 10);
+
+                var session = em.CreateInstance('Session', { Id: id });
+
+                session.SetField('CirculatingId', id);
+
+                session.SetField('Html', "<!DOCTYPE html>\n<div aas:control='Test'>\n\n</div>");
+
+                session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
             }
-            //window.location.href = ;
         }
-
-
     });
 
-
-    //$(".MiddlePanel").resizable({
-    //    handles: "e",
-    //    maxWidth: $(".MiddlePanel").width() + $(".RightPanel").width() - 120,
-    //    minWidth: 120,
-    //    start: function (e, ui) {
-    //        rightWidth = $(".MiddlePanel").width() + $(".RightPanel").width();
-    //    },
-    //    resize: function (event, ui) {
-
-    //        var initialWidth = ui.originalSize.width;
-    //        var currentWidth = ui.size.width;
-
-    //        var padding = 10;
-
-    //        $(this).width(currentWidth);
-
-    //        // set the content panel width
-    //        $(".RightPanel").width(rightWidth - currentWidth);
-
-    //    },
-    //    stop: function (e, ui) {
-    //        var maxWidthMiddle = $(".MiddlePanel").width() + $(".RightPanel").width() - 120;
-    //        $(".MiddlePanel").resizable("option", "maxWidth", maxWidthMiddle);
-    //        var maxWidthLeft = $(".MiddlePanel").width() + $(".LeftPanel").width() - 120;
-    //        $(".LeftPanel").resizable("option", "maxWidth", maxWidthLeft);
-    //    }
-    //});
-
-    //$(".LeftPanel").resizable({
-    //    handles: "e",
-    //    maxWidth: $(".LeftPanel").width() + $(".MiddlePanel").width() - 120,
-    //    minWidth: 120,
-    //    start: function (e, ui) {
-    //        leftWidth = $(".LeftPanel").width() + $(".MiddlePanel").width();
-    //    },
-    //    resize: function (event, ui) {
-
-    //        var initialWidth = ui.originalSize.width;
-    //        var currentWidth = ui.size.width;
-
-    //        var total = $(this).width() + $(this).next().width();
-    //        var total2 = $(".LeftPanel").width() + $(".MiddlePanel").width();
-    //        console.log('currentWidth: ' + currentWidth + ' this.width: ' + $(this).width() + ' this.next.width: ' + $(this).next().width() + ' total: ' + total + ' total2: ' + total2);
-    //        // this accounts for padding in the panels + 
-    //        // borders, you could calculate this using jQuery
-    //        var padding = 10;
-
-    //        // this accounts for some lag in the ui.size value, if you take this away 
-    //        // you'll get some instable behaviour
-    //        $(this).width(currentWidth);
-
-    //        // set the content panel width
-    //        $(".MiddlePanel").width(leftWidth - currentWidth);
-    //    },
-    //    stop: function (e, ui) {
-    //        var maxWidthMiddle = $(".MiddlePanel").width() + $(".RightPanel").width() - 120;
-    //        $(".MiddlePanel").resizable("option", "maxWidth", maxWidthMiddle);
-    //        var maxWidthLeft = $(".MiddlePanel").width() + $(".LeftPanel").width() - 120;
-    //        $(".LeftPanel").resizable("option", "maxWidth", maxWidthLeft);
-    //    }
-    //});
 }
 
 function OnApplicationEnd() {

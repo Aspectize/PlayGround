@@ -5,7 +5,7 @@ using System.Data;
 using Aspectize.Core;
 using Aspectize.Core.Web;
 
-namespace PlayGround {
+namespace PlayGroundRT {
     public interface IAppInitService {
 
         Dictionary<string, string> GetVersionInfo ();
@@ -67,7 +67,7 @@ namespace PlayGround {
 
             var baseControls = svc.LoadControlTypeInfos(versionKey);
 
-            // peut mieux faire !
+            // peut mieux faire...
             var baseControlInfo = baseControls.Value.Trim().Trim('[').Trim(']');
 
             var cachedSession = getSession(versionKey);
@@ -89,7 +89,6 @@ namespace PlayGround {
         string IAppInitService.LoadJsViews(string versionKey)
         {
 
-            //var data = System.IO.File.ReadAllText(@"D:\DriveS\Delivery\Applications\PlayGround\PlayGround.views.js");
             if (!string.IsNullOrEmpty(versionKey))
             {
                 var cachedSession = getSession(versionKey);

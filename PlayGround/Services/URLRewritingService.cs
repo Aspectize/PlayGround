@@ -6,7 +6,7 @@ using Aspectize.Core;
 using Aspectize.Web;
 using System.Text.RegularExpressions;
 
-namespace PlayGround.Services
+namespace PlayGround
 {
     [Service(Name = "URLRewritingService")]
     public class URLRewritingService : IURLRewritingService //, IInitializable, ISingleton

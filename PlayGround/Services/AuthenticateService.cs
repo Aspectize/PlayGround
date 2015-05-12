@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using Aspectize.Core;
 
-namespace PlayGround.Services
+namespace PlayGround
 {
 
     [Service(Name = "AuthenticateService")]

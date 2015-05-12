@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using Aspectize.Core;
 
-namespace PlayGround.Services
+namespace PlayGround
 {
     public interface IDataService
     {
@@ -160,7 +160,15 @@ namespace PlayGround.Services
             var ids = new Dictionary<string, string>();
 
             ids.Add("a6f804a44", "ComboBox basic");
-            ids.Add("3fc7b2d3c", "Combox with Null Value");
+            ids.Add("3fc7b2d3c", "ComboBox with Null Value");
+            ids.Add("d6627c3c6", "ComboBox with parent child value");
+            ids.Add("de18b5b35", "ComboBox with Selectedvalue on Relation");
+            ids.Add("d74c07320", "RadioButton basic");
+            ids.Add("f76a37b51", "RadioButton with SelectedValue on Relation");
+            ids.Add("95da0760f", "Basic Image");
+            ids.Add("14f82140a", "Basic Repeater");
+            ids.Add("0fc0f1843", "Repeater with order and filter");
+
 
             foreach (KeyValuePair<string, string> kvp in ids)
             {

@@ -53,6 +53,15 @@ namespace AdventureWorks.Production
 		M
 	}
 
+	[DataDefinition(MustPersist = false)]
+	public enum EnumProductOrderField
+	{
+		[Description("Name")]
+		Name,
+		[Description("ProductNumber")]
+		ProductNumber
+	}
+
 	[DataDefinition(PhysicalName = "UnitMeasure", PhysicalSchema = "Production")]
 	public class UnitMeasure : DataWrapper, IDataWrapper, IDatabaseEnum
 	{
