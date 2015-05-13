@@ -1,7 +1,7 @@
 
 var app = newApplication();
 
-app.Directories = "Bootstrap";
+app.Directories = "Bootstrap, DBLogException";
 app.URLRewritingService = "URLRewritingService";
 
 app.AddAuthorizationRole(aas.Roles.Anonymous, aas.Enum.AccessControl.ReadWrite);
