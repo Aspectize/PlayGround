@@ -5,8 +5,8 @@ rootView.DisplayCSS.click.BindCommand(aas.Services.Browser.ClientService.ToggleP
 rootView.DisplayJS.click.BindCommand(aas.Services.Browser.ClientService.TogglePanelAndResize(aas.ViewName.RootView.DisplayJS, 'RightPanel'));
 rootView.DisplayBindings.click.BindCommand(aas.Services.Browser.ClientService.TogglePanel(aas.ViewName.RootView.DisplayBindings, 'CenterPanel'));
 
-rootView.Run.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, aas.ViewName.IFrameResult.IFrameApplication, aas.Data.MainData.Session.Persist));
-rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, aas.ViewName.IFrameResult.IFrameApplication, 'force'));
+rootView.Run.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, aas.Data.MainData.Session.Persist));
+rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, 'force'));
 
 var mainView = Aspectize.CreateView("MainView", aas.Controls.SideBarContent, aas.Zones.RootView.ZoneMainContent);
 

@@ -74,7 +74,7 @@ Global.ClientService = {
        Aspectize.Host.ExecuteCommand('AceClientService.InsertCode', editorName, html);
    },
 
-   Run: function(data, sessionId, iframe, updateVersion) {
+   Run: function(data, sessionId, updateVersion) {
        var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
        var changes = em.GetDataSet().HasChanges();
@@ -147,13 +147,13 @@ Global.ClientService = {
 
    },
 
-   SetIFrameUrl: function (iframe, id) {
-       var uiService = Aspectize.Host.GetService("UIService");
+   //SetIFrameUrl: function (iframe, id) {
+   //    var uiService = Aspectize.Host.GetService("UIService");
 
-       var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
+   //    var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
 
-       uiService.SetControlProperty(iframe, "Url", url);
-   },
+   //    uiService.SetControlProperty(iframe, "Url", url);
+   //},
 
    UpdateUrl: function (id) {
        var href = window.location.href;
