@@ -40,6 +40,10 @@ Global.ClientService = {
 
                var session = em.GetInstance('Session', { Id: id });
 
+               initPanel(session);
+
+               restoreResizable();
+
                That.DisplayResult(id, session.Log);
            };
 
@@ -47,21 +51,68 @@ Global.ClientService = {
        }
    },
 
-   TogglePanel: function (buttonName, panelClass) {
-       $('#' + buttonName).parent('li').toggleClass('active');
+   TogglePanel: function (name) {
+       var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
-       $('.' + panelClass).toggleClass('hidden');
+       var session = em.GetAllInstances('Session')[0];
+
+       session.SetField(name, !session[name]);
+       restoreResizable();
    },
 
-   TogglePanelAndResize: function (buttonName, panelClass) {
+   TogglePanelAndResize: function (name, panel) {
 
-       this.TogglePanel(buttonName, panelClass);
+       var nbVisibleBefore = $('.TogglePanel').not('.hidden').length;
+
+       if (nbVisibleBefore == 1 && !$('.' + panel).hasClass('hidden')) return;
+
+       this.TogglePanel(name);
        var $items = $('.TogglePanel').not('.hidden');
        var nbVisible = $items.length;
        var totalWidth = $('.TopPanel').width();
        $items.each(function () {
            $(this).width((totalWidth / nbVisible) - 10);
        });
+       restoreResizable();
+
+       if (nbVisibleBefore == 1 && nbVisible == 2) {
+           if (panel == 'HtmlPanel') {
+               initResizablePanel(".HtmlPanel");
+           } else if (panel == 'CssPanel') {
+               if ($(".HtmlPanel").hasClass('hidden')) {
+                   initResizablePanel(".CssPanel");
+               } else {
+                   initResizablePanel(".HtmlPanel");
+               }
+           } else if (panel == 'JsPanel') {
+               if ($(".HtmlPanel").hasClass('hidden')) {
+                   initResizablePanel(".CssPanel");
+               } else {
+                   initResizablePanel(".HtmlPanel");
+               }
+           }
+       } else if (nbVisibleBefore == 2 && nbVisible == 1) {
+           if (panel == 'HtmlPanel') {
+           } else if (panel == 'CssPanel') {
+               if (!$(".HtmlPanel").hasClass('hidden')) {
+                   $(".HtmlPanel").resizable('destroy');
+               }
+           } else if (panel == 'JsPanel') {
+               if (!$(".HtmlPanel").hasClass('hidden')) {
+                   $(".HtmlPanel").resizable('destroy');
+               } else if (!$(".CssPanel").hasClass('hidden')) {
+                   $(".CssPanel").resizable('destroy');
+               }
+           }
+       } else if (nbVisibleBefore == 3 && nbVisible == 2) {
+           if (panel == 'JsPanel') {
+               $(".CssPanel").resizable('destroy');
+           }
+       } else if (nbVisibleBefore == 2 && nbVisible == 3) {
+           if (panel == 'JsPanel') {
+               initResizablePanel(".CssPanel");
+           } 
+       }
    },
 
    InsertControlDefinition: function (editorName, controlName) {
@@ -104,6 +155,8 @@ Global.ClientService = {
 
            var session = em.GetInstance('Session', { Id: sessionId });
 
+           restoreResizable();
+
            if (shouldUpdateVersion) {
 
                That.UpdateUrl(session.CirculatingId);
@@ -124,6 +177,8 @@ Global.ClientService = {
            uiService.ShowView("ErrorResult");
        } else {
 
+           Aspectize.StartShowWaiting();
+
            var href = window.location.href;
 
            var parts = href.split('/');
@@ -143,6 +198,8 @@ Global.ClientService = {
            uiService.ShowView("IFrameResult");
 
            uiService.SetControlProperty("IFrameResult-IFrameApplication", "Url", UrlRT);
+
+           Aspectize.StartShowWaiting();
        }
 
    },

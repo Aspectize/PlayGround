@@ -83,6 +83,15 @@ namespace PlayGround
 			public const string JSView = "JSView";
 			public const string JSLibrary = "JSLibrary";
 			public const string Log = "Log";
+			public const string DisplayCSS = "DisplayCSS";
+			public const string DisplayHTML = "DisplayHTML";
+			public const string DisplayJS = "DisplayJS";
+			public const string DisplayBindings = "DisplayBindings";
+			public const string HtmlWidth = "HtmlWidth";
+			public const string CSSWidth = "CSSWidth";
+			public const string JsWidth = "JsWidth";
+			public const string BindingsHeight = "BindingsHeight";
+			public const string TopPanelHeight = "TopPanelHeight";
 		}
 
 		void IDataWrapper.InitData(DataRow data, string namePrefix)
@@ -165,6 +174,69 @@ namespace PlayGround
 		{
 			get { return getValue<string>("Log"); }
 			set { setValue<string>("Log", value); }
+		}
+
+		[Data(DefaultValue = true)]
+		public bool DisplayCSS
+		{
+			get { return getValue<bool>("DisplayCSS"); }
+			set { setValue<bool>("DisplayCSS", value); }
+		}
+
+		[Data(DefaultValue = true)]
+		public bool DisplayHTML
+		{
+			get { return getValue<bool>("DisplayHTML"); }
+			set { setValue<bool>("DisplayHTML", value); }
+		}
+
+		[Data(DefaultValue = true)]
+		public bool DisplayJS
+		{
+			get { return getValue<bool>("DisplayJS"); }
+			set { setValue<bool>("DisplayJS", value); }
+		}
+
+		[Data(DefaultValue = true)]
+		public bool DisplayBindings
+		{
+			get { return getValue<bool>("DisplayBindings"); }
+			set { setValue<bool>("DisplayBindings", value); }
+		}
+
+		[Data]
+		public decimal HtmlWidth
+		{
+			get { return getValue<decimal>("HtmlWidth"); }
+			set { setValue<decimal>("HtmlWidth", value); }
+		}
+
+		[Data]
+		public decimal CSSWidth
+		{
+			get { return getValue<decimal>("CSSWidth"); }
+			set { setValue<decimal>("CSSWidth", value); }
+		}
+
+		[Data]
+		public decimal JsWidth
+		{
+			get { return getValue<decimal>("JsWidth"); }
+			set { setValue<decimal>("JsWidth", value); }
+		}
+
+		[Data]
+		public decimal BindingsHeight
+		{
+			get { return getValue<decimal>("BindingsHeight"); }
+			set { setValue<decimal>("BindingsHeight", value); }
+		}
+
+		[Data]
+		public decimal TopPanelHeight
+		{
+			get { return getValue<decimal>("TopPanelHeight"); }
+			set { setValue<decimal>("TopPanelHeight", value); }
 		}
 
 	}

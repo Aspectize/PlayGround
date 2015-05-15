@@ -6,5 +6,5 @@ app.Directories = "Bootstrap, GoogleExtension, JQueryExtension, TinyMce, DBLogEx
 var ctxData0 = newContextData();
 
 ctxData0.Name = "AdventureWorksData";
-ctxData0.NameSpaceList = "AdventureWorks.HumanResources,AdventureWorks.Person,AdventureWorks.Production,AdventureWorks.Purchasing,AdventureWorks.Sales";
+ctxData0.NameSpaceList = "AdventureWorks.HumanResources,AdventureWorks.Person,AdventureWorks.Production,AdventureWorks.Purchasing,AdventureWorks.Sales,Upload";
 

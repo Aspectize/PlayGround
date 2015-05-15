@@ -49,10 +49,10 @@ body {
 
 
 
-.LeftPanel,
-.MiddlePanel,
-.RightPanel,
-.CenterPanel {
+.HtmlPanel,
+.CssPanel,
+.JsPanel,
+.BindingsPanel {
 	border: 1px solid #c0c0c0;
 	box-shadow: 0 1px 3px #e4e4e4 inset;
 	margin: 2px;
@@ -60,18 +60,23 @@ body {
 
 .BottomPanel {
 	border: 1px solid #000;
+	margin-top: 5px;
 }
 
-.CenterPanel {
+.BindingsPanel {
     margin-left: 2px;
-    margin-right: 14px;
+    /*margin-right: 14px;*/
 	height: 200px;
 }
 
-.LeftPanel,
-.MiddlePanel,
-.RightPanel {
+.HtmlPanel,
+.CssPanel,
+.JsPanel {
 	height: 100%;
+}
+
+.BindingsPanel, .TopPanel  {
+	width: 100%;
 }
 
 .TopPanel
@@ -85,6 +90,8 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 	position: relative;
+	margin: 2px;
+	padding-bottom: 3px;
 }
 
 .BottomPanel,
@@ -108,6 +115,8 @@ body {
 #MainView-SelectSamples {
 	max-width: 100%;
 }
+
+.TogglePanel.ui-state-disabled { opacity:1; }
 
 
 

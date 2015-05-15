@@ -2,10 +2,10 @@
 <minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PLayGroundRT">
   <diagramMoniker Id="a6287880-043f-481e-bd1d-5d1ac3d8330b" />
   <nestedChildShapes>
-    <entityShape Id="47db289a-6ec2-44ca-a186-6943cad8e3f8" absoluteBounds="0.5, 1.25, 3, 1.1992057291666667">
+    <entityShape Id="47db289a-6ec2-44ca-a186-6943cad8e3f8" absoluteBounds="0.5, 1.25, 3, 1.3915071614583332">
       <entityMoniker Id="0b3a3837-aa5d-4b5b-8320-8552c655617a" />
       <nestedChildShapes>
-        <elementListCompartment Id="db99c514-77b2-46db-bd8a-5739020fc65b" absoluteBounds="0.515, 1.58, 2.9699999999999998, 0.76920572916666663" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="db99c514-77b2-46db-bd8a-5739020fc65b" absoluteBounds="0.515, 1.58, 2.9699999999999998, 0.96150716145833326" name="Properties" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
   </nestedChildShapes>

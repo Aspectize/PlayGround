@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diagram xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="8c88d870-3b88-4a4c-b994-ca43937000e7" domain="Upload" xmlns="http://schemas.microsoft.com/dsltools/EntityDesigner">
+  <entities>
+    <entity Id="bc4c2b30-fc6d-4b0b-a08e-e656b7edf9dc" name="FileUploaded" guid="a6989663-4684-41bf-82ba-cd7c5be021cf" mustPersist="false" hasCustomValidators="false" hasTriggers="false">
+      <properties>
+        <entityProperty name="Name" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="ContentType" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="Size" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+      </properties>
+    </entity>
+  </entities>
+</diagram>

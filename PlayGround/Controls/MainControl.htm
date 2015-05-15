@@ -15,14 +15,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand hidden-xs logo"><img src="../Applications/AzureHostManagerCommon/Images/HtmlCut/Logo.png"></a>
-                <span class="navbar-brand" style="color:#fff">Aspectize Playground</span>
+                <span class="navbar-brand" style="color:#fff">Playground</span>
                 <ul class="nav navbar-nav">
                     <li class="active"><a name="Run"><span class="glyphicon glyphicon-play"></span> Run</a></li>
                     <li class="active"><a name="Save"><span class="glyphicon glyphicon-save"></span> Save</a></li>
-                    <li class="active"><a name="DisplayHTML">HTML</a></li>
-                    <li class="active"><a name="DisplayCSS">CSS</a></li>
-                    <li class="active"><a name="DisplayJS">Javascript</a></li>
-                    <li class="active"><a name="DisplayBindings">Bindings</a></li>
+                    <li class="{DisplayHTML}"><a name="DisplayHTML">HTML</a></li>
+                    <li class="{DisplayCSS}"><a name="DisplayCSS">CSS</a></li>
+                    <li class="{DisplayJS}"><a name="DisplayJS">Javascript</a></li>
+                    <li class="{DisplayBindings}"><a name="DisplayBindings">Bindings</a></li>
                 </ul>
             </div>
         </div>
@@ -30,7 +30,7 @@
     </div>
 
     <div aas:control="SideBarContent" class="col-md-12">
-        <div class="row">
+        <div class="row MainDesignPanel">
             <div class="col-md-1">
                 <div class="row" style="padding-left: 3px;">
                     <a name="UserControl"><span class="badge">user control</span></a>
@@ -64,20 +64,20 @@
                 </div>
             </div>
             <div class="col-md-11">
-                <div class="TopPanel FixedWidth">
-                    <div class="LeftPanel FloatLeft TogglePanel">
+                <div class="TopPanel FixedWidth ResizablePanel">
+                    <div class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">HTML</div>
                             <div aas:name="HTMLEditor" aas:type="AceEditor" class="AceEditor"></div>
                         </div>
                     </div>
-                    <div class="MiddlePanel FloatLeft TogglePanel">
+                    <div class="CssPanel FloatLeft TogglePanel ResizablePanel {DisplayCSS}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">CSS</div>
                             <div aas:name="CSSEditor" aas:type="AceEditor" class="AceEditor"></div>
                         </div>
                     </div>
-                    <div class="RightPanel FloatLeft TogglePanel">
+                    <div class="JsPanel FloatLeft TogglePanel {DisplayJS}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">Javascript</div>
                             <div aas:name="JSEditor" aas:type="AceEditor" class="AceEditor"></div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="FloatClear"></div>
                 </div>
-                <div class="row CenterPanel">
+                <div class="row BindingsPanel {DisplayBindings}">
                     <div class="InsidePanel">
                         <div class="FloatingLabel">Bindings</div>
                         <div aas:name="BindingEditor" aas:type="AceEditor" class="AceEditor"></div>
@@ -97,44 +97,15 @@
         <div aas:name="ZoneResult" class="Panel BottomPanel row"></div>
     </div>
 
+    <div aas:control="EmptyControl">
+    </div>
+
     <div aas:control="ErrorControl">
         <div>{ErrorMessage}</div>
     </div>
 
     <div aas:control="IFrameControl">
         <div aas:name="IFrameApplication" aas:type="AspectizeIFrame"></div>
-    </div>
-
-    <div aas:control="MainControl">
-        <div class="FixedWidth">
-            <div class="TopPanel">
-                <div class="LeftPanel FloatLeft TogglePanel">
-                    <div class="InsidePanel">
-                        <div class="FloatingLabel">HTML</div>
-                        <div aas:name="HTMLEditor" aas:type="AceEditor" class="AceEditor"></div>
-                    </div>
-                </div>
-                <div class="MiddlePanel FloatLeft TogglePanel">
-                    <div class="InsidePanel">
-                        <div class="FloatingLabel">CSS</div>
-                        <div aas:name="CSSEditor" aas:type="AceEditor" class="AceEditor"></div>
-                    </div>
-                </div>
-                <div class="RightPanel FloatLeft TogglePanel">
-                    <div class="InsidePanel">
-                        <div class="FloatingLabel">Javascript</div>
-                        <div aas:name="JSEditor" aas:type="AceEditor" class="AceEditor"></div>
-                    </div>
-                </div>
-                <div class="FloatClear"></div>
-            </div>
-        </div>
-        <div class="row CenterPanel">
-            <div class="InsidePanel">
-                <div class="FloatingLabel">Bindings</div>
-                <div aas:name="BindingEditor" aas:type="AceEditor" class="AceEditor"></div>
-            </div>
-        </div>
     </div>
 
 </body>

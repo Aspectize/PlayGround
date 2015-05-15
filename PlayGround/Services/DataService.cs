@@ -93,17 +93,25 @@ namespace PlayGround
             var typeInfo = fs.Read("PlayGroundRT.Types.Intellisense.txt");
 
             System.IO.StreamReader reader = new System.IO.StreamReader(typeInfo);
-            string text = reader.ReadToEnd();
+            string allTypesInfo = reader.ReadToEnd();
 
             //var typeInfoString = System.Text.Encoding.UTF8.GetString(text);
 
             var ctrinfos = WebBuilder.BuildTypeDefinitionControl(appName, controlInfos);
 
-            var index = text.IndexOf("aas:'Controls'") + "aas:'Controls'".Length;
+            var indexControls = allTypesInfo.IndexOf("aas:'Controls'") + "aas:'Controls'".Length;
 
-            string temp = text.Substring(0, index) + ctrinfos + text.Substring(index);
+            allTypesInfo = allTypesInfo.Substring(0, indexControls) + ctrinfos + allTypesInfo.Substring(indexControls);
 
-            var jsView = WebBuilder.BuildViews(appName, session.Bindings, temp, log);
+            var javaScriptCommandInfos = WebTypeInfo.BuildJavascriptCommandInfo(session.js);
+
+            var serviceInfos = WebBuilder.BuildTypeDefinitionBrowserServices(javaScriptCommandInfos);
+
+            var indexBrowserServices = allTypesInfo.IndexOf("aas:'BrowserServices'") + "aas:'BrowserServices'".Length;
+
+            allTypesInfo = allTypesInfo.Substring(0, indexBrowserServices) + serviceInfos + allTypesInfo.Substring(indexBrowserServices);
+
+            var jsView = WebBuilder.BuildViews(appName, session.Bindings, allTypesInfo, log);
 
             session.JSView = jsView;
 
@@ -115,21 +123,21 @@ namespace PlayGround
 
             dm.SaveTransactional();
 
+            //Create new Entity with same id for result
+
             IEntityManager emResult = EntityManager.FromDataSet(DataSetHelper.Create());
 
             Session sessionResult = emResult.CreateInstance<Session>();
 
-            sessionResult.Bindings = session.Bindings;
-            sessionResult.CirculatingId = session.CirculatingId;
-            sessionResult.css = session.css;
-            sessionResult.Html = session.Html;
-            sessionResult.HtmlControlInfoJSON = session.HtmlControlInfoJSON;
             sessionResult.Id = sessionId;
-            sessionResult.js = session.js;
-            sessionResult.JSLibrary = session.JSLibrary;
-            sessionResult.JSView = session.JSView;
-            sessionResult.Log = session.Log;
-            sessionResult.Persist = session.Persist;
+
+            foreach (DataColumn dc in session.data.Table.Columns)
+            {
+                if (dc.ColumnName != PlayGround.Session.Fields.Id)
+                {
+                    sessionResult.data[dc.ColumnName] = session.data[dc.ColumnName];
+                }
+            }
 
             emResult.Data.AcceptChanges();
 

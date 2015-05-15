@@ -22,7 +22,7 @@ namespace PlayGroundRT {
 
         string LoadJsViews([DefaultValueAttribute("Missing")] string versionKey);
         string LoadJsLibrary([DefaultValueAttribute("Missing")] string versionKey);
-
+        string LoadCSS(string versionKey);
     }
 
     [Service(Name = "AppInitService")]
@@ -114,6 +114,18 @@ namespace PlayGroundRT {
             //var data = System.IO.File.ReadAllText(@"D:\DriveS\Delivery\Applications\PlayGroundRT\PlayGroundRT.library.js");
 
             //return new IsJson(""); ;
+        }
+
+        string IAppInitService.LoadCSS(string versionKey)
+        {
+            if (!string.IsNullOrEmpty(versionKey))
+            {
+                var cachedSession = getSession(versionKey);
+
+                return cachedSession.css;
+            }
+            else return "";
+
         }
 
         private PLayGroundRT.Session getSession(string idSession)

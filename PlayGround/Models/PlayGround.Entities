@@ -14,6 +14,15 @@
         <entityProperty name="JSView" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="JSLibrary" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Log" defaultValue="&quot;&quot;" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DisplayCSS" type="Boolean" defaultValue="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DisplayHTML" type="Boolean" defaultValue="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DisplayJS" type="Boolean" defaultValue="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="DisplayBindings" type="Boolean" defaultValue="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="HtmlWidth" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="CSSWidth" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="JsWidth" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="BindingsHeight" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="TopPanelHeight" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
     <entity Id="134fabe9-7f8b-4ed3-bb1d-98c6e5a49778" name="NextId" guid="22d2c8a5-e18b-46e8-9160-6fcfcaf95093" guidIdentifier="false" hasCustomValidators="false" hasTriggers="false">

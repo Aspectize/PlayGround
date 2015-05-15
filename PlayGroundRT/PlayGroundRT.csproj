@@ -62,6 +62,7 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -100,9 +101,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AutoIdentity.Entities</DependentUpon>
     </Compile>
+    <Compile Include="Models\Upload.Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Upload.Entities</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppInitService.cs" />
     <Compile Include="Services\LoadDataService.cs" />
+    <Compile Include="Services\UploaderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Views\View.js" />
@@ -166,6 +173,13 @@
     <None Include="Models\PlayGroundRT.Entities.diagram">
       <DependentUpon>PlayGroundRT.Entities</DependentUpon>
     </None>
+    <None Include="Models\Upload.Entities">
+      <Generator>AspectizeEntitiesCodeGenerator2012</Generator>
+      <LastGenOutput>Upload.Entities.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Upload.Entities.diagram">
+      <DependentUpon>Upload.Entities</DependentUpon>
+    </None>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -187,7 +201,6 @@
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\ClientServices.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>

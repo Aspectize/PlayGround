@@ -36,6 +36,7 @@ namespace PLayGroundRT
 			public const string HtmlControlInfoJSON = "HtmlControlInfoJSON";
 			public const string JSView = "JSView";
 			public const string JSLibrary = "JSLibrary";
+			public const string css = "css";
 		}
 
 		void IDataWrapper.InitData(DataRow data, string namePrefix)
@@ -69,6 +70,13 @@ namespace PLayGroundRT
 		{
 			get { return getValue<string>("JSLibrary"); }
 			set { setValue<string>("JSLibrary", value); }
+		}
+
+		[Data(DefaultValue = "")]
+		public string css
+		{
+			get { return getValue<string>("css"); }
+			set { setValue<string>("css", value); }
 		}
 
 	}
