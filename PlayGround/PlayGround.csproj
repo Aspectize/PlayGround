@@ -743,9 +743,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JQueryLayout\jquery.layout.js" />
-    <Content Include="JQueryLayout\jquery.layout.min.js" />
-    <Content Include="JQueryLayout\layout-default.css" />
     <Content Include="main.js" />
   </ItemGroup>
   <ItemGroup>

@@ -195,6 +195,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Category.png" />
+    <Content Include="Images\Product.png" />
+    <Content Include="Images\SubCategory.png" />
+    <Content Include="Images\TabNotSelected.png" />
+    <Content Include="Images\TabSelected.png" />
     <Content Include="main.js" />
   </ItemGroup>
   <ItemGroup>

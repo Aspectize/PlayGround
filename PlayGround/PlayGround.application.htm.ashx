@@ -26,7 +26,7 @@
 
 <link rel="stylesheet" type='text/css' href="~/Styles.css">
 
-<title>Aspectize PlayGround</title>
+<title>PlayGround</title>
 </head>
 <body></body>
 </html>

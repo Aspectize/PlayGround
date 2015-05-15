@@ -1,5 +1,26 @@
 var maxWidth; var showResult;
 
+function NewSession() {
+    var em = Aspectize.EntityManagerFromContextDataName('MainData');
+
+    var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
+    var id = newGuid.substring(1, 10);
+
+    session = em.CreateInstance('Session', { Id: id });
+
+    session.SetField('CirculatingId', id);
+
+    session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
+    //session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
+
+    session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
+
+    session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   aasPublished:true,\n\n   MyCommand: function () {\n\n   }\n};");
+
+    return session;
+}
+
+
 function initResizablePanel(panel) {
 
     $(panel).resizable({
@@ -105,18 +126,19 @@ function Main() {
         //session = em.GetAllInstances('Session')[0];
     } else {
 
-        //Aspectize.Host.ExecuteCommand('ClientService.NewSession');
-        var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
-        var id = newGuid.substring(1, 10);
+        session = NewSession();
 
-        session = em.CreateInstance('Session', { Id: id });
+        //var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
+        //var id = newGuid.substring(1, 10);
 
-        session.SetField('CirculatingId', id);
+        //session = em.CreateInstance('Session', { Id: id });
 
-        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
-        //session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
+        //session.SetField('CirculatingId', id);
 
-        session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
+        //session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
+        ////session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
+
+        //session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
         //session.SetField('Bindings', 'var test = Aspectize.CreateView("MainView", aas.Controls.Test);\n\ntest.myLink.click.BindCommand(aas.Services.Browser.SystemServices.Alert("coucou"));');
 
         initPanel(session);
@@ -166,16 +188,18 @@ function Main() {
                     em.ClearAllInstances('Session');
                 }
 
-                var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
-                var id = newGuid.substring(1, 10);
+                var session = NewSession();
 
-                var session = em.CreateInstance('Session', { Id: id });
+                //var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
+                //var id = newGuid.substring(1, 10);
 
-                session.SetField('CirculatingId', id);
+                //var session = em.CreateInstance('Session', { Id: id });
 
-                session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
+                //session.SetField('CirculatingId', id);
 
-                session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
+                //session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
+
+                //session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
             }
         }
     });

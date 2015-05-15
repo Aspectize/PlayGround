@@ -17,7 +17,7 @@ Global.ClientService = {
    GetSession: function (id) {
 
        if (id) {
-           var em = Aspectize.EntityManagerFromContextDataName('MainData');
+           var em = Aspectize.EntityManagerFromContextDataName(this.MainData);
 
            var sessions = em.GetAllInstances('Session');
 

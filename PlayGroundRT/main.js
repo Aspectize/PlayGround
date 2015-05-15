@@ -61,7 +61,12 @@ var SpecialInit = (function () {
 
                 function whileNotDone() {
 
-                    done = callContinuation(next);
+                    try {
+                        done = callContinuation(next);
+                    } catch (x) {
+                        done = true;
+                        Aspectize.ReportException(x);
+                    }
 
                     if (!done) {
                         window.setTimeout(whileNotDone, delay); delay += 50;

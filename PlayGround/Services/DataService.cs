@@ -168,19 +168,26 @@ namespace PlayGround
 
             var ids = new Dictionary<string, string>();
 
-            ids.Add("a6f804a44", "ComboBox basic");
-            ids.Add("3fc7b2d3c", "ComboBox with Null Value");
-            ids.Add("d6627c3c6", "ComboBox with parent child value");
-            ids.Add("de18b5b35", "ComboBox with Selectedvalue on Relation");
-            ids.Add("d74c07320", "RadioButton basic");
-            ids.Add("f76a37b51", "RadioButton with SelectedValue on Relation");
-            ids.Add("95da0760f", "Basic Image");
-            ids.Add("14f82140a", "Basic Repeater");
-            ids.Add("0fc0f1843", "Repeater with order and filter");
-
+            //ids.Add("a2a0da353", "ComboBox");
+            //ids.Add("f936e220d", "ComboBox with Null Value");
+            //ids.Add("b4f4373bb", "ComboBox with parent child value");
+            //ids.Add("178b986bb", "ComboBox with Selectedvalue on Relation");
+            //ids.Add("2dcd2191b", "RadioButton basic");
+            //ids.Add("f76a37b51", "RadioButton with SelectedValue on Relation");
+            //ids.Add("4b7a31fa6", "Image");
+            //ids.Add("494d8dc36", "Repeater");
+            //ids.Add("5ab74569a", "Repeater with order and filter");
+            //ids.Add("1d2a34388", "Uploader");
+            ids.Add("0a3f22e0e", "Grid");
+            //ids.Add("48ba1cc11", "TreeView");
+            ids.Add("27067ced4", "Panel");
+            ids.Add("d6efa71d7", "Tab");
+            ids.Add("f5cbe0590", "Tab Vertical");
 
             foreach (KeyValuePair<string, string> kvp in ids)
             {
+                var session = em.GetInstance<Session>(kvp.Key);
+                session.Persist = true;
                 if (!em.GetAllInstances<EnumInBaseSample>().Exists(item => item.Id == kvp.Key))
                 {
                     EnumInBaseSample e = em.CreateEnumInstance<EnumInBaseSample>();
@@ -189,15 +196,15 @@ namespace PlayGround
                 }
             }
 
-            foreach(Session session in em.GetAllInstances<Session>())
-            {
-                if (!ids.ContainsKey(session.Id))
-                {
-                    session.Delete();
+            //foreach(Session session in em.GetAllInstances<Session>())
+            //{
+            //    if (!ids.ContainsKey(session.Id))
+            //    {
+            //        session.Delete();
 
-                }
+            //    }
 
-            }
+            //}
 
             dm.SaveTransactional();
 

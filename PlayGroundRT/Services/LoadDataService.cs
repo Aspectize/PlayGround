@@ -21,10 +21,16 @@ namespace PlayGroundRT
         DataSet LoadCategories();
 
         [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
+        DataSet LoadCategoriesAndSubCategories();
+
+        [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
         DataSet LoadSubcategories(int categoryID);
 
         [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
         DataSet LoadProducts(int subcategoryID);
+
+        [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
+        DataSet LoadAllProducts();
 
         [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
         DataSet LoadAllCategoriesAndProducts();
@@ -50,6 +56,20 @@ namespace PlayGroundRT
             return dm.Data;
         }
 
+        DataSet ILoadDataService.LoadCategoriesAndSubCategories()
+        {
+            IDataManager dm = EntityManager.FromDataBaseService(ServiceName.ADWDB);
+
+            var relations = new List<IRoleRelationQuery>();
+
+            relations.Add(new RoleRelationQuery<Category, CategorySubcategory>());
+
+            dm.LoadEntitiesGraph<Category>(relations);
+
+            return dm.Data;
+        }
+
+
         DataSet ILoadDataService.LoadSubcategories(int categoryID)
         {
             IDataManager dm = EntityManager.FromDataBaseService(ServiceName.ADWDB);
@@ -74,6 +94,17 @@ namespace PlayGroundRT
 
             return dm.Data;
         }
+
+        DataSet ILoadDataService.LoadAllProducts()
+        {
+            IDataManager dm = EntityManager.FromDataBaseService(ServiceName.ADWDB);
+
+            dm.LoadEntities<Product>();
+
+            return dm.Data;
+        }
+
+
 
 
         DataSet ILoadDataService.LoadAllCategoriesAndProducts()
