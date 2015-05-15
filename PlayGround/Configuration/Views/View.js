@@ -22,7 +22,7 @@ mainView.DisplayCSS.BindData(aas.Expression(IIF(aas.Data.MainData.Session.Displa
 mainView.DisplayJS.BindData(aas.Expression(IIF(aas.Data.MainData.Session.DisplayJS, '', 'hidden')));
 mainView.DisplayBindings.BindData(aas.Expression(IIF(aas.Data.MainData.Session.DisplayBindings, '', 'hidden')));
 
-mainView.UserControl.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "\n<div aas:control='Test'>\n\n</div>"));
+mainView.UserControl.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "\n<div aas-control='Test'>\n\n</div>"));
 mainView.TextBox.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<input name='MyText' type='text' />"));
 mainView.TextArea.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<textarea name='MyTextArea' cols='20' rows='2'></textarea>"));
 mainView.Button.click.BindCommand(aas.Services.Browser.AceClientService.InsertCode(aas.ViewName.MainView.HTMLEditor, "<input name='MyButton' type='button' value='MyButton' />"));

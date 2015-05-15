@@ -113,7 +113,7 @@ function Main() {
 
         session.SetField('CirculatingId', id);
 
-        session.SetField('Html', "<!DOCTYPE html>\n<div aas:control='Test'>\n\n</div>");
+        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
         //session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
 
         session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
@@ -173,7 +173,7 @@ function Main() {
 
                 session.SetField('CirculatingId', id);
 
-                session.SetField('Html', "<!DOCTYPE html>\n<div aas:control='Test'>\n\n</div>");
+                session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
 
                 session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
             }

@@ -120,7 +120,7 @@ Global.ClientService = {
 
        var ctrlName = control.attr('data-aasName');
        var ctrlType = control.attr('data-aasType');
-       var html = "<div aas:name='" + ctrlName + "' aas:type='" + ctrlType + "'></div>";
+       var html = "<div aas-name='" + ctrlName + "' aas-type='" + ctrlType + "'></div>";
 
        Aspectize.Host.ExecuteCommand('AceClientService.InsertCode', editorName, html);
    },
@@ -213,21 +213,24 @@ Global.ClientService = {
    //},
 
    UpdateUrl: function (id) {
-       var href = window.location.href;
 
-       var parts = href.split('/');
+       if (id) {
+           var href = window.location.href;
 
-       var newUrl = 'http://';
+           var parts = href.split('/');
 
-       for (var i = 2; i < parts.length - 1; i++) {
-           newUrl += parts[i] + '/';
+           var newUrl = 'http://';
+
+           for (var i = 2; i < parts.length - 1; i++) {
+               newUrl += parts[i] + '/';
+           }
+
+           newUrl += "id=";
+           newUrl += id;
+
+           var historyManager = Aspectize.Host.GetService('History');
+           historyManager.PushState(null, null, id, null, newUrl);  //viewName, schemaPath, id, title, url
        }
-
-       newUrl += "id=";
-       newUrl += id;
-
-       var historyManager = Aspectize.Host.GetService('History');
-       historyManager.PushState(null, null, id, null, newUrl);  //viewName, schemaPath, id, title, url
    }
 
 };

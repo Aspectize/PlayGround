@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <div aas:control="RootControl" class="container-fluid">
+    <div aas-control="RootControl" class="container-fluid">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
                 <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -26,10 +26,10 @@
                 </ul>
             </div>
         </div>
-        <div aas:name="ZoneMainContent" class="Panel row"></div>
+        <div aas-name="ZoneMainContent" class="Panel row"></div>
     </div>
 
-    <div aas:control="SideBarContent" class="col-md-12">
+    <div aas-control="SideBarContent" class="col-md-12">
         <div class="row MainDesignPanel">
             <div class="col-md-1">
                 <div class="row" style="padding-left: 3px;">
@@ -68,19 +68,19 @@
                     <div class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">HTML</div>
-                            <div aas:name="HTMLEditor" aas:type="AceEditor" class="AceEditor"></div>
+                            <div aas-name="HTMLEditor" aas-type="AceEditor" class="AceEditor"></div>
                         </div>
                     </div>
                     <div class="CssPanel FloatLeft TogglePanel ResizablePanel {DisplayCSS}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">CSS</div>
-                            <div aas:name="CSSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                            <div aas-name="CSSEditor" aas-type="AceEditor" class="AceEditor"></div>
                         </div>
                     </div>
                     <div class="JsPanel FloatLeft TogglePanel {DisplayJS}">
                         <div class="InsidePanel">
                             <div class="FloatingLabel">Javascript</div>
-                            <div aas:name="JSEditor" aas:type="AceEditor" class="AceEditor"></div>
+                            <div aas-name="JSEditor" aas-type="AceEditor" class="AceEditor"></div>
                         </div>
                     </div>
                     <div class="FloatClear"></div>
@@ -88,24 +88,24 @@
                 <div class="row BindingsPanel {DisplayBindings}">
                     <div class="InsidePanel">
                         <div class="FloatingLabel">Bindings</div>
-                        <div aas:name="BindingEditor" aas:type="AceEditor" class="AceEditor"></div>
+                        <div aas-name="BindingEditor" aas-type="AceEditor" class="AceEditor"></div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div aas:name="ZoneResult" class="Panel BottomPanel row"></div>
+        <div aas-name="ZoneResult" class="Panel BottomPanel row"></div>
     </div>
 
-    <div aas:control="EmptyControl">
+    <div aas-control="EmptyControl">
     </div>
 
-    <div aas:control="ErrorControl">
+    <div aas-control="ErrorControl">
         <div>{ErrorMessage}</div>
     </div>
 
-    <div aas:control="IFrameControl">
-        <div aas:name="IFrameApplication" aas:type="AspectizeIFrame"></div>
+    <div aas-control="IFrameControl">
+        <div aas-name="IFrameApplication" aas-type="AspectizeIFrame"></div>
     </div>
 
 </body>
