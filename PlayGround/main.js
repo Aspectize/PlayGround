@@ -130,7 +130,7 @@ function initPanel(session) {
         initResizablePanel(".CssPanel");
     }
 
-    initWidthRatio();
+    //initWidthRatio();
 
     Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
 }
