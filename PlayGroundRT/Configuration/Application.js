@@ -1,7 +1,7 @@
 
 var app = newApplication();
 
-app.Directories = "Bootstrap, GoogleExtension, JQueryExtension, TinyMce, DBLogException";
+app.Directories = "Bootstrap, GoogleExtension, JQueryExtension, TinyMce, DBLogException, Dhtmlx";
 
 var ctxData0 = newContextData();
 
