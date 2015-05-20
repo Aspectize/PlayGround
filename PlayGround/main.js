@@ -20,54 +20,95 @@ function NewSession() {
     return session;
 }
 
+function destroyResizablePanel(panel)
+{
+    var isResizable = ($(panel).children().length == 2);
+
+    if (isResizable) {
+        console.log('destroyResizablePanel: ' + panel);
+        $(panel).resizable('destroy');
+    }
+}
 
 function initResizablePanel(panel) {
 
-    $(panel).resizable({
-        handles: "e",
-        maxWidth: $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (50 * $('.TogglePanel').not('.hidden').length),
-        minWidth: 120,
-        start: function (e, ui) {
-            maxWidth = $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (50 * $('.TogglePanel').not('.hidden').length);
-            //console.log("$(this).width(): " + $(this).width() + " $(this).nextAll('.TogglePanel').not('.hidden').first().width(): " + $(this).nextAll('.TogglePanel').not('.hidden').first().width() + " $('.TogglePanel').not('.hidden').length: " + $('.TogglePanel').not('.hidden').length + " sum: " + $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (50 * $('.TogglePanel').not('.hidden').length));
-        },
-        resize: function (event, ui) {
-            var currentWidth = ui.size.width;
-            $(this).width(currentWidth);
-            $(this).nextAll('.TogglePanel').not('.hidden').first().width(maxWidth - currentWidth + (50 * $('.TogglePanel').not('.hidden').length));
-        },
-        stop: function (e, ui) {
-            var newMaxWidth = $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (50 * $('.TogglePanel').not('.hidden').length);
-            $(this).resizable("option", "maxWidth", newMaxWidth);
+    var isResizable = ($(panel).children().length == 2);
 
-            Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
+    if (!isResizable) {
+        console.log('initResizablePanel: ' + panel);
+        var constWidth;
 
-            restoreResizable();
-        }
-    });
+        $(panel).resizable({
+            handles: "e",
+            maxWidth: $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (30 * $('.TogglePanel').not('.hidden').length),
+            minWidth: 100,
+            start: function (e, ui) {
+                var contentWidth = $('.TopPanel').outerWidth();
+                maxWidth = $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (30 * $('.TogglePanel').not('.hidden').length);
+                constWidth = ($(this).outerWidth() + $(this).nextAll('.TogglePanel').not('.hidden').first().outerWidth());
+            },
+            resize: function (event, ui) {
+                var currentWidth = ui.size.width;
+                console.log('currentWidth: ' + currentWidth);
+
+                var parent = ui.element.parent();
+                var uiNext = ui.element.nextAll('.TogglePanel').not('.hidden').first();
+                var w = constWidth - ui.element.outerWidth();
+                // parent.outerWidth() * 100);
+                uiNext.css({
+                    width: w / parent.outerWidth() * 100 + "%"
+                });
+            },
+            stop: function (e, ui) {
+                var newMaxWidth = $(this).width() + $(this).nextAll('.TogglePanel').not('.hidden').first().width() - (30 * $('.TogglePanel').not('.hidden').length);
+                $(this).resizable("option", "maxWidth", newMaxWidth);
+
+                Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
+
+                restoreResizable();
+
+                var parent = ui.element.parent();
+                ui.element.css({
+                    width: (ui.element.outerWidth()) / parent.outerWidth() * 100 + "%"
+                });
+
+                var uiNext = ui.element.nextAll('.TogglePanel').not('.hidden').first();
+                var parentNext = uiNext.parent();
+                uiNext.css({
+                    width: (uiNext.outerWidth()) / parentNext.outerWidth() * 100 + "%"
+                });
+            }
+        });
+    }
 }
 
 function initPanel(session) {
-    var containerWidth = $(".FixedWidth").width();
 
     var nbPanelVisible = $('.TogglePanel').not('.hidden').length;
 
-    var initialWidth = (containerWidth / nbPanelVisible) - 10 + 'px';
+    function initWidthRatio() {
+        var containerFullWidth = $(".TopPanel").width();
+
+        var containerWidth = $(".TopPanel").width() - 18;
+
+        var initialWidthPx = (containerWidth / nbPanelVisible);
+
+        //var initialWidth = (100 / nbPanelVisible) - 3 + '%';
+        var initialWidth = (initialWidthPx / containerFullWidth) * 100;
+
+        $('.HtmlPanel').css({ width: initialWidth + '%' });
+        $('.CssPanel').css({ width: initialWidth + '%' });
+        $('.JsPanel').css({ width: initialWidth + '%' });
+    }
 
     var initialHeight = "248px";
 
-    if (nbPanelVisible == 1) {
-        $('.HtmlPanel').width(initialWidth);
-        $('.CssPanel').width(initialWidth);
-        $('.JsPanel').width(initialWidth);
-    }  else if (session.HtmlWidth) {
-        $('.HtmlPanel').width(session.HtmlWidth + 'px');
-        $('.CssPanel').width(session.CSSWidth + 'px');
-        $('.JsPanel').width(session.JsWidth + 'px');
+    if (session.HtmlWidth) {
+        $('.HtmlPanel').css({ width: session.HtmlWidth + '%'});
+        $('.CssPanel').css({ width: session.CSSWidth + '%'});
+        $('.JsPanel').css({ width: session.JsWidth + '%'});
     } else {
-        $('.HtmlPanel').width(initialWidth);
-        $('.CssPanel').width(initialWidth);
-        $('.JsPanel').width(initialWidth);
+        initWidthRatio();
     }
 
     if (session.BindingsHeight) {
@@ -85,19 +126,24 @@ function initPanel(session) {
             initResizablePanel(".HtmlPanel");
         }
     } else if (nbPanelVisible == 3) {
-        initResizablePanel(".HtmlPanel, .CssPanel");
+        initResizablePanel(".HtmlPanel");
+        initResizablePanel(".CssPanel");
     }
 
+    initWidthRatio();
+
+    Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
 }
+
 
 function restoreResizable() {
     var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
     var session = em.GetAllInstances('Session')[0];
 
-    session.SetField('HtmlWidth', $('.HtmlPanel').width());
-    session.SetField('CSSWidth', $('.CssPanel').width());
-    session.SetField('JsWidth', $('.JsPanel').width());
+    session.SetField('HtmlWidth', $('.HtmlPanel').width() / $('.HtmlPanel').parent().width() * 100);
+    session.SetField('CSSWidth', $('.CssPanel').width() / $('.CssPanel').parent().width() * 100);
+    session.SetField('JsWidth', $('.JsPanel').width() / $('.JsPanel').parent().width() * 100);
     session.SetField('BindingsHeight', $('.BindingsPanel').height());
     session.SetField('TopPanelHeight', $('.TopPanel').height());
 

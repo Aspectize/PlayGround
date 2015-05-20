@@ -69,50 +69,76 @@ Global.ClientService = {
        this.TogglePanel(name);
        var $items = $('.TogglePanel').not('.hidden');
        var nbVisible = $items.length;
-       var totalWidth = $('.TopPanel').width();
+
+       var containerFullWidth = $(".TopPanel").width();
+
+       var containerWidth = $(".TopPanel").width() - 18;
+
+       var initialWidthPx = (containerWidth / nbVisible);
+
+       var initialWidth = (initialWidthPx / containerFullWidth) * 100;
+
+       if (nbVisible == 1) initialWidth = 100;
+
        $items.each(function () {
-           $(this).width((totalWidth / nbVisible) - 10);
+           $(this).css({width: initialWidth + '%'});
        });
+
        restoreResizable();
 
-       if (nbVisibleBefore == 1 && nbVisible == 2) {
-           if (panel == 'HtmlPanel') {
-               initResizablePanel(".HtmlPanel");
-           } else if (panel == 'CssPanel') {
-               if ($(".HtmlPanel").hasClass('hidden')) {
-                   initResizablePanel(".CssPanel");
-               } else {
-                   initResizablePanel(".HtmlPanel");
-               }
-           } else if (panel == 'JsPanel') {
-               if ($(".HtmlPanel").hasClass('hidden')) {
-                   initResizablePanel(".CssPanel");
-               } else {
-                   initResizablePanel(".HtmlPanel");
-               }
-           }
-       } else if (nbVisibleBefore == 2 && nbVisible == 1) {
-           if (panel == 'HtmlPanel') {
-           } else if (panel == 'CssPanel') {
-               if (!$(".HtmlPanel").hasClass('hidden')) {
-                   $(".HtmlPanel").resizable('destroy');
-               }
-           } else if (panel == 'JsPanel') {
-               if (!$(".HtmlPanel").hasClass('hidden')) {
-                   $(".HtmlPanel").resizable('destroy');
-               } else if (!$(".CssPanel").hasClass('hidden')) {
-                   $(".CssPanel").resizable('destroy');
-               }
-           }
-       } else if (nbVisibleBefore == 3 && nbVisible == 2) {
+       if (nbVisible == 1) {
+           destroyResizablePanel(".HtmlPanel");
+           destroyResizablePanel(".CssPanel");
+       } else if (nbVisible == 2) {
            if (panel == 'JsPanel') {
-               $(".CssPanel").resizable('destroy');
-           }
-       } else if (nbVisibleBefore == 2 && nbVisible == 3) {
-           if (panel == 'JsPanel') {
+               destroyResizablePanel(".CssPanel");
+           } else {
                initResizablePanel(".CssPanel");
-           } 
+           }
+           initResizablePanel(".HtmlPanel");
+       } else if (nbVisible == 3) {
+           initResizablePanel(".HtmlPanel");
+           initResizablePanel(".CssPanel");
        }
+
+       //if (nbVisibleBefore == 1 && nbVisible == 2) {
+       //    if (panel == 'HtmlPanel') {
+       //        initResizablePanel(".HtmlPanel");
+       //    } else if (panel == 'CssPanel') {
+       //        if ($(".HtmlPanel").hasClass('hidden')) {
+       //            initResizablePanel(".CssPanel");
+       //        } else {
+       //            initResizablePanel(".HtmlPanel");
+       //        }
+       //    } else if (panel == 'JsPanel') {
+       //        if ($(".HtmlPanel").hasClass('hidden')) {
+       //            initResizablePanel(".CssPanel");
+       //        } else {
+       //            initResizablePanel(".HtmlPanel");
+       //        }
+       //    }
+       //} else if (nbVisibleBefore == 2 && nbVisible == 1) {
+       //    if (panel == 'HtmlPanel') {
+       //    } else if (panel == 'CssPanel') {
+       //        if (!$(".HtmlPanel").hasClass('hidden')) {
+       //            destroyResizablePanel(".HtmlPanel");
+       //        }
+       //    } else if (panel == 'JsPanel') {
+       //        if (!$(".HtmlPanel").hasClass('hidden')) {
+       //            destroyResizablePanel(".HtmlPanel");
+       //        } else if (!$(".CssPanel").hasClass('hidden')) {
+       //            destroyResizablePanel(".CssPanel");
+       //        }
+       //    }
+       //} else if (nbVisibleBefore == 3 && nbVisible == 2) {
+       //    if (panel == 'JsPanel') {
+       //        destroyResizablePanel(".CssPanel");
+       //    }
+       //} else if (nbVisibleBefore == 2 && nbVisible == 3) {
+       //    if (panel == 'JsPanel') {
+       //        initResizablePanel(".CssPanel");
+       //    } 
+       //}
    },
 
    InsertControlDefinition: function (editorName, controlName) {

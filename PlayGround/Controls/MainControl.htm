@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
-<html xmlns:aas="http://aspectize.com/ajax">
+<html>
 <head>
     <title>Untitled</title>
 </head>
 <body>
 
-    <div aas-control="RootControl" class="container-fluid">
+    <div aas-control="RootControl" class="container-fluid" style="padding-left: 0px;">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
                 <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -16,7 +16,7 @@
                 </button>
                 <a class="navbar-brand hidden-xs logo"><img src="../Applications/AzureHostManagerCommon/Images/HtmlCut/Logo.png"></a>
                 <span class="navbar-brand" style="color:#fff">Playground</span>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav collapse navbar-collapse">
                     <li class="active"><a name="Run"><span class="glyphicon glyphicon-play"></span> Run</a></li>
                     <li class="active"><a name="Save"><span class="glyphicon glyphicon-save"></span> Save</a></li>
                     <li class="{DisplayHTML}"><a name="DisplayHTML">HTML</a></li>
@@ -26,13 +26,13 @@
                 </ul>
             </div>
         </div>
-        <div aas-name="ZoneMainContent" class="Panel row"></div>
+        <div aas-name="ZoneMainContent" class="Panel"></div>
     </div>
 
-    <div aas-control="SideBarContent" class="col-md-12">
-        <div class="row MainDesignPanel">
-            <div class="col-md-1">
-                <div class="row" style="padding-left: 3px;">
+    <div aas-control="SideBarContent">
+        <div class="MainDesignPanel">
+            <div class="ToolPanel FloatLeft">
+                <div>
                     <a name="UserControl"><span class="badge">user control</span></a>
                     <a name="TextBox"><span class="badge">textbox</span></a>
                     <a name="TextArea"><span class="badge">textarea</span></a>
@@ -59,11 +59,11 @@
                     <a name="BootstrapGrid" class="LinkControl" data-aasname="MyBSGrid" data-aastype="Bootstrap.BootstrapGrid"><span class="badge">bootstrapgrid</span></a>
                 </div>
                 <br />
-                <div class="row" style="padding-left: 3px;">
+                <div>
                     Samples : <select name="SelectSamples"></select>
                 </div>
             </div>
-            <div class="col-md-11">
+            <div class="EditPanel FloatLeft">
                 <div class="TopPanel FixedWidth ResizablePanel">
                     <div class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
                         <div class="InsidePanel">
@@ -85,14 +85,14 @@
                     </div>
                     <div class="FloatClear"></div>
                 </div>
-                <div class="row BindingsPanel {DisplayBindings}">
+                <div class="BindingsPanel ResizablePanel {DisplayBindings}">
                     <div class="InsidePanel">
                         <div class="FloatingLabel">Bindings</div>
                         <div aas-name="BindingEditor" aas-type="AceEditor" class="AceEditor"></div>
                     </div>
                 </div>
-
             </div>
+            <div class="FloatClear"></div>
         </div>
         <div aas-name="ZoneResult" class="Panel BottomPanel row"></div>
     </div>

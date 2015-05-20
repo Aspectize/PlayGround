@@ -47,7 +47,15 @@ body {
 	z-index: 1;
 }
 
+.ToolPanel {    
+	padding-left: 3px;
+	padding-right: 5px;
+    width: 130px;
+}
 
+.EditPanel {
+	width: calc(100% - 130px);
+} 
 
 .HtmlPanel,
 .CssPanel,
