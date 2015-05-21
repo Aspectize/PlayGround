@@ -41,6 +41,12 @@ namespace PlayGroundRT
         [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
         DataSet LoadSalesOrdersHeader(int salesPersonId);
 
+        [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
+        DataSet LoadSales();
+
+        [Command(BrowserCacheDuration = "30 Days", ServerCacheDuration = "30 days")]
+        DataSet LoadEmployees();
+
     }
 
     [Service(Name = "LoadDataService")]
@@ -150,6 +156,28 @@ namespace PlayGroundRT
             relations.Add(new RoleRelationQuery<SalesOrderHeader, SalesOrderHeaderSalesReason>());
 
             dm.LoadEntitiesGraph<SalesPerson>(relations, salesPersonId);
+
+            return dm.Data;
+        }
+
+        DataSet ILoadDataService.LoadSales()
+        {
+            IDataManager dm = EntityManager.FromDataBaseService(ServiceName.ADWDB);
+
+            var relations = new List<IRoleRelationQuery>();
+
+            relations.Add(new RoleRelationQuery<SalesPerson, ContactSalesPerson>());
+
+            dm.LoadEntitiesGraphFields<SalesPerson>(EntityLoadOption.AllFields, relations);
+
+            return dm.Data;
+        }
+
+        DataSet ILoadDataService.LoadEmployees()
+        {
+            IDataManager dm = EntityManager.FromDataBaseService(ServiceName.ADWDB);
+
+            dm.LoadEntities<Employee>();
 
             return dm.Data;
         }

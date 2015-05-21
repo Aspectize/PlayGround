@@ -14,12 +14,17 @@
 
 <script src='~Bootstrap/bootstrap 3.2.0/js/bootstrap.min.js'></script>
 
-
 <link rel='stylesheet' type='text/css' href='~Bootstrap/BootstrapOverride.css' />
 
 <link rel="stylesheet" type='text/css' href="~/Styles.css">
 
-<title>Aspectize PlayGroundRT Application</title>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load('visualization', '1.0', {'packages':['annotatedtimeline', 'corechart', 'table', 'geochart', 'orgchart']});
+</script>
+
+
+<title>PlayGroundRT Application</title>
 </head>
 <body></body>
 </html>

@@ -62,6 +62,17 @@ namespace AdventureWorks.Production
 		ProductNumber
 	}
 
+	[DataDefinition(MustPersist = false)]
+	public enum EnumPageSize
+	{
+		[Description("p10")]
+		p10		 = 		10,
+		[Description("p20")]
+		p20		 = 		20,
+		[Description("p50")]
+		p50		 = 		50
+	}
+
 	[DataDefinition(PhysicalName = "UnitMeasure", PhysicalSchema = "Production")]
 	public class UnitMeasure : DataWrapper, IDataWrapper, IDatabaseEnum
 	{

@@ -86,6 +86,13 @@
         <enumItem name="ProductNumber" value="0" />
       </enumItems>
     </enumEntity>
+    <enumEntity Id="15469a8a-535c-4972-a1e3-e96deac37121" name="EnumPageSize">
+      <enumItems>
+        <enumItem name="p10" value="10" />
+        <enumItem name="p20" value="20" />
+        <enumItem name="p50" value="50" />
+      </enumItems>
+    </enumEntity>
   </enumEntities>
   <commentBoxes>
     <commentBox comment="Schema of all Entities and Relations of Database Schema &quot;Production&quot;. &#xD;&#xA;&#xD;&#xA;" />
