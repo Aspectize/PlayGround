@@ -184,18 +184,20 @@ namespace PlayGround
             //ids.Add("d6efa71d7", "Tab");
             //ids.Add("f5cbe0590", "Tab Vertical");
 
-            ids.Add("b993a0fda", "Grid with Pagination and AutoSort");
-            ids.Add("6b0f48003", "Grid with Dynamic Filter");
-            ids.Add("5bde30cec", "Grid with Group Rows");
-            ids.Add("563cd3bf8", "Grid with different types of columns");
-            ids.Add("d6b568dc5", "Grid Parent Child");
-            ids.Add("18c465ab8", "Dialog");
-            ids.Add("89567a10c", "Flyout");
-            ids.Add("b70fa4ab4", "Boostrap Grid");
-            ids.Add("c9c59964f", "Bootstrap Tab");
-            ids.Add("2008273f6", "Bootstrap Modal");
-            ids.Add("33983fc4b", "Google Table");
-            ids.Add("4d3d85ff4", "Google Line Chart");
+            //ids.Add("b993a0fda", "Grid with Pagination and AutoSort");
+            //ids.Add("6b0f48003", "Grid with Dynamic Filter");
+            //ids.Add("5bde30cec", "Grid with Group Rows");
+            //ids.Add("563cd3bf8", "Grid with different types of columns");
+            //ids.Add("d6b568dc5", "Grid Parent Child");
+            //ids.Add("18c465ab8", "Dialog");
+            //ids.Add("89567a10c", "Flyout");
+            //ids.Add("b70fa4ab4", "Boostrap Grid");
+            //ids.Add("c9c59964f", "Bootstrap Tab");
+            //ids.Add("2008273f6", "Bootstrap Modal");
+            //ids.Add("33983fc4b", "Google Table");
+            //ids.Add("4d3d85ff4", "Google Line Chart");
+
+            // en attente
             //ids.Add("a39fe7467", "JQuery DatePicker");
 
 
