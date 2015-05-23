@@ -13,10 +13,9 @@
         <entityProperty name="EmailAddress" physicalName="EmailAddress" nullable="true" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="EmailPromotion" type="Int32" physicalName="EmailPromotion" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Phone" physicalName="Phone" nullable="true" size="25" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="PasswordHash" physicalName="PasswordHash" size="128" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="PasswordSalt" physicalName="PasswordSalt" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
+        <entityProperty name="PasswordHash" physicalName="PasswordHash" nullable="true" size="128" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" serverOnly="true" />
+        <entityProperty name="PasswordSalt" physicalName="PasswordSalt" nullable="true" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" serverOnly="true" />
         <entityProperty name="AdditionalContactInfo" physicalName="AdditionalContactInfo" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -27,7 +26,6 @@
         <entityProperty name="AddressLine2" physicalName="AddressLine2" nullable="true" size="60" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="City" physicalName="City" size="30" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="PostalCode" physicalName="PostalCode" size="15" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -37,7 +35,6 @@
         <entityProperty name="StateProvinceCode" physicalName="StateProvinceCode" size="3" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="IsOnlyStateProvinceFlag" type="Boolean" physicalName="IsOnlyStateProvinceFlag" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="CountryRegionCode" type="CountryRegion" defaultValue="&quot;US&quot;" isCustomType="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="true" />
       </properties>

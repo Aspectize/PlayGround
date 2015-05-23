@@ -48,7 +48,6 @@
         <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ShipBase" type="Decimal" physicalName="ShipBase" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ShipRate" type="Decimal" physicalName="ShipRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>

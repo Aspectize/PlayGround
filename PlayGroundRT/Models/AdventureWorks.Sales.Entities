@@ -9,7 +9,6 @@
         <entityProperty name="CommissionPct" type="Decimal" physicalName="CommissionPct" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="SalesYTD" type="Decimal" physicalName="SalesYTD" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="SalesLastYear" type="Decimal" physicalName="SalesLastYear" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="QuotaHistory" type="SalesPersonQuotaHistory" physicalName="SalesPersonQuotaHistory" isCustomType="true" identity="false" isEnumType="false" isCompoType="true" isExternType="false" isEnumInBaseType="false" multiplicity="Multiple" fkNames="SalesPersonID" />
         <entityProperty name="MaxSales" type="Int32" nullable="true" mustPersist="false" expression="Max(Child(QuotaHistory).SalesQuota)" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
@@ -33,7 +32,6 @@
         <entityProperty name="Freight" type="Decimal" physicalName="Freight" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="TotalDue" type="Decimal" physicalName="TotalDue" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Comment" physicalName="Comment" nullable="true" size="128" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="SalesOrderDetails" type="SalesOrderDetail" physicalName="SalesOrderDetail" isCustomType="true" identity="false" isEnumType="false" isCompoType="true" isExternType="false" isEnumInBaseType="false" multiplicity="Multiple" fkNames="SalesOrderID" />
         <entityProperty name="NbReason" type="Int32" mustPersist="false" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
@@ -44,7 +42,6 @@
         <entityProperty name="CustomerID" type="Int32" physicalName="CustomerID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
         <entityProperty name="AccountNumber" physicalName="AccountNumber" size="10" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="CustomerType" physicalName="CustomerType" size="1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -84,7 +81,6 @@
         <entityProperty name="CustomerID" type="Int32" physicalName="CustomerID" identity="true" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" identifier="Identifier" />
         <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Demographics" physicalName="Demographics" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -118,7 +114,6 @@
         <entityProperty name="TaxType" type="Byte" physicalName="TaxType" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="TaxRate" type="Decimal" physicalName="TaxRate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="Name" physicalName="Name" size="50" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -142,7 +137,6 @@
         <entityProperty name="EndDate" type="DateTime" physicalName="EndDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="MinQty" type="Int32" physicalName="MinQty" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="MaxQty" type="Int32" physicalName="MaxQty" nullable="true" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="rowguid" type="Guid" physicalName="rowguid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <entityProperty name="ModifiedDate" type="DateTime" physicalName="ModifiedDate" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
@@ -164,7 +158,6 @@
         <compositeTypeProperty name="UnitPrice" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <compositeTypeProperty name="UnitPriceDiscount" type="Decimal" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <compositeTypeProperty name="LineTotal" type="Double" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <compositeTypeProperty name="rowguid" type="Guid" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
         <compositeTypeProperty name="ModifiedDate" type="DateTime" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </compositeType>

@@ -31,15 +31,6 @@
         <entityProperty name="JobResume" physicalName="Resume" nullable="true" size="-1" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
       </properties>
     </entity>
-    <entity Id="34bf66d5-21fd-4c88-a91b-313ee16f3b34" name="EmployeeStat" guid="77a5ac41-ea15-4c1b-ae78-e28d3b817641" mustPersist="false" hasCustomValidators="false" hasTriggers="false">
-      <properties>
-        <entityProperty name="YearMin" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="YearMax" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="NbMale" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="NbFemale" type="Int32" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-        <entityProperty name="Decade" expression="YearMin + ' - ' + YearMax" identity="false" isEnumType="false" isCompoType="false" isExternType="false" isEnumInBaseType="false" />
-      </properties>
-    </entity>
   </entities>
   <compositeTypes>
     <compositeType Id="66fdef1e-2534-478c-af50-d0eb5510c20c" name="EmployeePayHistory" guid="00000000-0000-0000-0000-000000000000">

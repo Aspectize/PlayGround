@@ -23,6 +23,21 @@
                     <li class="{DisplayCSS}"><a name="DisplayCSS">CSS</a></li>
                     <li class="{DisplayJS}"><a name="DisplayJS">Javascript</a></li>
                     <li class="{DisplayBindings}"><a name="DisplayBindings">Bindings</a></li>
+                    <li class="active"><a name="Schema">Schema</a></li>
+                    
+                    <!--
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Shema <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a name="HumanResources">HumanResources</a></li>
+                            <li><a name="Person">Person</a></li>
+                            <li><a name="Production">Production</a></li>
+                            <li><a name="Sales">Sales</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Upload</a></li>
+                        </ul>
+                    </li>
+                    -->
                 </ul>
             </div>
         </div>
@@ -106,6 +121,37 @@
 
     <div aas-control="IFrameControl">
         <div aas-name="IFrameApplication" aas-type="AspectizeIFrame"></div>
+    </div>
+
+    <div aas-control="SchemaImage" class="heightMax">
+        <ul class="nav nav-pills">
+            <li class="Sales"><a href="#Sales" data-toggle="tab">Sales</a></li>
+            <li class="HumanResources"><a href="#HumanResources" data-toggle="tab">HumanResources</a></li>
+            <li class="Person"><a href="#Person" data-toggle="tab">Person</a></li>
+            <li class="Production"><a href="#Production" data-toggle="tab">Production</a></li>
+        </ul>
+        <div class="tab-content ">
+            <div class="tab-pane heightMax Sales" id="Sales">
+                <div class="box">
+                    <img src="../Applications/PlayGround/Images/ADW-Sales.png" />
+                </div>
+            </div>
+            <div class="tab-pane heightMax HumanResources" id="HumanResources">
+                <div class="box">
+                    <img src="../Applications/PlayGround/Images/ADW-HumanResources.png" />
+                </div>
+            </div>
+            <div class="tab-pane heightMax Person" id="Person">
+                <div class="box">
+                    <img src="../Applications/PlayGround/Images/ADW-Person.png" />
+                </div>
+            </div>
+            <div class="tab-pane heightMax Production" id="Production">
+                <div class="box">
+                    <img src="../Applications/PlayGround/Images/ADW-Production.png" />
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

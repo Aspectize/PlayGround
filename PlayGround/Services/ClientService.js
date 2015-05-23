@@ -257,6 +257,36 @@ Global.ClientService = {
            var historyManager = Aspectize.Host.GetService('History');
            historyManager.PushState(null, null, id, null, newUrl);  //viewName, schemaPath, id, title, url
        }
+   },
+
+   InitDialogImage: function () {
+       var uiService = Aspectize.Host.GetService("UIService");
+
+       var activeImage = uiService.GetContextValue("ActiveImage") || 'Production';
+
+       $('#SchemaImage > ul > li.' + activeImage).addClass('active');
+       $('#SchemaImage > .tab-content > .tab-pane.' + activeImage).addClass('active');
+
+       var windowTop = uiService.GetContextValue("WindowTop") || '57px';
+       var windowLeft = uiService.GetContextValue("WindowLeft") || '278px';
+
+       var windowHeight = uiService.GetContextValue("WindowHeight") || '493px';
+       var windowWidth = uiService.GetContextValue("WindowWidth") || '923px';
+
+       $('#SchemaDialog').css({top: windowTop, left: windowLeft, width:windowWidth, height:windowHeight});
+
+   },
+
+   CloseDialogImage: function () {
+       var uiService = Aspectize.Host.GetService("UIService");
+
+       uiService.SetContextValue("ActiveImage", $('#SchemaImage > ul > li.active > a').html());
+
+       uiService.SetContextValue("WindowTop", $('#SchemaDialog').position().top);
+       uiService.SetContextValue("WindowLeft", $('#SchemaDialog').position().left);
+       uiService.SetContextValue("WindowHeight", $('#SchemaDialog').height());
+       uiService.SetContextValue("WindowWidth", $('#SchemaDialog').width());
+
    }
 
 };

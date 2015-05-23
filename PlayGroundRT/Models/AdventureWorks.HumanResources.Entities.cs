@@ -18,7 +18,6 @@ namespace AdventureWorks.HumanResources
 			public const string Employee = "Employee";
 			public const string Department = "Department";
 			public const string JobCandidate = "JobCandidate";
-			public const string EmployeeStat = "EmployeeStat";
 		}
 
 		public static partial class Relations
@@ -306,67 +305,6 @@ namespace AdventureWorks.HumanResources
 		{
 			get { return getValue<string>("JobResume"); }
 			set { setValue<string>("JobResume", value); }
-		}
-
-	}
-
-	[DataDefinition(MustPersist = false)]
-	public class EmployeeStat : Entity, IDataWrapper
-	{
-		public static partial class Fields
-		{
-			public const string Id = "Id";
-			public const string YearMin = "YearMin";
-			public const string YearMax = "YearMax";
-			public const string NbMale = "NbMale";
-			public const string NbFemale = "NbFemale";
-			public const string Decade = "Decade";
-		}
-
-		void IDataWrapper.InitData(DataRow data, string namePrefix)
-		{
-			base.InitData(data, null);
-		}
-
-		[Data(IsPrimaryKey=true)]
-		public Guid Id
-		{
-			get { return getValue<Guid>("Id"); }
-			set { setValue<Guid>("Id", value); }
-		}
-
-		[Data]
-		public int YearMin
-		{
-			get { return getValue<int>("YearMin"); }
-			set { setValue<int>("YearMin", value); }
-		}
-
-		[Data]
-		public int YearMax
-		{
-			get { return getValue<int>("YearMax"); }
-			set { setValue<int>("YearMax", value); }
-		}
-
-		[Data]
-		public int NbMale
-		{
-			get { return getValue<int>("NbMale"); }
-			set { setValue<int>("NbMale", value); }
-		}
-
-		[Data]
-		public int NbFemale
-		{
-			get { return getValue<int>("NbFemale"); }
-			set { setValue<int>("NbFemale", value); }
-		}
-
-		[Data(Expression = "YearMin + ' - ' + YearMax")]
-		public string Decade
-		{
-			get { return getValue<string>("Decade"); }
 		}
 
 	}

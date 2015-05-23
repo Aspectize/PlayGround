@@ -73,13 +73,6 @@
     </relation>
   </relations>
   <enumEntities>
-    <enumEntity Id="2987dff4-f178-4e51-8e14-77d65b1151b2" name="EnumGender">
-      <enumItems>
-        <enumItem name="H" value="0" />
-        <enumItem name="L" value="0" />
-        <enumItem name="M" value="0" />
-      </enumItems>
-    </enumEntity>
     <enumEntity Id="b53b267e-4d91-42e8-821d-44a03324c57b" name="EnumProductOrderField">
       <enumItems>
         <enumItem name="Name" value="0" />

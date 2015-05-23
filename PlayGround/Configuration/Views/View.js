@@ -10,6 +10,8 @@ rootView.DisplayCSS.BindData(aas.Expression(IIF(aas.Data.MainData.Session.Displa
 rootView.DisplayJS.BindData(aas.Expression(IIF(aas.Data.MainData.Session.DisplayJS, 'active', '')));
 rootView.DisplayBindings.BindData(aas.Expression(IIF(aas.Data.MainData.Session.DisplayBindings, 'active', '')));
 
+rootView.Schema.click.BindCommand(aas.Services.Browser.UIService.ShowView(aas.ViewName.SchemaDialog));
+
 rootView.Run.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, aas.Data.MainData.Session.Persist));
 rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, 'force'));
 
@@ -52,4 +54,11 @@ errorResult.ErrorMessage.BindData(aas.Data.MainData.Session.Log, "{:S}");
 var iFrameView = Aspectize.CreateView("IFrameResult", aas.Controls.IFrameControl, aas.Zones.MainView.ZoneResult);
 
 var emptyPanel = Aspectize.CreateView("EmptyView", aas.Controls.EmptyControl, aas.Zones.MainView.ZoneResult, true);
+
+var schemaDialog = Aspectize.CreateView("SchemaDialog", aas.Controls.Dialog);
+schemaDialog.WithCloseButton.BindData(true);
+
+var schemaImage = Aspectize.CreateView("SchemaImage", aas.Controls.SchemaImage, aas.Zones.SchemaDialog.Dialog, true);
+schemaImage.OnLoad.BindCommand(aas.Services.Browser.ClientService.InitDialogImage());
+schemaImage.OnDeactivated.BindCommand(aas.Services.Browser.ClientService.CloseDialogImage());
 

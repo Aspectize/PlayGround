@@ -743,6 +743,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\ADW-HumanResources.png" />
+    <Content Include="Images\ADW-Person.png" />
+    <Content Include="Images\ADW-Production.png" />
+    <Content Include="Images\ADW-Purchasing.png" />
+    <Content Include="Images\ADW-Sales.png" />
     <Content Include="main.js" />
   </ItemGroup>
   <ItemGroup>

@@ -162,7 +162,6 @@ namespace AdventureWorks.Person
 			public const string PasswordHash = "PasswordHash";
 			public const string PasswordSalt = "PasswordSalt";
 			public const string AdditionalContactInfo = "AdditionalContactInfo";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -241,14 +240,16 @@ namespace AdventureWorks.Person
 			set { setValue<string>("Phone", value); }
 		}
 
-		[Data(Size = 128, PhysicalName = "PasswordHash")]
+		[Data(Size = 128, IsNullable = true, PhysicalName = "PasswordHash", ServerOnly = true)]
+[System.Xml.Serialization.XmlIgnore]
 		public string PasswordHash
 		{
 			get { return getValue<string>("PasswordHash"); }
 			set { setValue<string>("PasswordHash", value); }
 		}
 
-		[Data(Size = 10, PhysicalName = "PasswordSalt")]
+		[Data(Size = 10, IsNullable = true, PhysicalName = "PasswordSalt", ServerOnly = true)]
+[System.Xml.Serialization.XmlIgnore]
 		public string PasswordSalt
 		{
 			get { return getValue<string>("PasswordSalt"); }
@@ -260,13 +261,6 @@ namespace AdventureWorks.Person
 		{
 			get { return getValue<string>("AdditionalContactInfo"); }
 			set { setValue<string>("AdditionalContactInfo", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]
@@ -288,7 +282,6 @@ namespace AdventureWorks.Person
 			public const string AddressLine2 = "AddressLine2";
 			public const string City = "City";
 			public const string PostalCode = "PostalCode";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -332,13 +325,6 @@ namespace AdventureWorks.Person
 			set { setValue<string>("PostalCode", value); }
 		}
 
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
-		}
-
 		[Data(PhysicalName = "ModifiedDate")]
 		public DateTime ModifiedDate
 		{
@@ -357,7 +343,6 @@ namespace AdventureWorks.Person
 			public const string StateProvinceCode = "StateProvinceCode";
 			public const string IsOnlyStateProvinceFlag = "IsOnlyStateProvinceFlag";
 			public const string Name = "Name";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 			public const string CountryRegionCode = "CountryRegionCode";
 		}
@@ -394,13 +379,6 @@ namespace AdventureWorks.Person
 		{
 			get { return getValue<string>("Name"); }
 			set { setValue<string>("Name", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]

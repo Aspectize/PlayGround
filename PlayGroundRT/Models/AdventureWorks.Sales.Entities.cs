@@ -145,13 +145,6 @@ namespace AdventureWorks.Sales
 		}
 
 		[Data]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
-		}
-
-		[Data]
 		public DateTime ModifiedDate
 		{
 			get { return getValue<DateTime>("ModifiedDate"); }
@@ -170,7 +163,6 @@ namespace AdventureWorks.Sales
 			public const string CommissionPct = "CommissionPct";
 			public const string SalesYTD = "SalesYTD";
 			public const string SalesLastYear = "SalesLastYear";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 			public const string QuotaHistory = "QuotaHistory";
 			public const string MaxSales = "MaxSales";
@@ -225,13 +217,6 @@ namespace AdventureWorks.Sales
 			set { setValue<decimal>("SalesLastYear", value); }
 		}
 
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
-		}
-
 		[Data(PhysicalName = "ModifiedDate")]
 		public DateTime ModifiedDate
 		{
@@ -271,7 +256,6 @@ namespace AdventureWorks.Sales
 			public const string Freight = "Freight";
 			public const string TotalDue = "TotalDue";
 			public const string Comment = "Comment";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 			public const string SalesOrderDetails = "SalesOrderDetails";
 			public const string NbReason = "NbReason";
@@ -396,13 +380,6 @@ namespace AdventureWorks.Sales
 			set { setValue<string>("Comment", value); }
 		}
 
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
-		}
-
 		[Data(PhysicalName = "ModifiedDate")]
 		public DateTime ModifiedDate
 		{
@@ -430,7 +407,6 @@ namespace AdventureWorks.Sales
 			public const string CustomerID = "CustomerID";
 			public const string AccountNumber = "AccountNumber";
 			public const string CustomerType = "CustomerType";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -458,13 +434,6 @@ namespace AdventureWorks.Sales
 		{
 			get { return getValue<string>("CustomerType"); }
 			set { setValue<string>("CustomerType", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]
@@ -678,7 +647,6 @@ namespace AdventureWorks.Sales
 			public const string CustomerID = "CustomerID";
 			public const string Name = "Name";
 			public const string Demographics = "Demographics";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -706,13 +674,6 @@ namespace AdventureWorks.Sales
 		{
 			get { return getValue<string>("Demographics"); }
 			set { setValue<string>("Demographics", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]
@@ -871,7 +832,6 @@ namespace AdventureWorks.Sales
 			public const string TaxType = "TaxType";
 			public const string TaxRate = "TaxRate";
 			public const string Name = "Name";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -906,13 +866,6 @@ namespace AdventureWorks.Sales
 		{
 			get { return getValue<string>("Name"); }
 			set { setValue<string>("Name", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]
@@ -992,7 +945,6 @@ namespace AdventureWorks.Sales
 			public const string EndDate = "EndDate";
 			public const string MinQty = "MinQty";
 			public const string MaxQty = "MaxQty";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -1062,13 +1014,6 @@ namespace AdventureWorks.Sales
 		{
 			get { return getValue<int?>("MaxQty"); }
 			set { setValue<int?>("MaxQty", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]

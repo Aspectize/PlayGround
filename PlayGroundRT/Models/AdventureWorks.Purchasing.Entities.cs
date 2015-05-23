@@ -323,7 +323,6 @@ namespace AdventureWorks.Purchasing
 			public const string Name = "Name";
 			public const string ShipBase = "ShipBase";
 			public const string ShipRate = "ShipRate";
-			public const string rowguid = "rowguid";
 			public const string ModifiedDate = "ModifiedDate";
 		}
 
@@ -358,13 +357,6 @@ namespace AdventureWorks.Purchasing
 		{
 			get { return getValue<decimal>("ShipRate"); }
 			set { setValue<decimal>("ShipRate", value); }
-		}
-
-		[Data(PhysicalName = "rowguid")]
-		public Guid rowguid
-		{
-			get { return getValue<Guid>("rowguid"); }
-			set { setValue<Guid>("rowguid", value); }
 		}
 
 		[Data(PhysicalName = "ModifiedDate")]

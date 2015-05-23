@@ -43,17 +43,6 @@ namespace AdventureWorks.Production
 
 
 	[DataDefinition(MustPersist = false)]
-	public enum EnumGender
-	{
-		[Description("H")]
-		H,
-		[Description("L")]
-		L,
-		[Description("M")]
-		M
-	}
-
-	[DataDefinition(MustPersist = false)]
 	public enum EnumProductOrderField
 	{
 		[Description("Name")]
