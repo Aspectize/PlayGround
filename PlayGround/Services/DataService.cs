@@ -196,12 +196,12 @@ namespace PlayGround
             //ids.Add("2008273f6", "Bootstrap Modal");
             //ids.Add("33983fc4b", "Google Table");
             //ids.Add("4d3d85ff4", "Google Line Chart");
+            //ids.Add("35e424ca9", "Hide or show if Data");
+            //ids.Add("c665ff5ea", "Data Validation Demo");
 
             // en attente
             //ids.Add("a39fe7467", "JQuery DatePicker");
             //ids.Add("8767a7cbd", "Bind Data Demo");
-            ids.Add("35e424ca9", "Hide or show if Data");
-            ids.Add("c665ff5ea", "Data Validation Demo");
 
 
             foreach (KeyValuePair<string, string> kvp in ids)
