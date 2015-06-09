@@ -45,6 +45,8 @@ Global.ClientService = {
                restoreResizable();
 
                That.DisplayResult(id, session.Log);
+
+               $('[data-toggle="popover"]').popover('hide');
            };
 
            cmd.Call('Server/DataService.LoadSession', id);

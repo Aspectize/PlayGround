@@ -203,6 +203,7 @@ namespace PlayGround
             //ids.Add("a39fe7467", "JQuery DatePicker");
             //ids.Add("8767a7cbd", "Bind Data Demo");
 
+            ids.Add("63145b6c5", "Bootstrap Modal");
 
             foreach (KeyValuePair<string, string> kvp in ids)
             {

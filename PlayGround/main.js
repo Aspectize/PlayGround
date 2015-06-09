@@ -190,6 +190,22 @@ function Main() {
         initPanel(session);
     }
 
+    $('[data-toggle="popover"]').popover({
+        placement: 'bottom',
+        animation: true,
+        trigger: 'manual', //<--- you need a trigger other than manual
+        delay: {
+            show: "500",
+            hide: "100"
+        }
+    });
+
+    setTimeout(function () {
+        $('[data-toggle="popover"]').popover('show');
+    }, 1000);
+
+    //$('[data-toggle="popover"]').popover('show');
+
     $(".TopPanel, .BindingsPanel").resizable({
         handles: "s",
         minHeight: 120,

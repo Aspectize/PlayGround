@@ -27,6 +27,21 @@
 <link rel="stylesheet" type='text/css' href="~/Styles.css">
 
 <title>PlayGround</title>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35237028-2']);
+      _gaq.push(['_trackPageview', '/PlayGround']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      
+    </script>
+
 </head>
 <body></body>
 </html>
