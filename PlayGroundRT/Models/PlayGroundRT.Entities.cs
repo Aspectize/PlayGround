@@ -37,6 +37,7 @@ namespace PLayGroundRT
 			public const string JSView = "JSView";
 			public const string JSLibrary = "JSLibrary";
 			public const string css = "css";
+			public const string MainJS = "MainJS";
 		}
 
 		void IDataWrapper.InitData(DataRow data, string namePrefix)
@@ -77,6 +78,13 @@ namespace PLayGroundRT
 		{
 			get { return getValue<string>("css"); }
 			set { setValue<string>("css", value); }
+		}
+
+		[Data(DefaultValue = "")]
+		public string MainJS
+		{
+			get { return getValue<string>("MainJS"); }
+			set { setValue<string>("MainJS", value); }
 		}
 
 	}

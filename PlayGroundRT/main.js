@@ -125,11 +125,13 @@ var SpecialInit = (function () {
 
                     var cmdLib = info.ApplicationUrl + initSvcName + '.LoadJsLibrary' + cmdExt;
                     var cmdViews = info.ApplicationUrl + initSvcName + '.LoadJsViews' + cmdExt;
+                    var cmdMain = info.ApplicationUrl + initSvcName + '.LoadMain' + cmdExt;
 
                     var scriptMan = newScriptManager();
 
                     scriptMan.Load(cmdLib);
                     scriptMan.Load(cmdViews);
+                    scriptMan.Load(cmdMain);
 
                     scriptMan.Then(next);
                 }
@@ -147,14 +149,14 @@ function Main() {
 
     SpecialInit("AppInitService", function () {
 
-        var mainView = Aspectize.Host.InitApplication();
+        //Aspectize.Host.InitApplication();
+        //Aspectize.Host.ActivateViewByName('MainView');
+        sMain();
 
         var style = document.createElement('style');
         style.type = 'text/css';
         style.innerHTML = Aspectize.Host.ExecuteCommand('Server/AppInitService.LoadCSS', Aspectize.Host.UrlArgs.Id);
         document.getElementsByTagName('head')[0].appendChild(style);
-
-        Aspectize.Host.ActivateViewByName('MainView');
     });
 
 }

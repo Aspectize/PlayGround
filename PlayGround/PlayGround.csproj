@@ -1349,6 +1349,7 @@
     <Content Include="Configuration\Services\Service.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Configuration\Views\Welcome.js" />
     <Content Include="Controls\MainControl.htm" />
   </ItemGroup>
   <ItemGroup>
@@ -1377,6 +1378,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\WelcomeControl.htm" />
     <Content Include="Images\ADW-HumanResources.png" />
     <Content Include="Images\ADW-Person.png" />
     <Content Include="Images\ADW-Production.png" />

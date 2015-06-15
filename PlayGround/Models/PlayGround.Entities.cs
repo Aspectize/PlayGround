@@ -82,14 +82,17 @@ namespace PlayGround
 			public const string HtmlControlInfoJSON = "HtmlControlInfoJSON";
 			public const string JSView = "JSView";
 			public const string JSLibrary = "JSLibrary";
+			public const string MainJS = "MainJS";
 			public const string Log = "Log";
 			public const string DisplayCSS = "DisplayCSS";
 			public const string DisplayHTML = "DisplayHTML";
 			public const string DisplayJS = "DisplayJS";
+			public const string DisplayMain = "DisplayMain";
 			public const string DisplayBindings = "DisplayBindings";
 			public const string HtmlWidth = "HtmlWidth";
 			public const string CSSWidth = "CSSWidth";
 			public const string JsWidth = "JsWidth";
+			public const string MainWidth = "MainWidth";
 			public const string BindingsHeight = "BindingsHeight";
 			public const string TopPanelHeight = "TopPanelHeight";
 		}
@@ -170,6 +173,13 @@ namespace PlayGround
 		}
 
 		[Data(DefaultValue = "")]
+		public string MainJS
+		{
+			get { return getValue<string>("MainJS"); }
+			set { setValue<string>("MainJS", value); }
+		}
+
+		[Data(DefaultValue = "")]
 		public string Log
 		{
 			get { return getValue<string>("Log"); }
@@ -198,6 +208,13 @@ namespace PlayGround
 		}
 
 		[Data(DefaultValue = true)]
+		public bool DisplayMain
+		{
+			get { return getValue<bool>("DisplayMain"); }
+			set { setValue<bool>("DisplayMain", value); }
+		}
+
+		[Data(DefaultValue = true)]
 		public bool DisplayBindings
 		{
 			get { return getValue<bool>("DisplayBindings"); }
@@ -223,6 +240,13 @@ namespace PlayGround
 		{
 			get { return getValue<decimal>("JsWidth"); }
 			set { setValue<decimal>("JsWidth", value); }
+		}
+
+		[Data]
+		public decimal MainWidth
+		{
+			get { return getValue<decimal>("MainWidth"); }
+			set { setValue<decimal>("MainWidth", value); }
 		}
 
 		[Data]

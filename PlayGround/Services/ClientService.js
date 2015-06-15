@@ -7,11 +7,24 @@ Global.ClientService = {
    aasCommandAttributes: { GetSession: { CanExecuteOnStart: true } },
    MainData: 'MainData',
 
+   InitWelcome: function() {
+       //Aspectize.Host.ExecuteCommand('UIService.SetModalView', 'HTMLEditor', true);
+       //$('#aasModalWait').addClass('aasModalBackground');
+       Aspectize.Host.ExecuteCommand('UIService.ShowView', 'Welcome');
+       Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+       $('#Welcome').addClass('aasActive').removeClass('aasNotActive');
+   },
+
    ResizeAllEditors: function() {
-       ace.edit('MainView-HTMLEditor').resize();
-       ace.edit('MainView-CSSEditor').resize();
-       ace.edit('MainView-JSEditor').resize();
-       ace.edit('MainView-BindingEditor').resize();
+       ace.edit('HTMLEditor-Editor').resize();
+       ace.edit('CSSEditor-Editor').resize();
+       ace.edit('JSEditor-Editor').resize();
+       ace.edit('BindingEditor-Editor').resize();
+
+       //ace.edit('MainView-HTMLEditor').resize();
+       //ace.edit('MainView-CSSEditor').resize();
+       //ace.edit('MainView-JSEditor').resize();
+       //ace.edit('MainView-BindingEditor').resize();
    },
 
    GetSession: function (id) {
@@ -103,44 +116,6 @@ Global.ClientService = {
            initResizablePanel(".CssPanel");
        }
 
-       //if (nbVisibleBefore == 1 && nbVisible == 2) {
-       //    if (panel == 'HtmlPanel') {
-       //        initResizablePanel(".HtmlPanel");
-       //    } else if (panel == 'CssPanel') {
-       //        if ($(".HtmlPanel").hasClass('hidden')) {
-       //            initResizablePanel(".CssPanel");
-       //        } else {
-       //            initResizablePanel(".HtmlPanel");
-       //        }
-       //    } else if (panel == 'JsPanel') {
-       //        if ($(".HtmlPanel").hasClass('hidden')) {
-       //            initResizablePanel(".CssPanel");
-       //        } else {
-       //            initResizablePanel(".HtmlPanel");
-       //        }
-       //    }
-       //} else if (nbVisibleBefore == 2 && nbVisible == 1) {
-       //    if (panel == 'HtmlPanel') {
-       //    } else if (panel == 'CssPanel') {
-       //        if (!$(".HtmlPanel").hasClass('hidden')) {
-       //            destroyResizablePanel(".HtmlPanel");
-       //        }
-       //    } else if (panel == 'JsPanel') {
-       //        if (!$(".HtmlPanel").hasClass('hidden')) {
-       //            destroyResizablePanel(".HtmlPanel");
-       //        } else if (!$(".CssPanel").hasClass('hidden')) {
-       //            destroyResizablePanel(".CssPanel");
-       //        }
-       //    }
-       //} else if (nbVisibleBefore == 3 && nbVisible == 2) {
-       //    if (panel == 'JsPanel') {
-       //        destroyResizablePanel(".CssPanel");
-       //    }
-       //} else if (nbVisibleBefore == 2 && nbVisible == 3) {
-       //    if (panel == 'JsPanel') {
-       //        initResizablePanel(".CssPanel");
-       //    } 
-       //}
    },
 
    InsertControlDefinition: function (editorName, controlName) {
@@ -198,6 +173,26 @@ Global.ClientService = {
 
    },
 
+   BuildUrlRT: function(id) {
+       var href = window.location.href;
+
+       var parts = href.split('/');
+
+       parts[parts.length - 2] += 'RT';
+
+       var UrlRT = 'http://';
+
+       for (var i = 2; i < parts.length - 1; i++) {
+           UrlRT += parts[i] + '/';
+       }
+
+       UrlRT += "app.ashx?@Id=";
+       UrlRT += id;
+
+       return UrlRT;
+
+   },
+
    DisplayResult: function(id, log) {
        var uiService = Aspectize.Host.GetService("UIService");
 
@@ -207,21 +202,23 @@ Global.ClientService = {
 
            Aspectize.StartShowWaiting();
 
-           var href = window.location.href;
+           //var href = window.location.href;
 
-           var parts = href.split('/');
+           //var parts = href.split('/');
 
-           parts[parts.length - 2] += 'RT';
+           //parts[parts.length - 2] += 'RT';
 
-           var UrlRT = 'http://';
+           //var UrlRT = 'http://';
 
-           for (var i = 2; i < parts.length - 1; i++) {
-               UrlRT += parts[i] + '/';
-           }
+           //for (var i = 2; i < parts.length - 1; i++) {
+           //    UrlRT += parts[i] + '/';
+           //}
 
-           UrlRT += "app.ashx?@Id=";
-           UrlRT += id;
+           //UrlRT += "app.ashx?@Id=";
+           //UrlRT += id;
            //var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
+
+           var UrlRT = this.BuildUrlRT(id);
 
            uiService.ShowView("IFrameResult");
 

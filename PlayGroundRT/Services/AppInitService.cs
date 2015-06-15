@@ -23,6 +23,7 @@ namespace PlayGroundRT {
         string LoadJsViews([DefaultValueAttribute("Missing")] string versionKey);
         string LoadJsLibrary([DefaultValueAttribute("Missing")] string versionKey);
         string LoadCSS(string versionKey);
+        string LoadMain(string versionKey);
     }
 
     [Service(Name = "AppInitService")]
@@ -125,6 +126,28 @@ namespace PlayGroundRT {
                 return cachedSession.css;
             }
             else return "";
+
+        }
+
+        string IAppInitService.LoadMain(string versionKey)
+        {
+            var s = @"function sMain() {
+                Aspectize.Host.InitApplication(); 
+                Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+            }";
+
+            if (!string.IsNullOrEmpty(versionKey))
+            {
+                var cachedSession = getSession(versionKey);
+
+                if (!string.IsNullOrEmpty(cachedSession.MainJS) && cachedSession.MainJS.Contains("Main()"))
+                {
+                    var specialMain = cachedSession.MainJS.Replace("Main()", "sMain()");
+                    return specialMain;
+                }
+            }
+
+            return s;
 
         }
 

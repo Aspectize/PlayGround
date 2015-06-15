@@ -13,9 +13,11 @@ function NewSession() {
     session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
     //session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
 
-    session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
+    session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   aasPublished:true,\n\n   MyCommand: function () {\n\n   }\n};");
+
+    session.SetField('MainJS', "function Main() { \n  Aspectize.Host.InitApplication(); \n  Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n }");
 
     return session;
 }
@@ -169,42 +171,26 @@ function Main() {
     Aspectize.Host.ActivateViewByName('MainView');
 
     if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
-        //session = em.GetAllInstances('Session')[0];
+        
     } else {
-
         session = NewSession();
-
-        //var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
-        //var id = newGuid.substring(1, 10);
-
-        //session = em.CreateInstance('Session', { Id: id });
-
-        //session.SetField('CirculatingId', id);
-
-        //session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
-        ////session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
-
-        //session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
-        //session.SetField('Bindings', 'var test = Aspectize.CreateView("MainView", aas.Controls.Test);\n\ntest.myLink.click.BindCommand(aas.Services.Browser.SystemServices.Alert("coucou"));');
 
         initPanel(session);
     }
 
-    $('[data-toggle="popover"]').popover({
-        placement: 'bottom',
-        animation: true,
-        trigger: 'manual', //<--- you need a trigger other than manual
-        delay: {
-            show: "500",
-            hide: "100"
-        }
-    });
+    //$('[data-toggle="popover"]').popover({
+    //    placement: 'bottom',
+    //    animation: true,
+    //    trigger: 'manual', //<--- you need a trigger other than manual
+    //    delay: {
+    //        show: "500",
+    //        hide: "100"
+    //    }
+    //});
 
-    setTimeout(function () {
-        $('[data-toggle="popover"]').popover('show');
-    }, 1000);
-
-    //$('[data-toggle="popover"]').popover('show');
+    //setTimeout(function () {
+    //    $('[data-toggle="popover"]').popover('show');
+    //}, 1000);
 
     $(".TopPanel, .BindingsPanel").resizable({
         handles: "s",
@@ -226,13 +212,9 @@ function Main() {
         }
     });
 
-    //initResizablePanel(".HtmlPanel, .CssPanel");
-
     $(".LinkControl").on('click', function () {
-        Aspectize.Host.ExecuteCommand('ClientService.InsertControlDefinition', 'MainView-HTMLEditor', $(this).attr('id'));
+        Aspectize.Host.ExecuteCommand('ClientService.InsertControlDefinition', 'HTMLEditor-Editor', $(this).attr('id'));
     });
-
-
 
     Aspectize.InitializeHistoryManager(function (state) {
 
@@ -251,21 +233,11 @@ function Main() {
                 }
 
                 var session = NewSession();
-
-                //var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
-                //var id = newGuid.substring(1, 10);
-
-                //var session = em.CreateInstance('Session', { Id: id });
-
-                //session.SetField('CirculatingId', id);
-
-                //session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
-
-                //session.SetField('Bindings', "var test = Aspectize.CreateView('MainView', aas.Controls.Test);");
             }
         }
     });
 
+    //Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
 }
 
 function OnApplicationEnd() {
