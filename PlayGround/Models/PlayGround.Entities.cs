@@ -186,7 +186,7 @@ namespace PlayGround
 			set { setValue<string>("Log", value); }
 		}
 
-		[Data(DefaultValue = true)]
+		[Data(DefaultValue = false)]
 		public bool DisplayCSS
 		{
 			get { return getValue<bool>("DisplayCSS"); }
@@ -200,7 +200,7 @@ namespace PlayGround
 			set { setValue<bool>("DisplayHTML", value); }
 		}
 
-		[Data(DefaultValue = true)]
+		[Data(DefaultValue = false)]
 		public bool DisplayJS
 		{
 			get { return getValue<bool>("DisplayJS"); }

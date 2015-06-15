@@ -15,6 +15,7 @@ namespace PlayGround
 
         DataSet LoadSamples();
 
+        void InitMainSession();
         void PrepareSamples();
     }
 
@@ -157,6 +158,35 @@ namespace PlayGround
             return dm.Data;
         }
 
+        void IDataService.InitMainSession()
+        {
+            IDataManager dm = EntityManager.FromDataBaseService("MyDataService");
+
+            IEntityManager em = dm as IEntityManager;
+
+            var s = @"function Main() {
+    Aspectize.Host.InitApplication(); 
+    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+}";
+
+            dm.LoadDatabaseEnum<EnumInBaseSample>();
+            dm.LoadEntities<Session>();
+
+            foreach(Session session in em.GetAllInstances<Session>())
+            {
+                //session.DisplayMain = true;
+
+                //session.MainJS = s;
+
+                if (em.GetAllInstances<EnumInBaseSample>().Exists(item => item.Id == session.Id))
+                {
+                    session.Persist = true;
+                }
+            }
+
+            dm.SaveTransactional();
+        }
+
         void IDataService.PrepareSamples()
         {
             IDataManager dm = EntityManager.FromDataBaseService("MyDataService");
@@ -203,7 +233,7 @@ namespace PlayGround
             //ids.Add("a39fe7467", "JQuery DatePicker");
             //ids.Add("8767a7cbd", "Bind Data Demo");
 
-            ids.Add("63145b6c5", "Bootstrap Modal");
+            //ids.Add("63145b6c5", "Bootstrap Modal");
 
             foreach (KeyValuePair<string, string> kvp in ids)
             {

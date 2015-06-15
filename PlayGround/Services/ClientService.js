@@ -17,14 +17,10 @@ Global.ClientService = {
 
    ResizeAllEditors: function() {
        ace.edit('HTMLEditor-Editor').resize();
+       ace.edit('MainEditor-Editor').resize();
        ace.edit('CSSEditor-Editor').resize();
        ace.edit('JSEditor-Editor').resize();
        ace.edit('BindingEditor-Editor').resize();
-
-       //ace.edit('MainView-HTMLEditor').resize();
-       //ace.edit('MainView-CSSEditor').resize();
-       //ace.edit('MainView-JSEditor').resize();
-       //ace.edit('MainView-BindingEditor').resize();
    },
 
    GetSession: function (id) {
@@ -79,10 +75,14 @@ Global.ClientService = {
 
        var nbVisibleBefore = $('.TogglePanel').not('.hidden').length;
 
+       // si 1 seul panel visible, et c'est celui là qu'on cache: ne rien faire
        if (nbVisibleBefore == 1 && !$('.' + panel).hasClass('hidden')) return;
 
+       // afficher le panel
        this.TogglePanel(name);
+
        var $items = $('.TogglePanel').not('.hidden');
+
        var nbVisible = $items.length;
 
        var containerFullWidth = $(".TopPanel").width();
@@ -101,20 +101,34 @@ Global.ClientService = {
 
        restoreResizable();
 
-       if (nbVisible == 1) {
-           destroyResizablePanel(".HtmlPanel");
-           destroyResizablePanel(".CssPanel");
-       } else if (nbVisible == 2) {
-           if (panel == 'JsPanel') {
-               destroyResizablePanel(".CssPanel");
+       $items.each(function () {
+           if (!$(this).hasClass('hidden') && $(this).next('.TogglePanel').not('.hidden').length > 0) {
+               initResizablePanel($(this));
            } else {
-               initResizablePanel(".CssPanel");
+               destroyResizablePanel($(this));
            }
-           initResizablePanel(".HtmlPanel");
-       } else if (nbVisible == 3) {
-           initResizablePanel(".HtmlPanel");
-           initResizablePanel(".CssPanel");
-       }
+       });
+
+       //if (nbVisible == 1) {
+       //    destroyResizablePanel(".HtmlPanel");
+       //    destroyResizablePanel(".MainPanel");
+       //    destroyResizablePanel(".CssPanel");
+       //} 
+
+       //if (nbVisible == 1) {
+       //    destroyResizablePanel(".HtmlPanel");
+       //    destroyResizablePanel(".CssPanel");
+       //} else if (nbVisible == 2) {
+       //    if (panel == 'JsPanel') {
+       //        destroyResizablePanel(".CssPanel");
+       //    } else {
+       //        initResizablePanel(".CssPanel");
+       //    }
+       //    initResizablePanel(".HtmlPanel");
+       //} else if (nbVisible == 3) {
+       //    initResizablePanel(".HtmlPanel");
+       //    initResizablePanel(".CssPanel");
+       //}
 
    },
 
@@ -202,22 +216,6 @@ Global.ClientService = {
 
            Aspectize.StartShowWaiting();
 
-           //var href = window.location.href;
-
-           //var parts = href.split('/');
-
-           //parts[parts.length - 2] += 'RT';
-
-           //var UrlRT = 'http://';
-
-           //for (var i = 2; i < parts.length - 1; i++) {
-           //    UrlRT += parts[i] + '/';
-           //}
-
-           //UrlRT += "app.ashx?@Id=";
-           //UrlRT += id;
-           //var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
-
            var UrlRT = this.BuildUrlRT(id);
 
            uiService.ShowView("IFrameResult");
@@ -228,14 +226,6 @@ Global.ClientService = {
        }
 
    },
-
-   //SetIFrameUrl: function (iframe, id) {
-   //    var uiService = Aspectize.Host.GetService("UIService");
-
-   //    var url = "http://localhost/WebHost/PlayGroundRT/app.ashx?@Id=" + id;
-
-   //    uiService.SetControlProperty(iframe, "Url", url);
-   //},
 
    UpdateUrl: function (id) {
 

@@ -20,6 +20,7 @@
                     <li class="active"><a name="Run"><span class="glyphicon glyphicon-play"></span> Run</a></li>
                     <li class="active"><a name="Save"><span class="glyphicon glyphicon-save"></span> Save</a></li>
                     <li class="{DisplayHTML}"><a name="DisplayHTML">HTML</a></li>
+                    <li class="{DisplayMain}"><a name="DisplayMain">Main</a></li>
                     <li class="{DisplayCSS}"><a name="DisplayCSS">CSS</a></li>
                     <li class="{DisplayJS}"><a name="DisplayJS">Javascript</a></li>
                     <li class="{DisplayBindings}"><a name="DisplayBindings">Bindings</a></li>
@@ -64,7 +65,7 @@
                 </div>
                 <br />
                 <div>
-                    Samples : <select name="SelectSamples" data-toggle="popover" data-content="Try different samples"></select>
+                    Samples : <select name="SelectSamples"></select>
                 </div>
             </div>
             <div class="EditPanel FloatLeft">
@@ -72,19 +73,14 @@
                     <div class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
                         <div aas-name="ZoneHtml" aas-type="Panel"></div>
                     </div>
+                    <div class="MainPanel FloatLeft TogglePanel ResizablePanel {DisplayMain}">
+                        <div aas-name="ZoneMain" aas-type="Panel"></div>
+                    </div>
                     <div class="CssPanel FloatLeft TogglePanel ResizablePanel {DisplayCSS}">
                         <div aas-name="ZoneCSS" aas-type="Panel"></div>
-                        <!--<div class="InsidePanel">
-                            <div class="FloatingLabel">CSS</div>
-                            <div aas-name="CSSEditor" aas-type="AceEditor" class="AceEditor"></div>
-                        </div>-->
                     </div>
                     <div class="JsPanel FloatLeft TogglePanel {DisplayJS}">
                         <div aas-name="ZoneJS" aas-type="Panel"></div>
-                        <!--<div class="InsidePanel">
-                            <div class="FloatingLabel">Javascript</div>
-                            <div aas-name="JSEditor" aas-type="AceEditor" class="AceEditor"></div>
-                        </div>-->
                     </div>
                     <div class="FloatClear"></div>
                 </div>

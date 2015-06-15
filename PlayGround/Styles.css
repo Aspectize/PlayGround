@@ -58,6 +58,7 @@ body {
 } 
 
 .HtmlPanel,
+.MainPanel,
 .CssPanel,
 .JsPanel,
 .BindingsPanel {
@@ -78,13 +79,16 @@ body {
 }
 
 .HtmlPanel,
+.MainPanel,
 .CssPanel,
 .JsPanel,
 .ZoneHtml,
+.ZoneMain,
 .ZoneCSS,
 .ZoneJS,
 .ZoneBindings,
 #HTMLEditor,
+#MainEditor,
 #CSSEditor,
 #JSEditor,
 #BindingEditor {

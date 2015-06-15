@@ -10,14 +10,13 @@ function NewSession() {
 
     session.SetField('CirculatingId', id);
 
-    session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n\n</div>");
-    //session.SetField('Html', '<!DOCTYPE html>\n<div aas:control="Test">\n\t<a name="myLink">xxxx</a>\n</div>');
+    session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n</div>");
 
     session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   aasPublished:true,\n\n   MyCommand: function () {\n\n   }\n};");
 
-    session.SetField('MainJS', "function Main() { \n  Aspectize.Host.InitApplication(); \n  Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n }");
+    session.SetField('MainJS', "function Main() { \n    Aspectize.Host.InitApplication(); \n\n    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n}");
 
     return session;
 }
@@ -37,7 +36,7 @@ function initResizablePanel(panel) {
     var isResizable = ($(panel).children().length == 2);
 
     if (!isResizable) {
-        console.log('initResizablePanel: ' + panel);
+        //console.log('initResizablePanel: ' + panel);
         var constWidth;
 
         $(panel).resizable({
@@ -51,7 +50,7 @@ function initResizablePanel(panel) {
             },
             resize: function (event, ui) {
                 var currentWidth = ui.size.width;
-                console.log('currentWidth: ' + currentWidth);
+                //console.log('currentWidth: ' + currentWidth);
 
                 var parent = ui.element.parent();
                 var uiNext = ui.element.nextAll('.TogglePanel').not('.hidden').first();
@@ -86,31 +85,29 @@ function initResizablePanel(panel) {
 
 function initPanel(session) {
 
-    var nbPanelVisible = $('.TogglePanel').not('.hidden').length;
+    var $items = $('.TogglePanel').not('.hidden');
 
-    function initWidthRatio() {
+    var nbPanelVisible = $items.length;
+
+    var initialHeight = "248px";
+
+    if (session.HtmlWidth) {
+        $('.HtmlPanel').css({ width: session.HtmlWidth + '%'});
+        $('.MainPanel').css({ width: session.MainWidth + '%' });
+        $('.CssPanel').css({ width: session.CSSWidth + '%' });
+        $('.JsPanel').css({ width: session.JsWidth + '%'});
+    } else {
         var containerFullWidth = $(".TopPanel").width();
 
         var containerWidth = $(".TopPanel").width() - 18;
 
         var initialWidthPx = (containerWidth / nbPanelVisible);
 
-        //var initialWidth = (100 / nbPanelVisible) - 3 + '%';
         var initialWidth = (initialWidthPx / containerFullWidth) * 100;
 
-        $('.HtmlPanel').css({ width: initialWidth + '%' });
-        $('.CssPanel').css({ width: initialWidth + '%' });
-        $('.JsPanel').css({ width: initialWidth + '%' });
-    }
-
-    var initialHeight = "248px";
-
-    if (session.HtmlWidth) {
-        $('.HtmlPanel').css({ width: session.HtmlWidth + '%'});
-        $('.CssPanel').css({ width: session.CSSWidth + '%'});
-        $('.JsPanel').css({ width: session.JsWidth + '%'});
-    } else {
-        initWidthRatio();
+        $items.each(function () {
+            $(this).css({ width: initialWidth + '%' });
+        });
     }
 
     if (session.BindingsHeight) {
@@ -121,18 +118,22 @@ function initPanel(session) {
         $(".TopPanel").height(initialHeight)
     }
 
-    if (nbPanelVisible == 2) {
-        if ($(".HtmlPanel").hasClass('hidden')) {
-            initResizablePanel(".CssPanel");
-        } else {
-            initResizablePanel(".HtmlPanel");
+    $items.each(function () {
+        if (!$(this).hasClass('hidden') && $(this).next('.TogglePanel').not('.hidden').length > 0) {
+            initResizablePanel($(this));
         }
-    } else if (nbPanelVisible == 3) {
-        initResizablePanel(".HtmlPanel");
-        initResizablePanel(".CssPanel");
-    }
+    });
 
-    //initWidthRatio();
+    //if (nbPanelVisible == 2) {
+    //    if ($(".HtmlPanel").hasClass('hidden')) {
+    //        initResizablePanel(".CssPanel");
+    //    } else {
+    //        initResizablePanel(".HtmlPanel");
+    //    }
+    //} else if (nbPanelVisible == 3) {
+    //    initResizablePanel(".HtmlPanel");
+    //    initResizablePanel(".CssPanel");
+    //}
 
     Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
 }
@@ -144,6 +145,7 @@ function restoreResizable() {
     var session = em.GetAllInstances('Session')[0];
 
     session.SetField('HtmlWidth', $('.HtmlPanel').width() / $('.HtmlPanel').parent().width() * 100);
+    session.SetField('MainWidth', $('.MainPanel').width() / $('.MainPanel').parent().width() * 100);
     session.SetField('CSSWidth', $('.CssPanel').width() / $('.CssPanel').parent().width() * 100);
     session.SetField('JsWidth', $('.JsPanel').width() / $('.JsPanel').parent().width() * 100);
     session.SetField('BindingsHeight', $('.BindingsPanel').height());
