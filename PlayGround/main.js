@@ -119,7 +119,7 @@ function initPanel(session) {
     }
 
     $items.each(function () {
-        if (!$(this).hasClass('hidden') && $(this).next('.TogglePanel').not('.hidden').length > 0) {
+        if (!$(this).hasClass('hidden') && $(this).nextAll('.TogglePanel').not('.hidden').length > 0) {
             initResizablePanel($(this));
         }
     });
