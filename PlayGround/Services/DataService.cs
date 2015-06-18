@@ -112,6 +112,12 @@ namespace PlayGround
 
             allTypesInfo = allTypesInfo.Substring(0, indexBrowserServices) + serviceInfos + allTypesInfo.Substring(indexBrowserServices);
 
+            var clientSchema = JavascriptEntityDeclaration.Translate(session.MainJS);
+
+            var indexContextData = allTypesInfo.IndexOf("aas:'ContextData'") + "aas:'ContextData'".Length;
+
+            allTypesInfo = allTypesInfo.Substring(0, indexContextData) + "," + clientSchema + allTypesInfo.Substring(indexContextData);
+
             var jsView = WebBuilder.BuildViews(appName, session.Bindings, allTypesInfo, log);
 
             session.JSView = jsView;
