@@ -14,7 +14,7 @@ function NewSession() {
 
     session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
 
-    session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   aasPublished:true,\n\n   MyCommand: function () {\n\n   }\n};");
+    session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   MyCommand: function () {\n\n   }\n};");
 
     session.SetField('MainJS', "function Main() { \n    Aspectize.Host.InitApplication(); \n\n    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n}");
 
