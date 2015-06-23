@@ -124,17 +124,6 @@ function initPanel(session) {
         }
     });
 
-    //if (nbPanelVisible == 2) {
-    //    if ($(".HtmlPanel").hasClass('hidden')) {
-    //        initResizablePanel(".CssPanel");
-    //    } else {
-    //        initResizablePanel(".HtmlPanel");
-    //    }
-    //} else if (nbPanelVisible == 3) {
-    //    initResizablePanel(".HtmlPanel");
-    //    initResizablePanel(".CssPanel");
-    //}
-
     Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
 }
 

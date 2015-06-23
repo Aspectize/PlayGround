@@ -109,27 +109,8 @@ Global.ClientService = {
            }
        });
 
-       //if (nbVisible == 1) {
-       //    destroyResizablePanel(".HtmlPanel");
-       //    destroyResizablePanel(".MainPanel");
-       //    destroyResizablePanel(".CssPanel");
-       //} 
-
-       //if (nbVisible == 1) {
-       //    destroyResizablePanel(".HtmlPanel");
-       //    destroyResizablePanel(".CssPanel");
-       //} else if (nbVisible == 2) {
-       //    if (panel == 'JsPanel') {
-       //        destroyResizablePanel(".CssPanel");
-       //    } else {
-       //        initResizablePanel(".CssPanel");
-       //    }
-       //    initResizablePanel(".HtmlPanel");
-       //} else if (nbVisible == 3) {
-       //    initResizablePanel(".HtmlPanel");
-       //    initResizablePanel(".CssPanel");
-       //}
-
+       var editorId = $('.' + panel + ' .AceEditor').attr('id');
+       ace.edit(editorId).resize();
    },
 
    InsertControlDefinition: function (editorName, controlName) {
