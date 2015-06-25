@@ -55,15 +55,23 @@ namespace PlayGround
                 session = dm.GetEntity<Session>(circulatingId);
             }
 
-            NextId nextId = null;
-
             if (updateVersion) {
+
+                NextId nextId = null; 
+                var nextIdSession = "";
 
                 if (currentSessionId.Contains("-"))
                 {
                     var parts = currentSessionId.Split('-');
 
-                    nextId = dm.GetEntity<NextId>(parts[0]);
+                    nextIdSession = parts[0];
+                }
+                else nextIdSession = currentSessionId;
+
+                nextId = dm.GetEntity<NextId>(nextIdSession);
+
+                if (nextId != null) 
+                {
                     nextId.Version++;
                 }
                 else
