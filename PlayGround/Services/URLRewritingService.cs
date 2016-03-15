@@ -31,6 +31,8 @@ namespace PlayGround
                     {
                         var sessionId = m.Groups[1].Value;
 
+                        if (sessionId.Contains("?")) sessionId = sessionId.Split('?')[0];
+
                         var redirectUrl = "/PlayGround/app.ashx?@ClientService.GetSession&id=" + sessionId;
 
                         redirect = false;
