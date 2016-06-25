@@ -19,7 +19,7 @@ rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.
 
 rootView.OnLoad.BindCommand(aas.Services.Server.DataService.LoadSamples(), aas.Data.MainData, true, true);
 
-rootView.StartTour.click.BindCommand(aas.Services.Browser.ClientService.StartTour());
+rootView.StartTour.click.BindCommand(aas.Services.Browser.ClientService.StartTour(aas.Data.MainData.Session.Id));
 
 var mainView = Aspectize.CreateView("MainView", aas.Controls.SideBarContent, aas.Zones.RootView.ZoneMainContent);
 

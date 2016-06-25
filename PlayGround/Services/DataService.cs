@@ -17,6 +17,8 @@ namespace PlayGround
 
         void InitMainSession();
         void PrepareSamples();
+
+        void TourFinished();
     }
 
     [Service(Name = "DataService")]
@@ -280,6 +282,15 @@ namespace PlayGround
             
         //}
 
+        //void IDataService.GetTourFinished()
+        //{
+        //    ExecutingContext.AddSessionKey("TourFinished", "true", true, true);
+        //}
+
+        void IDataService.TourFinished()
+        {
+            ExecutingContext.AddSessionKey("TourFinished", "true", true, true);
+        }
     }
 
 }

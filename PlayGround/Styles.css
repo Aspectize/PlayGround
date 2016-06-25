@@ -50,11 +50,11 @@ body {
 .ToolPanel {    
 	padding-left: 3px;
 	padding-right: 5px;
-    width: 130px;
+    width: 150px;
 }
 
 .EditPanel {
-	width: calc(100% - 130px);
+	width: calc(100% - 150px);
 } 
 
 .HtmlPanel,

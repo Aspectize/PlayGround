@@ -168,10 +168,12 @@ function Main() {
 
         initPanel(session);
 
-        Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
+        if (!Aspectize.Host.SessionManager.GetValue('TourFinished')) {
+            Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
+        }
     }
 
-    $('[data-toggle="popover"]').popover({ html: true });
+    $('[data-toggle="popover"]').popover({ html: true, delay: { "show": 500, "hide": 100 } });
 
     //$('[data-toggle="popover"]').popover({
     //    placement: 'bottom',
