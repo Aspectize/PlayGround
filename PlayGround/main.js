@@ -11,7 +11,7 @@ function NewSession(firstLaunch) {
     session.SetField('CirculatingId', id);
 
     if (firstLaunch) {
-        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n  <div class='form-horizontal'> <label class='col-xs-2'>First Name:</label>\n    <input type='text' name='TxtFirstName' class='form-control col-xs-4' placeholder='Enter first name' />\n    <label class='col-xs-2'>Last Name:</label>\n    <input type='text' name='TxtLastName' class='form-control col-xs-2' placeholder='Enter last name' />\n    </div> <hr>\n    <h2>Hello {YourName} !</h2>\n</div>");
+        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test' class='container'>\n    <h1>My first view !</h1>\n  <div class='form-horizontal'> <div class='form-group'> <label class='control-label col-xs-2'>First Name:</label>\n   <div class='col-xs-2'>  <input type='text' name='TxtFirstName' class='form-control ' placeholder='Enter first name' />\n  </div>  <label class='control-label col-xs-2'>Last Name:</label>\n    <div class='col-xs-2'><input type='text' name='TxtLastName' class='form-control' placeholder='Enter last name' />\n    </div> </div>  </div><hr>\n    <h2>Hello {YourName} !</h2>\n</div>");
         session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test); \n test.YourName.BindData(aas.Expression(test.TxtFirstName.value + ' ' + test.TxtLastName.value));");
     }
     else {
@@ -167,7 +167,7 @@ function Main() {
     Aspectize.Host.ActivateViewByName('MainView');
 
     if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
-        
+        $('.Welcome').hide();
     } else {
         var firstLaunch = !Aspectize.Host.SessionManager.GetValue('TourFinished');
         session = NewSession(firstLaunch);
@@ -176,10 +176,11 @@ function Main() {
 
         if (firstLaunch) {
             Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
+        } else {
+            $('.Welcome').hide();
         }
     }
 
-    $('.Welcome').hide();
     $('[data-toggle="popover"]').popover({ html: true, delay: { "show": 500, "hide": 100 } });
 
     //$('[data-toggle="popover"]').popover({
