@@ -19,6 +19,8 @@ rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.
 
 rootView.OnLoad.BindCommand(aas.Services.Server.DataService.LoadSamples(), aas.Data.MainData, true, true);
 
+rootView.StartTour.click.BindCommand(aas.Services.Browser.ClientService.StartTour());
+
 var mainView = Aspectize.CreateView("MainView", aas.Controls.SideBarContent, aas.Zones.RootView.ZoneMainContent);
 
 mainView.ResultInNexTab.href.BindData(aas.Expression(aas.Services.Browser.ClientService.BuildUrlRT(aas.Data.MainData.Session.CirculatingId)));
@@ -38,7 +40,7 @@ mainView.ComboBox.click.BindCommand(aas.Services.Browser.AceClientService.Insert
 
 mainView.OnLoad.BindCommand(aas.Services.Server.DataService.LoadSamples(), aas.Data.MainData, true);
 mainView.SelectSamples.BindList(aas.Data.MainData.EnumInBaseSample, "Id", "Name", "Name");
-mainView.SelectSamples.NullValueDisplay.BindData("Choose sample");
+mainView.SelectSamples.NullValueDisplay.BindData("Browse samples");
 mainView.SelectSamples.SelectedValueChanged.BindCommand(aas.Services.Browser.ClientService.GetSession(mainView.SelectSamples.CurrentValue));
 mainView.SelectSamples.SelectedValueChanged.BindCommand(aas.Services.Browser.ClientService.UpdateUrl(mainView.SelectSamples.CurrentValue));
 mainView.SelectSamples.DefaultIndex.BindData(0);
@@ -74,6 +76,7 @@ var emptyPanel = Aspectize.CreateView("EmptyView", aas.Controls.EmptyControl, aa
 
 var schemaDialog = Aspectize.CreateView("SchemaDialog", aas.Controls.Dialog);
 schemaDialog.WithCloseButton.BindData(true);
+schemaDialog.Text.BindData('AdventureWorks Schemas');
 
 var schemaImage = Aspectize.CreateView("SchemaImage", aas.Controls.SchemaImage, aas.Zones.SchemaDialog.Dialog, true);
 schemaImage.OnLoad.BindCommand(aas.Services.Browser.ClientService.InitDialogImage());

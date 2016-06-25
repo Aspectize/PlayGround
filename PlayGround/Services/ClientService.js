@@ -8,14 +8,102 @@ Global.ClientService = {
    MainData: 'MainData',
 
    InitWelcome: function() {
-       //Aspectize.Host.ExecuteCommand('UIService.SetModalView', 'HTMLEditor', true);
-       //$('#aasModalWait').addClass('aasModalBackground');
-       Aspectize.Host.ExecuteCommand('UIService.ShowView', 'Welcome');
-       Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
-       $('#Welcome').addClass('aasActive').removeClass('aasNotActive');
+       $('.Welcome').fadeTo(3000, 0.6, function () {
+
+       });
    },
 
-   ResizeAllEditors: function() {
+   StartTour: function() {
+       var tour = new Tour({
+           storage: false,
+           debug: true,
+           steps: [
+           {
+               element: "#RootView-StartTour",
+               title: "Welcome to Aspectize Playground",
+               content: "",
+               placement: 'bottom'
+           },
+           {
+               element: "#HtmlPanel",
+               title: "This is the html editor",
+               content: "You may define controls with your custom html. <br /><br />A control is a div with aas-control attribute containing any custom html.",
+               placement: 'bottom',
+               onShown: function (tour) {
+                   $('.Welcome').css({ 'opacity': '0.1' });
+                   $('.HtmlPanel').css({ 'background-color': 'yellow' });
+               },
+               onHide: function (tour) {
+                   $('.HtmlPanel').css({ 'background-color': 'transparent' });
+               }
+           },
+           {
+               element: ".ToolPanel",
+               title: "Click on tool to add element in your control",
+               content: "Aspectize provides complex and customisable controls as repeater, grid, treeview, upload, or checkboxlist.<br /> <br />You may add any external widget, such as BootstrapDatePicker, JQueryAutocomplete, TyniMCE or chart library, integration is easy.",
+               placement: 'right',
+               onShow: function (tour) {
+                   $('.ToolPanel').css({ 'border': '1px solid yellow' });
+               },
+               onHide: function (tour) {
+                   $('.ToolPanel').css({ 'border': 'none' });
+               }
+           },
+           {
+               element: "#SchemaDialog",
+               title: "This is an example of a Data schema",
+               content: "Aspectize provides a Visual Studio DSL to design Data of your Application<br /> <br />In this Playground, the AdventureWorks schema is automtically loaded, so you can experiment Data Binding.",
+               placement: 'left',
+               onShow: function (tour) {
+                   Aspectize.Host.ExecuteCommand('UIService.ShowView', 'SchemaDialog');
+                   $('#SchemaDialog').css({ 'border': '1px solid yellow' });
+               },
+               onHide: function (tour) {
+                   Aspectize.Host.ExecuteCommand('UIService.UnactivateView', 'SchemaDialog');
+               }
+           },
+           {
+               element: ".JsPanel ",
+               title: "This is the client command editor",
+               content: "You may write any kind of custom javascript code.<br /> <br />Code is organized in Services and  Commands. Code is mainly procedural, with no complexity, such as Dom Manipulation. <br /> <br /><h4>No javascript expertise is required to build full-ajax Applications !</h4>",
+               placement: 'bottom',
+               onShow: function (tour) {
+                   Aspectize.Host.ExecuteCommand('ClientService.TogglePanelAndResize', 'DisplayJS', 'JsPanel');
+                   $('.JsPanel').css({ 'border': '1px solid yellow' });
+               },
+               onHide: function (tour) {
+                   Aspectize.Host.ExecuteCommand('ClientService.TogglePanelAndResize', 'DisplayJS', 'JsPanel');
+                   $('.JsPanel').css({ 'border': 'none' });
+               }
+           },
+           {
+               element: ".BindingsPanel",
+               title: "This is the binding editor",
+               content: "Configure your binding with consist on the dynamic links between Data, Controls and Services. <br /> <br />The configuration is not code, but written in javascript, with a powerfull intellisense in Visual Studio, to guide you through your work.",
+               placement: 'top',
+               onShow: function (tour) {
+                   $('.BindingsPanel').css({ 'border': '1px solid yellow' });
+               },
+               onHide: function (tour) {
+                   $('.BindingsPanel').css({ 'border': 'none' });
+               }
+           }
+           ],
+           onEnd: function (tour) {
+               $('.Welcome').fadeOut();
+           }
+       });
+
+       // Initialize the tour
+       tour.init();
+
+       // Start the tour
+       tour.start(true);
+
+
+   },
+
+   ResizeAllEditors: function () {
        ace.edit('HTMLEditor-Editor').resize();
        ace.edit('MainEditor-Editor').resize();
        ace.edit('CSSEditor-Editor').resize();
@@ -55,7 +143,7 @@ Global.ClientService = {
 
                That.DisplayResult(id, session.Log);
 
-               $('[data-toggle="popover"]').popover('hide');
+               //$('[data-toggle="popover"]').popover('hide');
            };
 
            cmd.Call('Server/DataService.LoadSession', id);

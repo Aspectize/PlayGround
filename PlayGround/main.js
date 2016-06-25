@@ -167,7 +167,11 @@ function Main() {
         session = NewSession();
 
         initPanel(session);
+
+        Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
     }
+
+    $('[data-toggle="popover"]').popover({ html: true });
 
     //$('[data-toggle="popover"]').popover({
     //    placement: 'bottom',

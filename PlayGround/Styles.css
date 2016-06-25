@@ -168,10 +168,30 @@ body {
     background-color: #000000;
     bottom: 0;
     left: 0;
-    opacity: 0.6;
+	opacity:0;
+    /*opacity: 0.6;*/
     position: fixed;
     right: 0;
     top: 0;
     z-index: 999;
 }
+
+
+.classStep {
+	position:absolute;
+}
+
+#test1{
+}
+
+#test2{
+	top: 20%;
+	left: 30%;
+}
+
+#test3{
+	top: 70%;
+	left: 50%;
+}
+
 

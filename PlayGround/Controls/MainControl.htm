@@ -6,6 +6,34 @@
 <body>
 
     <div aas-control="RootControl" class="container-fluid" style="padding-left: 0px;">
+        <div class="Welcome">
+            <div class="WelcomeBackground">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <h1 class="text-center" style="color: #fff">Welcome to Aspectize Playground</h1>
+                <br />
+                <br />
+                <br />
+                <br />
+                
+
+                <div class="text-center">
+                    <button name="StartTour" type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-play"></span>
+                        Start the demo
+                    </button>
+
+                </div>
+                
+                <div class="classStep" id="step2"></div>
+                <div class="classStep" id="step3"></div>
+                <div class="classStep" id="step4"></div>
+            </div>
+        </div>                
+
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-header">
                 <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
@@ -14,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand hidden-xs logo"><img src="../Applications/AzureHostManagerCommon/Images/HtmlCut/Logo.png"></a>
+                <a class="navbar-brand hidden-xs logo" href="https://aspectize.com" target="_blank" title="Aspectize"><img src="../Applications/AzureHostManagerCommon/Images/HtmlCut/Logo.png"></a>
                 <span class="navbar-brand" style="color:#fff">Playground</span>
                 <ul class="nav navbar-nav collapse navbar-collapse">
                     <li class="active"><a name="Run"><span class="glyphicon glyphicon-play"></span> Run</a></li>
@@ -25,7 +53,7 @@
                     <li class="{DisplayJS}"><a name="DisplayJS">Javascript</a></li>
                     <li class="{DisplayBindings}"><a name="DisplayBindings">Bindings</a></li>
                     <li class="active"><a name="Schema">Schema</a></li>
-                 </ul>
+                </ul>
             </div>
         </div>
         <div aas-name="ZoneMainContent" aas-type="Panel" class="Panel"></div>
@@ -70,7 +98,7 @@
             </div>
             <div class="EditPanel FloatLeft">
                 <div class="TopPanel FixedWidth ResizablePanel">
-                    <div class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
+                    <div id="HtmlPanel" class="HtmlPanel FloatLeft TogglePanel ResizablePanel {DisplayHTML}">
                         <div aas-name="ZoneHtml" aas-type="Panel"></div>
                     </div>
                     <div class="MainPanel FloatLeft TogglePanel ResizablePanel {DisplayMain}">

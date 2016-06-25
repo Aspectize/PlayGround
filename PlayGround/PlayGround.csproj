@@ -1343,6 +1343,18 @@
     <Content Include="Ace\src-min\worker-php.js" />
     <Content Include="Ace\src-min\worker-xml.js" />
     <Content Include="Ace\src-min\worker-xquery.js" />
+    <Content Include="bootstrap-tour\css\bootstrap-tour.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bootstrap-tour\css\bootstrap-tour.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bootstrap-tour\js\bootstrap-tour.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bootstrap-tour\js\bootstrap-tour.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Configuration\Views\View.js" />
   </ItemGroup>
   <ItemGroup>

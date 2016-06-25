@@ -18,6 +18,8 @@
 
 <script src='~Bootstrap/bootstrap 3.2.0/js/bootstrap.min.js'></script>
 
+<script src="~PlayGround/bootstrap-tour/js/bootstrap-tour.js"></script>
+<link href="~PlayGround/bootstrap-tour/css/bootstrap-tour.css" rel="stylesheet">
 
 <link rel='stylesheet' type='text/css' href='~Bootstrap/BootstrapOverride.css' />
 
