@@ -1,6 +1,6 @@
 var maxWidth; var showResult;
 
-function NewSession() {
+function NewSession(firstOne) {
     var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
     var newGuid = Aspectize.Host.ExecuteCommand('SystemServices.NewGuid');
@@ -10,9 +10,14 @@ function NewSession() {
 
     session.SetField('CirculatingId', id);
 
-    session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n</div>");
-
-    session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
+    if (firstOne) {
+        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n   <label>First Name:</label>\n    <input type='text' name='TxtFirstName' class='form-control' placeholder='Enter first name' />\n    <label>Last Name:</label>\n    <input type='text' name='TxtLastName' class='form-control' placeholder='Enter last name' />\n    <hr>\n    <h2>Hello {YourName} !</h2>\n</div>");
+        session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test); \n test.YourName.BindData(aas.Expression(test.TxtFirstName.value + ' ' + test.TxtLastName.value));");
+    }
+    else {
+        session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n   </div>");
+        session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
+    }
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   MyCommand: function () {\n\n   }\n};");
 
@@ -164,15 +169,17 @@ function Main() {
     if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
         
     } else {
-        session = NewSession();
+        var tourFinished = Aspectize.Host.SessionManager.GetValue('TourFinished');
+        session = NewSession(!tourFinished);
 
         initPanel(session);
 
-        if (!Aspectize.Host.SessionManager.GetValue('TourFinished')) {
+        if (!tourFinished) {
             Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
         }
     }
 
+    $('.Welcome').hide();
     $('[data-toggle="popover"]').popover({ html: true, delay: { "show": 500, "hide": 100 } });
 
     //$('[data-toggle="popover"]').popover({

@@ -13,6 +13,8 @@ rootView.DisplayJS.BindData(aas.Expression(IIF(aas.Data.MainData.Session.Display
 rootView.DisplayBindings.BindData(aas.Expression(IIF(aas.Data.MainData.Session.DisplayBindings, 'active', '')));
 
 rootView.Schema.click.BindCommand(aas.Services.Browser.UIService.ShowView(aas.ViewName.SchemaDialog));
+rootView.StartTourAgain.click.BindCommand(aas.Services.Browser.ClientService.InitWelcome());
+rootView.StartTourAgain.click.BindCommand(aas.Services.Browser.ClientService.StartTour(aas.Data.MainData.Session.Id));
 
 rootView.Run.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, aas.Data.MainData.Session.Persist));
 rootView.Save.click.BindCommand(aas.Services.Browser.ClientService.Run(aas.Data.MainData, aas.Data.MainData.Session.Id, 'force'));

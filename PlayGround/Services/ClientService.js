@@ -20,10 +20,13 @@ Global.ClientService = {
         var tour = new Tour({
             storage: false,
             debug: true,
-            template: "<div class='popover tour' style='min-width: 500px;'><div class='arrow'></div>  <h3 class='popover-title'></h3>  <div class='popover-content'></div>  <div class='popover-navigation'>    <button class='btn btn-default' data-role='prev'>« Prev</button>    <span data-role='separator'>|</span>    <button class='btn btn-default' data-role='next'>Next »</button>    <button class='btn btn-default' data-role='end'>End tour</button>  </div></div>",
+            onStart: function (tour) {
+                $('#RootView-StartTour').hide();
+            },
+            template: "<div class='popover tour' style='min-width: 500px;'><div class='arrow'></div>  <h3 class='popover-title'></h3>  <div class='popover-content'></div>  <div class='popover-navigation'>    <button class='btn btn-default' data-role='prev'>« Prev</button>    <span data-role='separator'>|</span>    <button class='btn btn-default' data-role='next'>Next »</button>    <button class='btn btn-primary' data-role='end'>Got it !</button>  </div></div>",
             steps: [
             {
-                element: "#RootView-StartTour",
+                element: "#title2",
                 title: "Welcome to Aspectize Playground<span class='pull-right'>1/7</span>",
                 content: "Aspectize is a disruptive approach and technology to develop web and mobile App with Visual Studio. <br /> <br />Aspectize designed a total separation of different pieces of your App which ensures simplicity and clarity of design, a high productivity and a great reusability.<br /> <br /><h4>We garantee you will be amazed, how it is easy and robust.</h4>",
                 placement: 'bottom'
@@ -95,7 +98,7 @@ Global.ClientService = {
             {
                 element: "#MainView-SelectSamples",
                 title: "Start browsing samples to discover how Aspectize works.<span class='pull-right'>7/7</span>",
-                content: "",
+                content: "Try to understand how the html, the data and the service, which totally separated, interacts together with the binding configuration.<br /> <br /><h4>Enjoy your trip to the next level of agility !</h4>",
                 placement: 'top',
                 onShow: function (tour) {
                     $('#MainView-SelectSamples').css({ 'border': '1px solid red' });
@@ -105,11 +108,15 @@ Global.ClientService = {
                 }
             }
             ],
+            onStart: function  (tour) {
+
+            },
             onEnd: function (tour) {
                 var em = Aspectize.EntityManagerFromContextDataName('MainData');
                 that.Run(em.GetDataSet(), sessionId);
                 $('.Welcome').fadeOut();
                 Aspectize.Host.ExecuteCommand('Server/DataService.TourFinished');
+                $('.Welcome').hide();
             }
         });
 
