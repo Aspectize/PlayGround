@@ -108,13 +108,22 @@ Global.ClientService = {
                 }
             }
             ],
-            onStart: function  (tour) {
-
-            },
             onEnd: function (tour) {
                 var em = Aspectize.EntityManagerFromContextDataName('MainData');
-                that.Run(em.GetDataSet(), sessionId);
+                var cmd = Aspectize.Host.PrepareCommand();
+
+                cmd.Attributes.aasAsynchronousCall = true;
+                cmd.Attributes.aasShowWaiting = true;
+
+                var That = this;
+
+                cmd.OnComplete = function (result) {
+                    
+                }
+
+                cmd.Call('ClientService.Run', em.GetDataSet(), sessionId);
                 $('.Welcome').fadeOut();
+
                 Aspectize.Host.ExecuteCommand('Server/DataService.TourFinished');
                 $('.Welcome').hide();
             }
@@ -329,7 +338,7 @@ Global.ClientService = {
 
             var parts = href.split('/');
 
-            var newUrl = 'http://';
+            var newUrl = 'https://';
 
             for (var i = 2; i < parts.length - 1; i++) {
                 newUrl += parts[i] + '/';
