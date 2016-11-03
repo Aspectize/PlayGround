@@ -298,7 +298,7 @@ Global.ClientService = {
 
         parts[parts.length - 2] += 'RT';
 
-        var UrlRT = 'http://';
+        var UrlRT = parts[0] + '//';
 
         for (var i = 2; i < parts.length - 1; i++) {
             UrlRT += parts[i] + '/';
