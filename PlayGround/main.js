@@ -12,11 +12,11 @@ function NewSession(firstLaunch) {
 
     if (firstLaunch) {
         session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test' class='container'>\n    <h1>My first view !</h1>\n  <div class='form-horizontal'> <div class='form-group'> <label class='control-label col-xs-2'>First Name:</label>\n   <div class='col-xs-2'>  <input type='text' name='TxtFirstName' class='form-control ' placeholder='Enter first name' />\n  </div>  <label class='control-label col-xs-2'>Last Name:</label>\n    <div class='col-xs-2'><input type='text' name='TxtLastName' class='form-control' placeholder='Enter last name' />\n    </div> </div>  </div><hr>\n    <h2>Hello {YourName} !</h2>\n</div>");
-        session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test); \n test.YourName.BindData(aas.Expression(test.TxtFirstName.value + ' ' + test.TxtLastName.value));");
+        //session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test); \n test.YourName.BindData(aas.Expression(test.TxtFirstName.value + ' ' + test.TxtLastName.value));");
     }
     else {
         session.SetField('Html', "<!DOCTYPE html>\n<div aas-control='Test'>\n    <h1>My first view !</h1>\n</div>");
-        session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
+        //session.SetField('Bindings', "var test = Aspectize.CreateView('MyViewTest', aas.Controls.Test);");
     }
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   MyCommand: function () {\n\n   }\n};");
