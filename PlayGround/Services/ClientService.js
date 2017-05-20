@@ -326,7 +326,7 @@ Global.ClientService = {
 
             uiService.SetControlProperty("IFrameResult-IFrameApplication", "Url", UrlRT);
 
-            Aspectize.StartShowWaiting();
+            Aspectize.StopShowWaiting();
         }
 
     },
