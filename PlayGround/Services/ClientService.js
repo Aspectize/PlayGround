@@ -27,12 +27,16 @@ Global.ClientService = {
             steps: [
             {
                 element: "#title2",
+                next: 1,
+                prev: -1,
                 title: "Welcome to Aspectize Playground<span class='pull-right'>1/7</span>",
                 content: "Aspectize is a disruptive approach and technology to develop web and mobile App with Visual Studio. <br /> <br />Aspectize designed a total separation of different pieces of your App which ensures simplicity and clarity of design, a high productivity and a great reusability.<br /> <br /><h4>We garantee you will be amazed, how it is easy and robust.</h4>",
                 placement: 'bottom'
             },
             {
                 element: "#HtmlPanel",
+                next: 2,
+                prev: 0,
                 title: "This is the html editor<span class='pull-right'>2/7</span>",
                 content: "You define your UI with controls, not pages.<br /><br />A control is a standard div with aas-control attribute containing any custom html.<br /><br /><h4>Aspectize is in the Single Page Application category, all visible html is produced in your browser, without any single line of code.</h4>",
                 placement: 'bottom',
@@ -46,6 +50,8 @@ Global.ClientService = {
             },
             {
                 element: ".ToolPanel",
+                next: 3,
+                prev: 1,
                 title: "Click on tool to add element in your control<span class='pull-right'>3/7</span>",
                 content: "Aspectize provides standard and customisable controls such as repeater, grid, treeview, upload, or checkboxlist.<br /> <br />You may add any external widget, such as BootstrapDatePicker, JQueryAutocomplete, TyniMCE or chart library, integration is easy.",
                 placement: 'right',
@@ -58,6 +64,8 @@ Global.ClientService = {
             },
             {
                 element: "#SchemaDialog",
+                next: 4,
+                prev: 2,
                 title: "This is an example of a Data schema<span class='pull-right'>4/7</span>",
                 content: "Data are designed with a Visual Studio DSL<br /> <br />All Data is produces by the server and have the same relationnal Model on the client and server side. <br /> <br />In this Playground, the AdventureWorks schema is automtically loaded, so you can experiment Data Binding.",
                 placement: 'left',
@@ -71,6 +79,8 @@ Global.ClientService = {
             },
             {
                 element: ".JsPanel ",
+                next: 5,
+                prev: 3,
                 title: "This is the client command editor<span class='pull-right'>5/7</span>",
                 content: "You may write any kind of custom javascript code.<br /> <br />Code is organized in Services and  Commands. Code is mainly procedural, with no complexity, such as Dom Manipulation. <br /> <br /><h4>No javascript expertise is required to build full-ajax Applications !</h4>",
                 placement: 'bottom',
@@ -85,6 +95,8 @@ Global.ClientService = {
             },
             {
                 element: ".BindingsPanel",
+                next: 6,
+                prev: 4,
                 title: "This is the binding editor<span class='pull-right'>6/7</span>",
                 content: "Bindings are dynamic configuration over the Aspectize Engine, an unique controller<br /> <br />Configure your bindings wich consist on the dynamic links between Data, Controls and Services. <br /> <br />The configuration is not code, but written in javascript, with a powerfull intellisense in Visual Studio, to guide you through your work.",
                 placement: 'top',
@@ -97,6 +109,8 @@ Global.ClientService = {
             },
             {
                 element: "#MainView-SelectSamples",
+                next: -1,
+                prev: 5,
                 title: "Start browsing samples to discover how Aspectize works.<span class='pull-right'>7/7</span>",
                 content: "Try to understand how the html, the data and the service, which totally separated, interacts together with the binding configuration.<br /> <br /><h4>Enjoy your trip to the next level of agility !</h4>",
                 placement: 'top',
@@ -113,7 +127,7 @@ Global.ClientService = {
                 var cmd = Aspectize.Host.PrepareCommand();
 
                 cmd.Attributes.aasAsynchronousCall = true;
-                cmd.Attributes.aasShowWaiting = true;
+                //cmd.Attributes.aasShowWaiting = true;
 
                 var That = this;
 
@@ -318,7 +332,7 @@ Global.ClientService = {
             uiService.ShowView("ErrorResult");
         } else {
 
-            Aspectize.StartShowWaiting();
+            //Aspectize.StartShowWaiting();
 
             var UrlRT = this.BuildUrlRT(id);
 
@@ -326,7 +340,7 @@ Global.ClientService = {
 
             uiService.SetControlProperty("IFrameResult-IFrameApplication", "Url", UrlRT);
 
-            Aspectize.StopShowWaiting();
+            //Aspectize.StopShowWaiting();
         }
 
     },
