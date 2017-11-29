@@ -8,7 +8,7 @@ using Aspectize.Core.Web;
 namespace PlayGroundRT {
     public interface IAppInitService {
 
-        Dictionary<string, string> GetVersionInfo ();
+        //Dictionary<string, string> GetVersionInfo ();
 
         IsJson LoadConfigSchema ([DefaultValueAttribute("Missing")] string versionKey);
 
@@ -44,10 +44,10 @@ namespace PlayGroundRT {
 
         #region IAppInitService Members
 
-        Dictionary<string, string> IAppInitService.GetVersionInfo () {
+        //Dictionary<string, string> IAppInitService.GetVersionInfo () {
 
-            return svc.GetVersionInfo();
-        }
+        //    return svc.GetVersionInfo();
+        //}
 
         IsJson IAppInitService.LoadConfigSchema (string versionKey) {
 

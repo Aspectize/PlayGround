@@ -1,6 +1,9 @@
 
-var SpecialInit = (function () {
 
+
+var playgroundSpecial = (function () {
+
+    var scriptMan = null;
 
     function newScriptManager() {
 
@@ -77,7 +80,7 @@ var SpecialInit = (function () {
             }
         };
     }
-
+    /*
     function decodeUrl(url) {
 
         var info = {};
@@ -98,56 +101,62 @@ var SpecialInit = (function () {
 
         } else return null;
     }
+*/
+    function init(initSvcName, versionKey) {
 
-    function SpecialInit(initSvcName, next) {
+        var host = Aspectize.Host;
+        hst.ResourcesServiceName = initSvcName;
 
-        Aspectize.Host.ResourcesServiceName = initSvcName;
+        //var url = window.location.href;
 
-        var url = window.location.href;
+        //var info = decodeUrl(url);
 
-        var info = decodeUrl(url);
+        //if (info) {
 
-        if (info) {
+        //var parts = url.split('?');
+        //if (parts.length === 2) {
+        if (versionKey) {
+            //var args = parts[1];
+            //var rxArg = /@Id\s*=\s*(\S+)/i;
 
-            var parts = url.split('?');
-            if (parts.length === 2) {
+            //var m = rxArg.exec(args);
 
-                var args = parts[1];
-                var rxArg = /@Id\s*=\s*(\S+)/i;
+            //if (m !== null) {
 
-                var m = rxArg.exec(args);
+            window.AspectizeBuildDynamicViews = null;
 
-                if (m !== null) {
+            var cmdExt = ".js.cmd.ashx?versionKey=" + versionKey;
 
-                    window.AspectizeBuildDynamicViews = null;
+            var cmdLib = info.ApplicationUrl + initSvcName + '.LoadJsLibrary' + cmdExt;
+            var cmdViews = info.ApplicationUrl + initSvcName + '.LoadJsViews' + cmdExt;
+            var cmdMain = info.ApplicationUrl + initSvcName + '.LoadMain' + cmdExt;
 
-                    var cmdExt = ".js.cmd.ashx?versionKey=" + m[1];
+            var scriptMan = newScriptManager();
 
-                    var cmdLib = info.ApplicationUrl + initSvcName + '.LoadJsLibrary' + cmdExt;
-                    var cmdViews = info.ApplicationUrl + initSvcName + '.LoadJsViews' + cmdExt;
-                    var cmdMain = info.ApplicationUrl + initSvcName + '.LoadMain' + cmdExt;
-
-                    var scriptMan = newScriptManager();
-
-                    scriptMan.Load(cmdLib);
-                    scriptMan.Load(cmdViews);
-                    scriptMan.Load(cmdMain);
-
-                    scriptMan.Then(next);
-                }
-            }
+            scriptMan.Load(cmdLib);
+            scriptMan.Load(cmdViews);
+            scriptMan.Load(cmdMain);
         }
+        //}
+        //}
+    }
+    function run(next) {
+
+        if (scriptMan) scriptMan.Then(next);
     }
 
-    return SpecialInit;
+    return { Init: init, Run: run };
 
 })();
 
+function OnApplicationStart() {
 
+    playgroundSpecial.Init('AppInitService', host.UrlArgs.Id);
+}
 
 function Main() {
 
-    SpecialInit("AppInitService", function () {
+    playgroundSpecial.Run(function () {
 
         //Aspectize.Host.InitApplication();
         //Aspectize.Host.ActivateViewByName('MainView');
@@ -158,5 +167,4 @@ function Main() {
         style.innerHTML = Aspectize.Host.ExecuteCommand('Server/AppInitService.LoadCSS', Aspectize.Host.UrlArgs.Id);
         document.getElementsByTagName('head')[0].appendChild(style);
     });
-
 }
