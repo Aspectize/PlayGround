@@ -129,8 +129,6 @@ function Main() {
 
     playgroundSpecial.Run(function () {
 
-        //Aspectize.Host.InitApplication();
-        //Aspectize.Host.ActivateViewByName('MainView');
         sMain();
 
         var style = document.createElement('style');
