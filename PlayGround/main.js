@@ -168,7 +168,7 @@ function Main() {
 
     var session;
 
-    Aspectize.Host.ActivateViewByName('MainView');
+    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
 
     if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
         $('.Welcome').hide();
