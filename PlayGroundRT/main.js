@@ -120,10 +120,10 @@ var playgroundSpecial = (function () {
 
 })();
 
-function OnApplicationStart() {
+Aspectize.OnMainLoaded = function () {
 
     playgroundSpecial.Init('AppInitService');
-}
+};
 
 function Main() {
 
