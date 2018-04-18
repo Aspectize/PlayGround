@@ -1,5 +1,4 @@
-
-
+/// <reference path="S:\Delivery\Aspectize.core\AspectizeIntellisenseLibrary.js" />
 
 var playgroundSpecial = (function () {
 
@@ -120,7 +119,7 @@ var playgroundSpecial = (function () {
 
 })();
 
-Aspectize.OnMainLoaded = function () {
+Aspectize.App.OnLoaded = function () {
 
     playgroundSpecial.Init('AppInitService');
 };

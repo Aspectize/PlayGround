@@ -1,3 +1,5 @@
+/// <reference path="S:\Delivery\Aspectize.core\AspectizeIntellisenseLibrary.js" />
+
 var maxWidth; var showResult;
 
 function NewSession(firstLaunch) {
@@ -162,7 +164,8 @@ function Main() {
 
     var mainView = Aspectize.Host.InitApplication();
 
-    var urlArgs = Aspectize.Host.UrlArgs;
+    //var urlArgs = Aspectize.Host.UrlArgs;
+    var urlArgs = Aspectize.App.UrlArgs;    
 
     var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
