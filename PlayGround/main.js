@@ -27,7 +27,7 @@ function NewSession(firstLaunch) {
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   MyCommand: function () {\n\n   }\n};");
 
-    session.SetField('MainJS', "function Main() { \n    Aspectize.App.InitApplication(function () { \n\n    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n});}");
+    session.SetField('MainJS', "function Main() { \n    Aspectize.App.InitApplication(function () { \n\n    Aspectize.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n});}");
 
     return session;
 }
