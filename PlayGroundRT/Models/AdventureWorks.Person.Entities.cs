@@ -241,7 +241,7 @@ namespace AdventureWorks.Person
 		}
 
 		[Data(Size = 128, IsNullable = true, PhysicalName = "PasswordHash", ServerOnly = true)]
-[System.Xml.Serialization.XmlIgnore]
+		[System.Xml.Serialization.XmlIgnore]
 		public string PasswordHash
 		{
 			get { return getValue<string>("PasswordHash"); }
@@ -249,7 +249,7 @@ namespace AdventureWorks.Person
 		}
 
 		[Data(Size = 10, IsNullable = true, PhysicalName = "PasswordSalt", ServerOnly = true)]
-[System.Xml.Serialization.XmlIgnore]
+		[System.Xml.Serialization.XmlIgnore]
 		public string PasswordSalt
 		{
 			get { return getValue<string>("PasswordSalt"); }

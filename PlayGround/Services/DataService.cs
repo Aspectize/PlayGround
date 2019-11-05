@@ -181,8 +181,9 @@ namespace PlayGround
             IEntityManager em = dm as IEntityManager;
 
             var s = @"function Main() {
-    Aspectize.Host.InitApplication(); 
+    Aspectize.App.InitApplication(function () { 
     Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+    });
 }";
 
             dm.LoadDatabaseEnum<EnumInBaseSample>();

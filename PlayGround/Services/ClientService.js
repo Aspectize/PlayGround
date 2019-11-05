@@ -361,8 +361,8 @@ Global.ClientService = {
             newUrl += "id=";
             newUrl += id;
 
-            var historyManager = Aspectize.Host.GetService('History');
-            historyManager.PushState('MainView', null, id, null, newUrl);  //viewName, schemaPath, id, title, url
+            //var historyManager = Aspectize.Host.GetService('History');
+            //historyManager.PushState('MainView', null, id, null, newUrl);  //viewName, schemaPath, id, title, url
         }
     },
 

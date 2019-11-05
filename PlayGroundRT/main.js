@@ -128,6 +128,9 @@ function Main() {
 
     playgroundSpecial.Run(function () {
 
+        window.AspectizeBuildDynamicViews();
+        window.AspectizeBuildDynamicViews = true; // Required to prevent a second call from sMain () -> Aspectize.App.Initialize
+
         sMain();
 
         var style = document.createElement('style');

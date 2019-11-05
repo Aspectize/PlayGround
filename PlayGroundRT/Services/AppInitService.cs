@@ -132,8 +132,9 @@ namespace PlayGroundRT {
         string IAppInitService.LoadMain(string versionKey)
         {
             var s = @"function sMain() {
-                Aspectize.Host.InitApplication(); 
-                Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+                 Aspectize.App.Initialize(function () {
+                    Aspectize.ExecuteCommand('UIService.ShowView', 'MainView');
+                 });
             }";
 
             if (!string.IsNullOrEmpty(versionKey))

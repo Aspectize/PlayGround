@@ -27,7 +27,7 @@ function NewSession(firstLaunch) {
 
     session.SetField('js', "Global.MyService = {\n\n   aasService:'MyService',\n   MyCommand: function () {\n\n   }\n};");
 
-    session.SetField('MainJS', "function Main() { \n    Aspectize.Host.InitApplication(); \n\n    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n}");
+    session.SetField('MainJS', "function Main() { \n    Aspectize.App.InitApplication(function () { \n\n    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MyViewTest'); \n});}");
 
     return session;
 }
@@ -162,91 +162,91 @@ function restoreResizable() {
 
 function Main() {
 
-    var mainView = Aspectize.Host.InitApplication();
+    Aspectize.App.Initialize(function () {
 
-    //var urlArgs = Aspectize.Host.UrlArgs;
-    var urlArgs = Aspectize.App.UrlArgs;    
+        var urlArgs = Aspectize.App.UrlArgs;
 
-    var em = Aspectize.EntityManagerFromContextDataName('MainData');
+        var em = Aspectize.EntityManagerFromContextDataName('MainData');
 
-    var session;
+        var session;
 
-    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
+        Aspectize.Host.ExecuteCommand('UIService.ShowView', 'MainView');
 
-    if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
-        $('.Welcome').hide();
-    } else {
-        var firstLaunch = !Aspectize.Host.SessionManager.GetValue('TourFinished');
-        session = NewSession(firstLaunch);
-
-        initPanel(session);
-
-        if (firstLaunch) {
-            Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
-        } else {
+        if (urlArgs && urlArgs.StartingCommandName == "ClientService.GetSession") {
             $('.Welcome').hide();
-        }
-    }
-
-    $('[data-toggle="popover"]').popover({ html: true, delay: { "show": 500, "hide": 100 } });
-
-    //$('[data-toggle="popover"]').popover({
-    //    placement: 'bottom',
-    //    animation: true,
-    //    trigger: 'manual', //<--- you need a trigger other than manual
-    //    delay: {
-    //        show: "500",
-    //        hide: "100"
-    //    }
-    //});
-
-    //setTimeout(function () {
-    //    $('[data-toggle="popover"]').popover('show');
-    //}, 1000);
-
-    $(".TopPanel, .BindingsPanel").resizable({
-        handles: "s",
-        minHeight: 120,
-        start: function (e, ui) {
-            showResult = $('#IFrameResult').hasClass('aasActive');
-
-            if (showResult) {
-                Aspectize.Host.ExecuteCommand('UIService.ShowView', 'EmptyView');
-            }
-        },
-        stop: function () {
-            Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
-            restoreResizable();
-
-            if (showResult) {
-                Aspectize.Host.ExecuteCommand('UIService.ShowView', 'IFrameResult');
-            }
-        }
-    });
-
-    $(".LinkControl").on('click', function () {
-        Aspectize.Host.ExecuteCommand('ClientService.InsertControlDefinition', 'HTMLEditor-Editor', $(this).attr('id'));
-    });
-
-    Aspectize.InitializeHistoryManager(function (state) {
-
-        if (state && state.Id) {
-            Aspectize.Host.ExecuteCommand('ClientService.GetSession', state.Id);
         } else {
-            if (urlArgs.Id) {
-                Aspectize.Host.ExecuteCommand('ClientService.GetSession', urlArgs.Id);
+            var firstLaunch = !Aspectize.Host.SessionManager.GetValue('TourFinished');
+            session = NewSession(firstLaunch);
+
+            initPanel(session);
+
+            if (firstLaunch) {
+                Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
             } else {
-                var em = Aspectize.EntityManagerFromContextDataName('MainData');
-
-                var sessions = em.GetAllInstances('Session');
-
-                if (sessions.length > 0) {
-                    em.ClearAllInstances('Session');
-                }
-
-                var session = NewSession();
+                $('.Welcome').hide();
             }
         }
+
+        $('[data-toggle="popover"]').popover({ html: true, delay: { "show": 500, "hide": 100 } });
+
+        //$('[data-toggle="popover"]').popover({
+        //    placement: 'bottom',
+        //    animation: true,
+        //    trigger: 'manual', //<--- you need a trigger other than manual
+        //    delay: {
+        //        show: "500",
+        //        hide: "100"
+        //    }
+        //});
+
+        //setTimeout(function () {
+        //    $('[data-toggle="popover"]').popover('show');
+        //}, 1000);
+
+        $(".TopPanel, .BindingsPanel").resizable({
+            handles: "s",
+            minHeight: 120,
+            start: function (e, ui) {
+                showResult = $('#IFrameResult').hasClass('aasActive');
+
+                if (showResult) {
+                    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'EmptyView');
+                }
+            },
+            stop: function () {
+                Aspectize.Host.ExecuteCommand('ClientService.ResizeAllEditors');
+                restoreResizable();
+
+                if (showResult) {
+                    Aspectize.Host.ExecuteCommand('UIService.ShowView', 'IFrameResult');
+                }
+            }
+        });
+
+        $(".LinkControl").on('click', function () {
+            Aspectize.Host.ExecuteCommand('ClientService.InsertControlDefinition', 'HTMLEditor-Editor', $(this).attr('id'));
+        });
+
+        Aspectize.InitializeHistoryManager(function (state) {
+
+            if (state && state.Id) {
+                Aspectize.Host.ExecuteCommand('ClientService.GetSession', state.Id);
+            } else {
+                if (urlArgs.Id) {
+                    Aspectize.Host.ExecuteCommand('ClientService.GetSession', urlArgs.Id);
+                } else {
+                    var em = Aspectize.EntityManagerFromContextDataName('MainData');
+
+                    var sessions = em.GetAllInstances('Session');
+
+                    if (sessions.length > 0) {
+                        em.ClearAllInstances('Session');
+                    }
+
+                    var session = NewSession();
+                }
+            }
+        });
     });
 
     //Aspectize.Host.ExecuteCommand('ClientService.InitWelcome');
