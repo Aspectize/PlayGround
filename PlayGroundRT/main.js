@@ -128,8 +128,10 @@ function Main() {
 
     playgroundSpecial.Run(function () {
 
-        window.AspectizeBuildDynamicViews();
-        window.AspectizeBuildDynamicViews = true; // Required to prevent a second call from sMain () -> Aspectize.App.Initialize
+        Aspectize.Host.LoadServices();
+
+        var ds = Aspectize.Host.ConfigManager.GetConfigDataSet();
+        ds.NoChange = false;
 
         sMain();
 
